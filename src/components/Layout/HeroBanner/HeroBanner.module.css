@@ -1,0 +1,30 @@
+.logo {
+  font-weight: 400;
+}
+
+.logo--highlight {
+  font-weight: 700;
+  font-size: 1.3em;
+}
+
+.heroText {
+  margin: 2rem 0 2rem 0;
+}
+
+.heroText--highlight {
+  color: var(--highlight);
+}
+
+.description {
+  margin: 3rem 0 3rem 0;
+}
+
+.ctaDescription {
+  margin: 2.5rem 0 0.5rem 0;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}

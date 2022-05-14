@@ -1,0 +1,11 @@
+.button {
+  background-color: var(--highlight);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.8rem;
+  font-size: 0.8rem;
+}
+
+.chevron {
+  margin-left: 4.5rem;
+}

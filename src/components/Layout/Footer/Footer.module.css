@@ -1,0 +1,19 @@
+.container {
+  text-align: center;
+  max-width: 600px;
+  margin: 10rem auto;
+}
+
+.logo {
+  font-weight: 400;
+}
+
+.logo--highlight {
+  font-weight: 700;
+  font-size: 1.3em;
+}
+
+.textContainer {
+  margin-top: 3rem;
+  text-align: center;
+}

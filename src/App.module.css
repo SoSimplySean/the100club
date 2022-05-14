@@ -1,0 +1,51 @@
+/* MONTSERRAT FONT */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/* BOOTSTRAP ICONS */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  --primary: #2e5994;
+  --highlight: #7e29ff;
+}
+
+body {
+  background-color: #fff;
+  font-family: "Montserrat", sans-serif;
+  color: var(--primary);
+}
+
+h1 {
+  font-size: 2.6rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.container {
+  width: 60%;
+  max-width: 1200px;
+  margin: 5rem auto;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1400px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 80%;
+    max-width: 1200px;
+  }
+}
