@@ -17,3 +17,21 @@
   margin-top: 3rem;
   text-align: center;
 }
+
+.textContainer h4 {
+  margin-bottom: 0.3rem;
+}
+
+.team {
+  text-decoration: none;
+  color: var(--primary);
+  transition: 0.2s ease-out;
+}
+
+.team:hover {
+  color: var(--highlight);
+}
+
+.team p {
+  margin-top: 0.3rem;
+}

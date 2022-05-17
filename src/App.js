@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import css from "./App.module.css";
 
+import Header from "./components/Layout/Header/Header";
 import HeroBanner from "./components/Layout/HeroBanner/HeroBanner";
 import OurMembers from "./components/Layout/Members/OurMembers";
 import ExclusiveMembership from "./components/Layout/Body/ExclusiveMembership";
@@ -13,6 +14,7 @@ function App() {
   return (
     <Fragment>
       <div className={css.container}>
+        <Header />
         <HeroBanner />
         <OurMembers />
         <ExclusiveMembership />

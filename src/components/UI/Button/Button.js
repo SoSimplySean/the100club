@@ -1,3 +1,4 @@
+import { BsChevronDoubleRight } from "react-icons/bs";
 import css from "./Button.module.css";
 
 const Button = (props) => {
@@ -9,7 +10,7 @@ const Button = (props) => {
       className={css.button}
     >
       {props.text}
-      <i className={`bi bi-chevron-double-right ${css.chevron}`}></i>
+      <BsChevronDoubleRight className={css.chevron} />
     </a>
   );
 

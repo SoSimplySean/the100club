@@ -7,8 +7,10 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  --primary: #2e5994;
-  --highlight: #7e29ff;
+  padding: 0;
+  --primary: #00203fff;
+  --highlight: #85ddb5;
+  --highlight2: #18593b;
 }
 
 body {

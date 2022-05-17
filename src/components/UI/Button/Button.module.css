@@ -4,6 +4,11 @@
   text-decoration: none;
   padding: 0.8rem;
   font-size: 0.8rem;
+  transition: 0.2s ease-out;
+}
+
+.button:hover {
+  background-color: var(--primary);
 }
 
 .chevron {

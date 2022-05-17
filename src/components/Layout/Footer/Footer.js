@@ -21,6 +21,24 @@ const Footer = (props) => {
             work towards their entrepreneurial goals.
           </p>
         </div>
+        <div className={css.textContainer}>
+          <h4>Our Team.</h4>
+          <a href="https://www.linkedin.com/in/seantansg/" className={css.team}>
+            <p>Sean Tan.</p>
+          </a>
+          <a href="https://www.linkedin.com/in/seantansg/" className={css.team}>
+            <p>Joseph Ong.</p>
+          </a>
+          <a href="https://www.linkedin.com/in/shawn-kok/" className={css.team}>
+            <p>Shawn Kok.</p>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jonas-tan-1bbbb3202/"
+            className={css.team}
+          >
+            <p>Jonas Tan.</p>
+          </a>
+        </div>
       </div>
     </Container>
   );
