@@ -22,7 +22,6 @@ const Header = (props) => {
       <div className={css.navIcon} onClick={handleClick}>
         <HiMenuAlt3 size={36} />
       </div>
-      {/* <ul className={clicked ? `css.navMenu css.active` : `css.navMenu`}> */}
       <ul
         className={
           clicked
@@ -44,7 +43,7 @@ const Header = (props) => {
           <Button
             text="LOG IN"
             link="https://t.me/JoinThe100Club"
-            inverted="true"
+            inverted={clicked ? "false" : "true"}
             className={css.navButton}
           />
         </li>

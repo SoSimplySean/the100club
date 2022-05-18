@@ -13,7 +13,7 @@ const Button = (props) => {
       href={props.link}
       target="_blank"
       rel="noreferrer"
-      className={`${css.button} ${inverted} ${props.className}`}
+      className={`${props.className} ${css.button} ${inverted}`}
     >
       {props.text}
       {symbol}
