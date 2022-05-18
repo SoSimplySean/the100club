@@ -1,4 +1,4 @@
-import { HiX, HiMenuAlt3 } from "react-icons/hi";
+import { HiMenuAlt3 } from "react-icons/hi";
 import { useState } from "react";
 
 import css from "./Header.module.css";
