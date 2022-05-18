@@ -1,13 +1,19 @@
 const MenuItems = [
   {
+    title: "Home",
+    url: "/",
+    cName: "css.navLink",
+  },
+
+  {
     title: "Swag Store",
-    url: "#",
+    url: "/store",
     cName: "css.navLink",
   },
 
   {
     title: "Member Directory",
-    url: "#",
+    url: "/directory",
     cName: "css.navLink",
   },
 

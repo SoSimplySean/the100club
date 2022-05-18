@@ -1,11 +1,11 @@
 import { Fragment } from "react";
-import { createTheme } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material";
 import css from "./App.module.css";
 import { Route, Routes } from "react-router-dom";
 
 import Header from "./components/Layout/Header/Header";
 import HomePage from "./pages/HomePage";
-
+import DirectoryPage from "./pages/DirectoryPage";
 
 const theme = createTheme({
   typography: {
@@ -26,11 +26,12 @@ function App() {
       <Fragment>
         <div className={css.container}>
           <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-          </Routes>
-        </main>
+          <main>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/directory" element={<DirectoryPage />} />
+            </Routes>
+          </main>
         </div>
       </Fragment>
     </ThemeProvider>

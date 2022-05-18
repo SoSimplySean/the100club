@@ -1,5 +1,6 @@
 import { HiMenuAlt3 } from "react-icons/hi";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import css from "./Header.module.css";
 
@@ -33,9 +34,9 @@ const Header = (props) => {
           return (
             <li key={index}>
               {/* Issue: template literal doesn't work here for some reason. {`css.${item.cName}`} */}
-              <a className={css.navLink} href={item.url}>
+              <Link className={css.navLink} to={item.url}>
                 {item.title}
-              </a>
+              </Link>
             </li>
           );
         })}
