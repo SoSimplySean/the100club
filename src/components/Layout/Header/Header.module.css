@@ -24,16 +24,11 @@
   transition: 0.2s ease-out;
 }
 
-.navLinkButton {
-  display: none;
-}
-
 .navLink:hover {
   color: var(--highlight);
 }
 
 .navIcon {
-  width: 60px;
   display: none;
   cursor: pointer;
 }

@@ -46,6 +46,10 @@ h3 {
 }
 
 @media screen and (max-width: 768px) {
+  h3 {
+    font-size: 1.3rem;
+  }
+
   .container {
     width: 80%;
     max-width: 1200px;

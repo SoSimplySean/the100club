@@ -20,7 +20,7 @@ const Header = (props) => {
         <img src={NavLogo} alt="NavLogo" />
       </div> */}
       <div className={css.navIcon} onClick={handleClick}>
-        {clicked ? <HiX /> : <HiMenuAlt3 size={36} />}
+        <HiMenuAlt3 size={36} />
       </div>
       {/* <ul className={clicked ? `css.navMenu css.active` : `css.navMenu`}> */}
       <ul
