@@ -3,10 +3,10 @@
   align-items: center;
 }
 
-.navLogo {
+/* .navLogo {
   cursor: pointer;
   width: 60px;
-}
+} */
 
 .navMenu {
   display: grid;

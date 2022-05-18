@@ -5,7 +5,7 @@ import css from "./Header.module.css";
 
 import Button from "../../UI/Button/Button";
 import MenuItems from "./MenuItems";
-import NavLogo from "../../../assets/NavLogo.png";
+// import NavLogo from "../../../assets/NavLogo.png";
 
 const Header = (props) => {
   const [clicked, setClicked] = useState(false);
