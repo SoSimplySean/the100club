@@ -1,16 +1,11 @@
 import { Fragment } from "react";
 import { createTheme } from "@mui/material";
 import css from "./App.module.css";
+import { Route, Routes } from "react-router-dom";
 
 import Header from "./components/Layout/Header/Header";
-import HeroBanner from "./components/Layout/HeroBanner/HeroBanner";
-import OurMembers from "./components/Layout/Members/OurMembers";
-import ExclusiveMembership from "./components/Layout/Body/ExclusiveMembership";
-import GrowBusiness from "./components/Layout/Body/GrowBusiness";
-import BuildNetwork from "./components/Layout/Body/BuildNetwork";
-import FAQ from "./components/Layout/FAQ/FAQ";
-import Footer from "./components/Layout/Footer/Footer";
-import { ThemeProvider } from "@mui/system";
+import HomePage from "./pages/HomePage";
+
 
 const theme = createTheme({
   typography: {
@@ -31,13 +26,11 @@ function App() {
       <Fragment>
         <div className={css.container}>
           <Header />
-          <HeroBanner />
-          <OurMembers />
-          <ExclusiveMembership />
-          <GrowBusiness />
-          <BuildNetwork />
-          <FAQ />
-          <Footer />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+          </Routes>
+        </main>
         </div>
       </Fragment>
     </ThemeProvider>
