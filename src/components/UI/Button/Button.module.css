@@ -7,8 +7,16 @@
   transition: 0.2s ease-out;
 }
 
+.button.inverted {
+  background-color: var(--primary);
+}
+
 .button:hover {
   background-color: var(--primary);
+}
+
+.button.inverted:hover {
+  background-color: #000;
 }
 
 .chevron {

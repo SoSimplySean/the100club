@@ -1,4 +1,4 @@
-import { HiMenuAlt3 } from "react-icons/hi";
+import { HiX, HiMenuAlt3 } from "react-icons/hi";
 import { useState } from "react";
 
 import css from "./Header.module.css";
@@ -15,16 +15,21 @@ const Header = (props) => {
   };
 
   return (
-    <nav className={css.navbar}>
-      <div className={css.navLogo}>
+    <nav onMouseDown={clicked ? handleClick : null} className={css.navbar}>
+      {/* <div className={css.navLogo}>
         <img src={NavLogo} alt="NavLogo" />
-      </div>
+      </div> */}
       <div className={css.navIcon} onClick={handleClick}>
-        {/* Add logic here for logo shape depending on clicked or not */}
-        <HiMenuAlt3 />
+        {clicked ? <HiX /> : <HiMenuAlt3 size={36} />}
       </div>
       {/* <ul className={clicked ? `css.navMenu css.active` : `css.navMenu`}> */}
-      <ul className={css.navMenu}>
+      <ul
+        className={
+          clicked
+            ? `${css.navMenu} ${css.active}`
+            : `${css.navMenu} ${css.hidden}`
+        }
+      >
         {MenuItems.map((item, index) => {
           return (
             <li key={index}>
@@ -36,10 +41,19 @@ const Header = (props) => {
           );
         })}
         <li>
-          <Button text="LOG IN" link="https://t.me/JoinThe100Club" />
+          <Button
+            text="LOG IN"
+            link="https://t.me/JoinThe100Club"
+            inverted="true"
+            className={css.navButton}
+          />
         </li>
         <li>
-          <Button text="JOIN WAITLIST" link="https://t.me/JoinThe100Club" />
+          <Button
+            text="JOIN WAITLIST"
+            link="https://t.me/JoinThe100Club"
+            className={css.navButton}
+          />
         </li>
       </ul>
     </nav>

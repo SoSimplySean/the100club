@@ -21,7 +21,11 @@ const HeroBanner = (props) => {
           in staying accountable, sharing advice, and networking to grow their
           business.
         </p>
-        <Button text="JOIN WAITLIST" link="https://t.me/JoinThe100Club" />
+        <Button
+          text="JOIN WAITLIST"
+          link="https://t.me/JoinThe100Club"
+          symbol="arrow"
+        />
         <p className={css.ctaDescription}>
           Cohort 001 applications will open from <b>01 Jan 23 - 08 Jan 23</b>
         </p>

@@ -2,34 +2,23 @@ import { BsChevronDoubleRight } from "react-icons/bs";
 import css from "./Button.module.css";
 
 const Button = (props) => {
+  const symbol =
+    props.symbol === "arrow" ? (
+      <BsChevronDoubleRight className={css.chevron} />
+    ) : null;
+  const inverted = props.inverted === "true" ? css.inverted : null;
+
   return (
     <a
       href={props.link}
       target="_blank"
       rel="noreferrer"
-      className={css.button}
+      className={`${css.button} ${inverted} ${props.className}`}
     >
       {props.text}
-      <BsChevronDoubleRight className={css.chevron} />
+      {symbol}
     </a>
   );
-
-  //   const linkTo = (e) => {
-  //       e.preventDefault();
-  //       // window.location.href = "http://google.com";
-  //       window.open({props.link}, "_blank");
-  //   }
-
-  // return (
-
-  //   <button
-  //     type="button"
-  //     onClick={linkTo};
-  //   >
-  //     {props.link}
-  //     {props.text}
-  //   </button>
-  // );
 };
 
 export default Button;
