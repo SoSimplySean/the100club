@@ -1,12 +1,12 @@
 import css from "./HeroBanner.module.css";
 
 import Button from "../../UI/Button/Button";
-import TextImage from "../../UI/TextImage/TextImage";
+// import TextImage from "../../UI/TextImage/TextImage";
 import heroBannerImage from "../../../assets/HeroBannerImg.png";
 
 const HeroBanner = (props) => {
   return (
-    <TextImage>
+    <div className={css.container}>
       <div>
         <h3 className={css.logo}>
           the<span className={css["logo--highlight"]}>100</span>club
@@ -34,7 +34,7 @@ const HeroBanner = (props) => {
       <div className={css.imgContainer}>
         <img src={heroBannerImage} alt="Hero Banner"></img>
       </div>
-    </TextImage>
+    </div>
   );
 };
 
