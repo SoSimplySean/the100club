@@ -18,7 +18,9 @@ const FAQ = (props) => {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography>What does it cost?</Typography>
+            <Typography sx={{ fontWeight: "bold" }}>
+              What does it cost?
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
@@ -34,7 +36,7 @@ const FAQ = (props) => {
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
-            <Typography>How can I join?</Typography>
+            <Typography sx={{ fontWeight: "bold" }}>How can I join?</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
@@ -51,7 +53,9 @@ const FAQ = (props) => {
             aria-controls="panel3a-content"
             id="panel3a-header"
           >
-            <Typography>What will I get as a member?</Typography>
+            <Typography sx={{ fontWeight: "bold" }}>
+              What will I get as a member?
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
