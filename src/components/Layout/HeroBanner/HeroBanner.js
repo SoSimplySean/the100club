@@ -28,7 +28,7 @@ const HeroBanner = (props) => {
           symbol="arrow"
         />
         <p className={css.ctaDescription}>
-          Cohort 001 applications will open from <b>01 Jan 23 - 08 Jan 23</b>
+          Cohort 001 applications will open from <b>01 Aug 22 - 08 Jan 22</b>
         </p>
         <p>In the mean time, join our waitlist to stay updated.</p>
       </div>
