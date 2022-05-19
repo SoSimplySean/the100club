@@ -21,7 +21,7 @@ const Button = (props) => {
     );
   } else {
     return (
-      <button
+      <a
         href={props.link}
         target="_blank"
         rel="noreferrer"
@@ -29,7 +29,7 @@ const Button = (props) => {
       >
         {props.text}
         {symbol}
-      </button>
+      </a>
     );
   }
 };

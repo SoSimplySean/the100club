@@ -16,7 +16,7 @@ const Header = (props) => {
   };
 
   return (
-    <nav onMouseDown={clicked ? handleClick : null} className={css.navbar}>
+    <nav onClick={clicked ? handleClick : null} className={css.navbar}>
       {/* <div className={css.navLogo}>
         <img src={NavLogo} alt="NavLogo" />
       </div> */}
