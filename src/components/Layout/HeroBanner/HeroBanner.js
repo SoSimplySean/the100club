@@ -23,7 +23,8 @@ const HeroBanner = (props) => {
         </p>
         <Button
           text="JOIN WAITLIST"
-          link="https://t.me/JoinThe100Club"
+          typeform="true"
+          // link="https://t.me/JoinThe100Club"
           symbol="arrow"
         />
         <p className={css.ctaDescription}>

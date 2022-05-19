@@ -43,7 +43,7 @@ const Header = (props) => {
         <li>
           <Button
             text="LOG IN"
-            link="https://t.me/JoinThe100Club"
+            typeform="true"
             inverted={clicked ? "false" : "true"}
             className={css.navButton}
           />
@@ -51,7 +51,7 @@ const Header = (props) => {
         <li>
           <Button
             text="JOIN WAITLIST"
-            link="https://t.me/JoinThe100Club"
+            typeform="true"
             className={css.navButton}
           />
         </li>

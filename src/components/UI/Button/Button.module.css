@@ -5,6 +5,10 @@
   padding: 0.8rem;
   font-size: 0.8rem;
   transition: 0.2s ease-out;
+  border: none;
+  cursor: pointer;
+  outline: inherit;
+  transform: translateY(-0.6rem);
 }
 
 .button.inverted {
