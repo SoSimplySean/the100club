@@ -41,7 +41,7 @@ const FAQ = (props) => {
           <AccordionDetails>
             <Typography>
               Cohorts are launched at the start of every quarter. Our next
-              cohort is set to launch on 01 Jan 2022. In the mean time, to stay
+              cohort is set to launch in Aug 2022. In the mean time, to stay
               updated and ensure you don't miss applications, join our email
               list and telegram channel for exciting content.
             </Typography>
