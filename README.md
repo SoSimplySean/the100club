@@ -70,6 +70,8 @@
 
 ## Roadmap
 
+<a href="https://the100club.netlify.app/"><strong>Check out the website »</strong></a>
+
 - [x] Landing Page
 - [x] Typeform Integration
 - [ ] Membership Account Creation
