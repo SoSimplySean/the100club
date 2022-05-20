@@ -13,7 +13,7 @@
 <br />
 <div align="center">
   <a href="https://the100club.netlify.app/">
-    <img src="./src/assets/TempLogo.png" alt="Logo" width="100" height="auto">
+    <img src="./src/assets/TempLogo.png" alt="Logo" width="200" height="auto">
   </a>
 
 <h3 align="center">The 100 Club</h3>
