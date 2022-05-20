@@ -12,8 +12,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://the100club.netlify.app/">
+    <img src="./src/assets/NavLogo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">The 100 Club</h3>
@@ -51,7 +51,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://ibb.co/RT4kgM7)
+[![Product Name Screen Shot][product-screenshot]](https://the100club.netlify.app/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 <p>The 100 Club, is a mastermind membership platform + community, that matches entrepreneurial individuals into groups of 4, in order for them to support each other in staying accountable, sharing advice, and networking to grow their business.</p>
@@ -86,8 +86,8 @@
 
 ## Contact
 
-Sean Tan - sosimplysean@gmail.com
-Shawn Kok - e0725721@u.nus.edu
+<p>Sean Tan - sosimplysean@gmail.com</p>
+<p>Shawn Kok - e0725721@u.nus.edu</p>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -117,4 +117,4 @@ Shawn Kok - e0725721@u.nus.edu
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username-->
 
-[product-screenshot]: https://ibb.co/RT4kgM7
+[product-screenshot]: ./src/assets/ReadmeScreenshot.png
