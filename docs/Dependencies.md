@@ -34,3 +34,7 @@ Using a react typeform integration that allows for embedded form popups
 ### React Icons
 
 Using react icons as our main icon library
+
+### React Router
+
+Using router for all links
