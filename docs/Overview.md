@@ -6,6 +6,6 @@ nav_order: 1
 
 # Overview
 
-{: .no_toc }
-
 Just some text
+
+Capitalise all file names
