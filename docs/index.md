@@ -24,6 +24,6 @@ This includes everything we need to stay consistent as we code (eg. naming conve
 
 Tech stack + other APIs and frameworks we are relying on
 
-### Architecture
+### Components
 
-Explain what all the different components do
+Explain what all the different components + files do
