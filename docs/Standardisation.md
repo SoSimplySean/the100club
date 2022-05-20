@@ -16,12 +16,12 @@ nav_order: 2
 ---
 
 ## Naming
-1 PascalCase for components (eg. AppContainer)
-2 PascalCase for file names (eg. AppContainer)
-3 All lower case for folder names (eg. this-folder)
-4 Component names should be the same as the file name
-5 Camel case for prop names
-6 Camel case for CSS class names and -- for modified class (eg. cssClass--highlight)
+1. PascalCase for components (eg. AppContainer)
+1. PascalCase for file names (eg. AppContainer)
+1. All lower case for folder names (eg. this-folder)
+1. Component names should be the same as the file name
+1. Camel case for prop names
+1. Camel case for CSS class names and -- for modified class (eg. cssClass--highlight)
 
 ## Font Convention
 
