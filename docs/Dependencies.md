@@ -5,15 +5,13 @@ nav_order: 3
 ---
 
 # Dependencies
-
 {: .no_toc }
 
 ## Table of Contents
-
 {: .no_toc .text-delta }
 
 - TOC
-  {:toc}
+{:toc}
 
 ### React
 

@@ -6,9 +6,11 @@ description: "Comprehensive documentation for The 100 Club's platform"
 permalink: /
 ---
 
-# Overview{: .fs-9 }
+# Overview
+{: .fs-9 }
 
-An overview of our documentation for The 100 Club, an exclusive membership platform + community for entrepreneurs.{: .fs-6 .fw-300 }
+An overview of our documentation for The 100 Club, an exclusive membership platform + community for entrepreneurs.
+{: .fs-6 .fw-300 }
 
 ---
 
