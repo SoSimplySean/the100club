@@ -36,6 +36,7 @@ nav_order: 2
 ## Color Convention
 
 ## Spacing Convention
+1. Try and use margin top for vertical spacing
 
 ## Responsive Widths Convention
 

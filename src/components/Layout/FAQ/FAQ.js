@@ -1,18 +1,23 @@
-import css from "./FAQ.module.css";
-
 import Container from "../../UI/Container/Container";
+
+import { Typography } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const FAQ = (props) => {
   return (
     <Container>
-      <h3>FAQ</h3>
+      <Typography
+        variant="h5"
+        component="h2"
+        sx={{ fontWeight: "bold", mb: "2rem" }}
+      >
+        FAQ
+      </Typography>
       <div>
-        <Accordion className={css.accordion}>
+        <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"

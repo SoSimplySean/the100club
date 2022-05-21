@@ -23,14 +23,12 @@ const TextImage = (props) => {
           maxWidth={props.maxWidth}
         />
         <Grid item lg={6} className={css.textContainer}>
-          <Typography
-            variant="h4"
-            component="h2"
-            sx={{ fontWeight: "bold", mb: "1.2rem" }}
-          >
+          <Typography variant="h4" component="h2" sx={{ fontWeight: "bold" }}>
             {props.header}
           </Typography>
-          <Typography variant="body1">{props.paragraph}</Typography>
+          <Typography variant="body1" sx={{ mt: "1.2rem" }}>
+            {props.paragraph}
+          </Typography>
         </Grid>
       </Grid>
     );
@@ -45,14 +43,12 @@ const TextImage = (props) => {
         alignItems="center"
       >
         <Grid item lg={6}>
-          <Typography
-            variant="h4"
-            component="h2"
-            sx={{ fontWeight: "bold", mb: "1.2rem" }}
-          >
+          <Typography variant="h4" component="h2" sx={{ fontWeight: "bold" }}>
             {props.header}
           </Typography>
-          <Typography variant="body1">{props.paragraph}</Typography>
+          <Typography variant="body1" sx={{ mt: "1.2rem" }}>
+            {props.paragraph}
+          </Typography>
         </Grid>
         <ImageGrid
           gridSize={6}

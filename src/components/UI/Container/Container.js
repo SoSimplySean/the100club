@@ -1,7 +1,7 @@
-import css from "./Container.module.css";
+import { Grid } from "@mui/material";
 
 const Container = (props) => {
-  return <div className={css.container}>{props.children}</div>;
+  return <Grid sx={{ mt: "12rem" }}>{props.children}</Grid>;
 };
 
 export default Container;
