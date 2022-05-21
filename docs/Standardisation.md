@@ -15,6 +15,12 @@ nav_order: 2
 
 ---
 
+## Import Order
+1. React
+1. CSS file
+1. Internal Components
+1. External Components
+
 ## Naming
 1. PascalCase for components (eg. AppContainer)
 1. PascalCase for file names (eg. AppContainer)
@@ -24,6 +30,8 @@ nav_order: 2
 1. Camel case for CSS class names and -- for modified class (eg. cssClass--highlight)
 
 ## Font Convention
+1. Montserrat
+1. Set up responsive typography with MaterialUI
 
 ## Color Convention
 

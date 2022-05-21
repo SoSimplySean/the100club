@@ -1,41 +1,62 @@
-import css from "./HeroBanner.module.css";
-
+import ImageGrid from "../../UI/ImageGrid/ImageGrid";
 import Button from "../../UI/Button/Button";
-// import TextImage from "../../UI/TextImage/TextImage";
 import heroBannerImage from "../../../assets/HeroBannerImg.png";
+
+import { Grid, Typography } from "@mui/material";
 
 const HeroBanner = (props) => {
   return (
-    <div className={css.container}>
-      <div>
-        <h3 className={css.logo}>
-          the<span className={css["logo--highlight"]}>100</span>club
-        </h3>
-        <h1 className={css.heroText}>
-          Exclusive <span className={css["heroText--highlight"]}>network</span>{" "}
+    <Grid container spacing={6} sx={{ mt: "1rem" }}>
+      <Grid item lg={6}>
+        <Typography variant="h5" component="h3">
+          the
+          <Typography variant="h4" component="span" sx={{ fontWeight: "bold" }}>
+            100
+          </Typography>
+          club
+        </Typography>
+        <Typography
+          variant="h3"
+          component="h1"
+          sx={{ fontWeight: "bold", my: "2rem" }}
+        >
+          Exclusive{" "}
+          <Typography
+            variant="h3"
+            component="span"
+            sx={{ color: "secondary.main", fontWeight: "bold" }}
+          >
+            network
+          </Typography>
           <br></br> for Singaporean<br></br> entrepreneurs.
-        </h1>
-        <p className={css.description}>
+        </Typography>
+        <Typography variant="body1" sx={{ my: "3rem" }}>
           The 100 Club, is a mastermind community, that matches entrepreneurial
           individuals into groups of 4, in order for them to support each other
           in staying accountable, sharing advice, and networking to grow their
           business.
-        </p>
+        </Typography>
         <Button
           text="JOIN WAITLIST"
           typeform="true"
           // link="https://t.me/JoinThe100Club"
           symbol="arrow"
         />
-        <p className={css.ctaDescription}>
-          Cohort 001 applications will open from <b>01 Aug 22 - 08 Aug 22</b>
-        </p>
-        <p>In the mean time, join our waitlist to stay updated.</p>
-      </div>
-      <div className={css.imgContainer}>
-        <img src={heroBannerImage} alt="Hero Banner"></img>
-      </div>
-    </div>
+        <Typography variant="body1" sx={{ my: "0.6rem" }}>
+          Cohort 001 application: <b>01 Aug 22 - 08 Aug 22</b>
+        </Typography>
+        <Typography variant="body1">
+          In the mean time, join our waitlist to stay updated.
+        </Typography>
+      </Grid>
+      <ImageGrid
+        // screenSize={"lg"}
+        gridSize={6}
+        src={heroBannerImage}
+        alt={"Hero Banner"}
+        maxWidth={{ maxWidth: "400px" }}
+      />
+    </Grid>
   );
 };
 
