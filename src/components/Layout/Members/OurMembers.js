@@ -34,7 +34,7 @@ let logos = [
 const OurMembers = (props) => {
   return (
     <Container>
-      <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+      <Typography variant="h5" component="h2" sx={{ fontWeight: "bold" }}>
         our members.
       </Typography>
       <Grid

@@ -4,6 +4,7 @@ import mainImage from "../../../assets/GrowBusinessImg.png";
 const GrowBusiness = (props) => {
   return (
     <TextImage
+      imageThenText={true}
       header={"Grow Your Business."}
       paragraph={`Get matched up into a mastermind group of 4 -6 like-minded
       action-takers. Meet regularly to discuss problems and solutions + stay

@@ -4,6 +4,7 @@ import mainImage from "../../../assets/ExclusiveMembershipImg.png";
 const ExclusiveMembership = (props) => {
   return (
     <TextImage
+      imageThenText={false}
       header={"Exclusive Membership."}
       paragraph={`Our membership criteria require applicants to have made at least $100
       in any of their side hustles or businesses. We only open applications
