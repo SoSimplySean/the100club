@@ -33,7 +33,6 @@ const Header = (props) => {
         {MenuItems.map((item, index) => {
           return (
             <li key={index}>
-              {/* Issue: template literal doesn't work here for some reason. {`css.${item.cName}`} */}
               <Link className={css.navLink} to={item.url}>
                 {item.title}
               </Link>
@@ -43,7 +42,7 @@ const Header = (props) => {
         <li>
           <Button
             text="LOG IN"
-            typeform="true"
+            // typeform="true"
             inverted={clicked ? "false" : "true"}
             className={css.navButton}
           />

@@ -1,6 +1,4 @@
 import { Fragment } from "react";
-import { createTheme, ThemeProvider } from "@mui/material";
-import css from "./App.module.css";
 import { Route, Routes } from "react-router-dom";
 
 import Header from "./components/Layout/Header/Header";
@@ -8,24 +6,49 @@ import HomePage from "./pages/HomePage";
 import DirectoryPage from "./pages/DirectoryPage";
 import SwagStorePage from "./pages/SwagStorePage";
 
-const theme = createTheme({
-  typography: {
-    fontFamily: "Montserrat",
-    fontWeightBold: "700",
-    fontSize: 14,
-  },
+import {
+  createTheme,
+  ThemeProvider,
+  responsiveFontSizes,
+  Box,
+} from "@mui/material";
+
+let theme = createTheme({
   palette: {
+    type: "light",
     primary: {
-      main: "#00203f",
+      main: "#00203F",
+    },
+    secondary: {
+      main: "#85DDB5",
+    },
+    text: {
+      primary: "#00203F",
+    },
+    info: {
+      main: "#2E5994",
     },
   },
+  typography: {
+    fontFamily: "Montserrat",
+  },
 });
+
+const styles = {
+  container: {
+    width: { xs: "80%", sm: "60%" },
+    maxWidth: "1200px",
+    margin: "5rem auto",
+  },
+};
+
+theme = responsiveFontSizes(theme);
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <Fragment>
-        <div className={css.container}>
+        <Box sx={styles.container}>
           <Header />
           <main>
             <Routes>
@@ -34,7 +57,7 @@ function App() {
               <Route path="/directory" element={<DirectoryPage />} />
             </Routes>
           </main>
-        </div>
+        </Box>
       </Fragment>
     </ThemeProvider>
   );
