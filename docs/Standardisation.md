@@ -40,3 +40,5 @@ nav_order: 2
 
 ## Responsive Widths Convention
 
+## When to use styles object vs inline sx?
+
