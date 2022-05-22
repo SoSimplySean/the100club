@@ -43,6 +43,7 @@ const Header = (props) => {
           <Button
             text="LOG IN"
             // typeform="true"
+            link="https://t.me/JoinThe100Club"
             inverted={clicked ? "false" : "true"}
             className={css.navButton}
           />
