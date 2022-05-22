@@ -1,8 +1,6 @@
 import { Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import css from "./App.module.css";
-
 import Header from "./components/Layout/Header/Header";
 import HomePage from "./pages/HomePage";
 import DirectoryPage from "./pages/DirectoryPage";
