@@ -35,9 +35,9 @@ Using pages to host this documentation page. Source is from the /docs folder in 
 
 Using a react typeform integration that allows for embedded form popups
 
-### React Icons
+### Material Icons
 
-Using react icons as our main icon library
+Using material icons as our main icon library
 
 ### React Router
 

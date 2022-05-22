@@ -34,11 +34,15 @@ nav_order: 2
 1. Set up responsive typography with MaterialUI
 
 ## Color Convention
+1. Set up with MaterialUI
 
 ## Spacing Convention
 1. Try and use margin top for vertical spacing
 
 ## Responsive Widths Convention
+1. Set up with MaterialUI. Using their xs, sm, md, etc.
 
 ## When to use styles object vs inline sx?
+1. If it is repeated, set up a styles object
+1. If it is longer than 3 lines, set up a styles object
 
