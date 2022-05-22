@@ -8,7 +8,12 @@ import HomePage from "./pages/HomePage";
 import DirectoryPage from "./pages/DirectoryPage";
 import SwagStorePage from "./pages/SwagStorePage";
 
-import { createTheme, ThemeProvider, responsiveFontSizes } from "@mui/material";
+import {
+  createTheme,
+  ThemeProvider,
+  responsiveFontSizes,
+  Box,
+} from "@mui/material";
 
 let theme = createTheme({
   palette: {
@@ -31,13 +36,21 @@ let theme = createTheme({
   },
 });
 
+const styles = {
+  container: {
+    width: { xs: "80%", sm: "60%" },
+    maxWidth: "1200px",
+    margin: "5rem auto",
+  },
+};
+
 theme = responsiveFontSizes(theme);
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <Fragment>
-        <div className={css.container}>
+        <Box sx={styles.container}>
           <Header />
           <main>
             <Routes>
@@ -46,7 +59,7 @@ function App() {
               <Route path="/directory" element={<DirectoryPage />} />
             </Routes>
           </main>
-        </div>
+        </Box>
       </Fragment>
     </ThemeProvider>
   );
