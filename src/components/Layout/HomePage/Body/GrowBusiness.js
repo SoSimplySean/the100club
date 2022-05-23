@@ -1,5 +1,5 @@
-import TextImage from "../../UI/TextImage/TextImage";
-import mainImage from "../../../assets/GrowBusinessImg.png";
+import TextImage from "../../../UI/TextImage/TextImage";
+import mainImage from "../../../../assets/HomePage/GrowBusinessImg.png";
 
 const GrowBusiness = (props) => {
   return (

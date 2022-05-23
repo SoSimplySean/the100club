@@ -80,14 +80,11 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import { Link } from "@mui/material";
-// import { createPopup } from "@typeform/embed";
-// import "@typeform/embed/build/css/popup.css";
 
 // import AdbIcon from "@mui/icons-material/Adb";
 
 // const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Login"];
-// const { toggle } = createPopup("Ad0SWlc0");
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

@@ -1,12 +1,11 @@
 import { Fragment } from "react";
 
-import HeroBanner from "../components/Layout/HeroBanner/HeroBanner";
-import OurMembers from "../components/Layout/Members/OurMembers";
-import ExclusiveMembership from "../components/Layout/Body/ExclusiveMembership";
-import GrowBusiness from "../components/Layout/Body/GrowBusiness";
-import BuildNetwork from "../components/Layout/Body/BuildNetwork";
-import FAQ from "../components/Layout/FAQ/FAQ";
-import Footer from "../components/Layout/Footer/Footer";
+import HeroBanner from "../components/Layout/HomePage/HeroBanner/HeroBanner";
+import OurMembers from "../components/Layout/HomePage/Members/OurMembers";
+import ExclusiveMembership from "../components/Layout/HomePage/Body/ExclusiveMembership";
+import GrowBusiness from "../components/Layout/HomePage/Body/GrowBusiness";
+import BuildNetwork from "../components/Layout/HomePage/Body/BuildNetwork";
+import FAQ from "../components/Layout/HomePage/FAQ/FAQ";
 
 const HomePage = () => {
   return (
@@ -17,7 +16,6 @@ const HomePage = () => {
       <GrowBusiness />
       <BuildNetwork />
       <FAQ />
-      <Footer />
     </Fragment>
   );
 };
