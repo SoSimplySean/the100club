@@ -6,20 +6,16 @@ import { Grid, Typography } from "@mui/material";
 
 const HeroBanner = (props) => {
   return (
-    <Grid container spacing={6} sx={{ mt: "1rem" }}>
+    <Grid container spacing={6} sx={{ mt: "1.5rem" }}>
       <Grid item lg={6}>
-        <Typography variant="h5" component="h3">
+        {/* <Typography variant="h5" component="h3">
           the
           <Typography variant="h4" component="span" sx={{ fontWeight: "bold" }}>
             100
           </Typography>
           club
-        </Typography>
-        <Typography
-          variant="h3"
-          component="h1"
-          sx={{ fontWeight: "bold", my: "2rem" }}
-        >
+        </Typography> */}
+        <Typography variant="h3" component="h1" sx={{ fontWeight: "bold" }}>
           Exclusive{" "}
           <Typography
             variant="h3"
