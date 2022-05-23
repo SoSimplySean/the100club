@@ -6,20 +6,16 @@ import { Grid, Typography } from "@mui/material";
 
 const HeroBanner = (props) => {
   return (
-    <Grid container spacing={6} sx={{ mt: "1rem" }}>
+    <Grid container spacing={6} sx={{ mt: "1.5rem" }}>
       <Grid item lg={6}>
-        <Typography variant="h5" component="h3">
+        {/* <Typography variant="h5" component="h3">
           the
           <Typography variant="h4" component="span" sx={{ fontWeight: "bold" }}>
             100
           </Typography>
           club
-        </Typography>
-        <Typography
-          variant="h3"
-          component="h1"
-          sx={{ fontWeight: "bold", my: "2rem" }}
-        >
+        </Typography> */}
+        <Typography variant="h3" component="h1" sx={{ fontWeight: "bold" }}>
           Exclusive{" "}
           <Typography
             variant="h3"
@@ -30,19 +26,19 @@ const HeroBanner = (props) => {
           </Typography>
           <br></br> for Singaporean<br></br> entrepreneurs.
         </Typography>
-        <Typography variant="body1" sx={{ my: "3rem" }}>
+        <Typography variant="body1" sx={{ my: "2rem" }}>
           The 100 Club, is a mastermind community, that matches entrepreneurial
           individuals into groups of 4, in order for them to support each other
           in staying accountable, sharing advice, and networking to grow their
           business.
         </Typography>
         <Button
-          text="JOIN WAITLIST"
+          text="Join Waitlist"
           typeform="true"
           // link="https://t.me/JoinThe100Club"
           symbol="arrow"
         />
-        <Typography variant="body1" sx={{ my: "0.6rem" }}>
+        <Typography variant="body1" sx={{ mt: "1.6rem", mb: "0.6rem" }}>
           Cohort 001 application: <b>01 Aug 22 - 08 Aug 22</b>
         </Typography>
         <Typography variant="body1">
