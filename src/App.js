@@ -5,6 +5,7 @@ import Header from "./components/Layout/Header/Header";
 import HomePage from "./pages/HomePage";
 import DirectoryPage from "./pages/DirectoryPage";
 import SwagStorePage from "./pages/SwagStorePage";
+import { Popover } from "@typeform/embed-react";
 
 import {
   createTheme,
@@ -36,9 +37,9 @@ let theme = createTheme({
 
 const styles = {
   container: {
-    width: { xs: "80%", sm: "60%" },
-    maxWidth: "1200px",
-    margin: "5rem auto",
+    width: { xs: "80%", sm: "70%" },
+    maxWidth: "1300px",
+    margin: "2.5rem auto",
   },
 };
 
@@ -49,6 +50,12 @@ function App() {
     <ThemeProvider theme={theme}>
       <Fragment>
         <Box sx={styles.container}>
+          <Popover
+            id="Ad0SWlc0"
+            buttonColor="#00203F"
+            customIcon="<span>&#9820;</span>"
+            size="100"
+          />
           <Header />
           <main>
             <Routes>
