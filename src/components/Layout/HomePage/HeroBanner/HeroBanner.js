@@ -1,12 +1,12 @@
-import ImageGrid from "../../UI/ImageGrid/ImageGrid";
-import Button from "../../UI/Button/Button";
-import heroBannerImage from "../../../assets/HeroBannerImg.png";
+import ImageGrid from "../../../UI/ImageGrid/ImageGrid";
+import Button from "../../../UI/Button/Button";
+import heroBannerImage from "../../../../assets/HomePage/HeroBannerImg.png";
 
 import { Grid, Typography } from "@mui/material";
 
 const HeroBanner = (props) => {
   return (
-    <Grid container spacing={6} sx={{ mt: "1.5rem" }}>
+    <Grid container spacing={6} alignItems="center" sx={{ mt: "1.5rem" }}>
       <Grid item lg={6}>
         {/* <Typography variant="h5" component="h3">
           the

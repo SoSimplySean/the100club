@@ -2,9 +2,11 @@ import { Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Header from "./components/Layout/Header/Header";
+import Footer from "./components/Layout/Footer/Footer";
 import HomePage from "./pages/HomePage";
 import DirectoryPage from "./pages/DirectoryPage";
 import SwagStorePage from "./pages/SwagStorePage";
+import JoinTeamPage from "./pages/JoinTeamPage";
 import { Popover } from "@typeform/embed-react";
 
 import {
@@ -62,8 +64,10 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/store" element={<SwagStorePage />} />
               <Route path="/directory" element={<DirectoryPage />} />
+              <Route path="/joinTheTeam" element={<JoinTeamPage />} />
             </Routes>
           </main>
+          <Footer />
         </Box>
       </Fragment>
     </ThemeProvider>

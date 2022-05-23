@@ -1,5 +1,5 @@
-import TextImage from "../../UI/TextImage/TextImage";
-import mainImage from "../../../assets/ExclusiveMembershipImg.png";
+import TextImage from "../../../UI/TextImage/TextImage";
+import mainImage from "../../../../assets/HomePage/ExclusiveMembershipImg.png";
 
 const ExclusiveMembership = (props) => {
   return (

@@ -1,5 +1,5 @@
-import TextImage from "../../UI/TextImage/TextImage";
-import mainImage from "../../../assets/BuildNetworkImg.png";
+import TextImage from "../../../UI/TextImage/TextImage";
+import mainImage from "../../../../assets/HomePage/BuildNetworkImg.png";
 
 const BuildNetwork = (props) => {
   return (
