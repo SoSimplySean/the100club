@@ -26,19 +26,19 @@ const HeroBanner = (props) => {
           </Typography>
           <br></br> for Singaporean<br></br> entrepreneurs.
         </Typography>
-        <Typography variant="body1" sx={{ my: "3rem" }}>
+        <Typography variant="body1" sx={{ my: "2rem" }}>
           The 100 Club, is a mastermind community, that matches entrepreneurial
           individuals into groups of 4, in order for them to support each other
           in staying accountable, sharing advice, and networking to grow their
           business.
         </Typography>
         <Button
-          text="JOIN WAITLIST"
+          text="Join Waitlist"
           typeform="true"
           // link="https://t.me/JoinThe100Club"
           symbol="arrow"
         />
-        <Typography variant="body1" sx={{ my: "0.6rem" }}>
+        <Typography variant="body1" sx={{ mt: "1.6rem", mb: "0.6rem" }}>
           Cohort 001 application: <b>01 Aug 22 - 08 Aug 22</b>
         </Typography>
         <Typography variant="body1">
