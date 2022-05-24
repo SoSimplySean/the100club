@@ -142,6 +142,7 @@ const Header = () => {
             >
               {MenuItems.map((item, index) => (
                 <Link
+                  key={index}
                   component={RouterLink}
                   to={item.url}
                   sx={{
@@ -186,6 +187,7 @@ const Header = () => {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {MenuItems.map((item, index) => (
               <Link
+                key={index}
                 component={RouterLink}
                 to={item.url}
                 sx={{
