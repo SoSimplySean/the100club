@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import DoubleArrowSharpIcon from "@mui/icons-material/DoubleArrowSharp";
-import { Grid } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 
 const ProfileCard = (props) => {
   return (
@@ -14,6 +14,7 @@ const ProfileCard = (props) => {
       <Card
         key={props.id}
         sx={{
+          position: "relative",
           minWidth: 275,
           minHeight: 450,
           display: "flex",
@@ -21,6 +22,21 @@ const ProfileCard = (props) => {
           justifyContent: "space-between",
         }}
       >
+        <Box
+          id="overlay"
+          sx={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            backdropFilter: "blur(8px)",
+            zIndex: "1000",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Button variant="contained">The 100-exclusive</Button>
+        </Box>
         <CardContent>
           <Avatar sx={{ bgcolor: "secondary.main", width: 56, height: 56 }}>
             H
