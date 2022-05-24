@@ -9,9 +9,6 @@ const DirectoryPage = () => {
     <Fragment>
       <HeroBanner />
       <Body />
-      {/* <p style={{ textAlign: "center", fontWeight: "bold" }}>
-        Member Exclusive. Work in progress. Prepare yourself for epic-ness.
-      </p> */}
     </Fragment>
   );
 };

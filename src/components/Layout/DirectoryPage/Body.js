@@ -4,7 +4,8 @@ import { default as rawData } from "./UserData.json";
 import Pagination from "../../UI/Pagination/Pagination";
 import ProfileCard from "../../UI/ProfileCard/ProfileCard";
 
-import { Box, Typography, Grid } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import { Box, Grid, Paper, InputBase, IconButton } from "@mui/material";
 
 const Body = () => {
   let [page, setPage] = useState(1);
@@ -20,9 +21,24 @@ const Body = () => {
           mt: "3rem",
         }}
       >
-        <Typography variant="h4" component="h1" sx={{ fontWeight: "bold" }}>
-          Seach Bar
-        </Typography>
+        <Paper
+          component="form"
+          sx={{
+            p: "2px 4px",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <InputBase
+            sx={{ ml: 1, flex: 1 }}
+            placeholder="Search Directory"
+            inputProps={{ "aria-label": "search directory" }}
+          />
+          <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
+            <SearchIcon />
+          </IconButton>
+        </Paper>
         <Grid container spacing={2} sx={{ mt: "3rem" }}>
           {pageData &&
             pageData.currentData().map((user) => {

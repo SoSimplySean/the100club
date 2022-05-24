@@ -34,8 +34,11 @@ let logos = [
 const OurMembers = (props) => {
   return (
     <Container>
-      <Typography variant="h5" component="h2" sx={{ fontWeight: "bold" }}>
+      <Typography variant="h" component="h2" sx={{ fontWeight: "bold" }}>
         our members.
+      </Typography>
+      <Typography variant="subtitle" sx={{ fontStyle: "italic" }}>
+        Placeholder logos until we get our 20+ member's logos.
       </Typography>
       <Grid
         columnSpacing={{ xs: 4, md: 3, lg: 2 }}
