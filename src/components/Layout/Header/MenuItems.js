@@ -1,8 +1,8 @@
 const MenuItems = [
-  {
-    title: "Home",
-    url: "/",
-  },
+  // {
+  //   title: "Home",
+  //   url: "/",
+  // },
 
   {
     title: "Swag Store",

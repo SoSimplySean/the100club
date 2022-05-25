@@ -63,7 +63,9 @@
 // export default Headerimport * as React from 'react';
 import React from "react";
 
+import Logo from "../../../assets/Logo.png";
 import MenuItems from "./MenuItems";
+import ImageGrid from "../../UI/ImageGrid/ImageGrid";
 
 import { Link as RouterLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
@@ -80,8 +82,6 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import { Link } from "@mui/material";
-
-// import AdbIcon from "@mui/icons-material/Adb";
 
 // const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Login"];
@@ -109,7 +109,29 @@ const Header = () => {
     <AppBar position="static" color="transparent">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
+          <Link
+            component={RouterLink}
+            to={"/"}
+            sx={{
+              display: { xs: "none", md: "flex" },
+              mr: "0.5rem",
+              textDecoration: "none",
+            }}
+          >
+            <IconButton
+              size="small"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <ImageGrid
+                src={Logo}
+                alt={"Logo"}
+                maxWidth={{ maxWidth: "40px" }}
+              />
+            </IconButton>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -162,27 +184,33 @@ const Header = () => {
                   </MenuItem>
                 </Link>
               ))}
-              {/* <MenuItem
-                key="waitlist"
-                onClick={toggle}
-                sx={{
-                  backgroundColor: "primary.main",
-                  "&:hover": { backgroundColor: "black" },
-                }}
-              >
-                <Typography
-                  textAlign="center"
-                  sx={{
-                    fontWeight: "bold",
-                    color: "white",
-                  }}
-                >
-                  Join Waitlist
-                </Typography>
-              </MenuItem> */}
             </Menu>
           </Box>
-          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
+
+          <Link
+            component={RouterLink}
+            to={"/"}
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "none" },
+              mr: "0.5rem",
+              textDecoration: "none",
+            }}
+          >
+            <IconButton
+              size="small"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <ImageGrid
+                src={Logo}
+                alt={"Logo"}
+                maxWidth={{ maxWidth: "40px" }}
+              />
+            </IconButton>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {MenuItems.map((item, index) => (
