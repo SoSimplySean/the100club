@@ -10,12 +10,11 @@ import { Grid, Box } from "@mui/material";
 
 const ProfileCard = (props) => {
   return (
-    <Grid item sm={3}>
+    <Grid item lg={6} xl={3}>
       <Card
         key={props.id}
         sx={{
           position: "relative",
-          minWidth: 275,
           minHeight: 450,
           display: "flex",
           flexDirection: "column",
