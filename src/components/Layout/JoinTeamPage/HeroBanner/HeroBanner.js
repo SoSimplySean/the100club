@@ -7,10 +7,10 @@ const HeroBanner = (props) => {
   return (
     <Grid container spacing={6} alignItems="center" sx={{ mt: "1.5rem" }}>
       <Grid item lg={6}>
-        <Typography variant="h2" component="h1" sx={{ fontWeight: "bold" }}>
+        <Typography variant="h3" component="h1" sx={{ fontWeight: "bold" }}>
           We want{" "}
           <Typography
-            variant="h2"
+            variant="h3"
             component="span"
             sx={{ color: "secondary.main", fontWeight: "bold" }}
           >

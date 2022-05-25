@@ -8,23 +8,17 @@ const HeroBanner = (props) => {
   return (
     <Grid container spacing={6} alignItems="center" sx={{ mt: "1.5rem" }}>
       <Grid item lg={6}>
-        {/* <Typography variant="h5" component="h3">
-          the
-          <Typography variant="h4" component="span" sx={{ fontWeight: "bold" }}>
-            100
-          </Typography>
-          club
-        </Typography> */}
-        <Typography variant="h2" component="h1" sx={{ fontWeight: "bold" }}>
+        <Typography variant="h3" component="h1" sx={{ fontWeight: "bold" }}>
           Exclusive{" "}
           <Typography
-            variant="h2"
+            variant="h3"
             component="span"
             sx={{ color: "secondary.main", fontWeight: "bold" }}
           >
             network
           </Typography>
-          <br></br> for Singaporean<br></br> entrepreneurs.
+          <br></br>
+          for Singaporean entrepreneurs.
         </Typography>
         <Typography variant="body1" sx={{ my: "2rem" }}>
           The 100 Club, is a mastermind community, that matches entrepreneurial
