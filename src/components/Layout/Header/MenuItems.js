@@ -18,6 +18,11 @@ const MenuItems = [
     title: "Join the Team",
     url: "/joinTheTeam",
   },
+
+  {
+    title: "Join",
+    url: "/join"
+  }
 ];
 
 export default MenuItems;
