@@ -19,22 +19,21 @@ const ProfileCard = (props) => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          transition: "transform 0.15s ease-in-out",
-          "&:hover": { transform: "scale3d(1.05, 1.05, 1)" , zIndex: 1},
+          transition: "transform 0.2s ease-in-out",
+          "&:hover": { transform: "scale3d(1.03, 1.03, 1)", zIndex: 1 },
         }}
       >
         <Box
           id="overlay"
           sx={{
             position: "absolute",
-            width: "100%", 
+            width: "100%",
             height: "100%",
             backdropFilter: "blur(8px)",
             zIndex: "1000",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            "&:hover": { transform: "scale3d(1.05, 1.05, 1)" , zIndex: 1},
           }}
         >
           <Button variant="contained">The 100-exclusive</Button>
