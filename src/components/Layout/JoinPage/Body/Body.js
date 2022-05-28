@@ -64,7 +64,7 @@ export default function SignUp() {
           by joining our waitlist. <br></br> <br></br>
           Do you have a business idea that you're eager to try out? Are you 
           keen on learning more about this mastermind community? Sign up for a
-          free account now and join the waitlist! 
+          free account now to join the waitlist! 
         
         </Typography>
         <Button
