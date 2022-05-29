@@ -39,10 +39,10 @@ export default function SignUp() {
     <Grid container component="main" sx={{ height: '100vh', mt: "10rem"}}>
     <CssBaseline />
     <Grid item
-          xs={2}
+          xs={false}
           sm={4}
           md={7}>
-      <Grid item lg={10}>
+      {/* <Grid item xs={12} sm={10} md={10} lg={10}> */}
         <Typography variant="h3" component="h1" sx={{ fontWeight: "bold" }}>
           Interested to find <br></br>out more?{" "}
           <Typography
@@ -72,8 +72,7 @@ export default function SignUp() {
           link="https://t.me/MrRaincloud"
           symbol="arrow"
         />
-      </Grid>
-      
+      {/* </Grid> */}
     </Grid>
     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
       <Box
