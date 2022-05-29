@@ -63,8 +63,8 @@ export default function SignUp() {
           July of 2022. In the meantime, you can learn more about the community
           by joining our waitlist. <br></br> <br></br>
           Do you have a business idea that you're eager to try out? Are you 
-          keen on learning more about this mastermind community? Sign up for a
-          free account now to join the waitlist! 
+          keen on learning more about this mastermind community? Create a free 
+          account to join our waitlist, and be notified on the launch of our next cohort.
         
         </Typography>
         <Button
