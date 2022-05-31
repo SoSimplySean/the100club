@@ -66,6 +66,7 @@ import React from "react";
 import Logo from "../../../assets/Logo.png";
 import MenuItems from "./MenuItems";
 import ImageGrid from "../../UI/ImageGrid/ImageGrid";
+import MyButton from "../../UI/Button/Button";
 
 import { Link as RouterLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
@@ -83,7 +84,6 @@ import MenuItem from "@mui/material/MenuItem";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import { Link } from "@mui/material";
 
-// const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Login"];
 
 const Header = () => {
@@ -236,23 +236,28 @@ const Header = () => {
                 </Button>
               </Link>
             ))}
+          </Box>
+
+          <Box sx={{ flexGrow: 0, display: "flex" }}>
+            <MyButton
+              text="Chat with Sean"
+              link="https://t.me/MrRaincloud"
+              symbol="arrow"
+              // sx={{ mr: 2 }}
+            />
             {/* <Button
-              key="waitlist"
-              onClick={toggle}
               sx={{
+                mr: 3,
                 my: 2,
                 color: "white",
-                display: "block",
+                display: { xs: "none", md: "block" },
                 fontWeight: "bold",
                 backgroundColor: "primary.main",
                 "&:hover": { backgroundColor: "black" },
               }}
             >
-              Join Waitlist
+              SIGN UP
             </Button> */}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Profile Photo" sx={{ bgcolor: "primary.main" }}>
