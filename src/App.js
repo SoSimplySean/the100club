@@ -3,11 +3,12 @@ import { Route, Routes } from "react-router-dom";
 
 import Header from "./components/Layout/Header/Header";
 import Footer from "./components/Layout/Footer/Footer";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage";         
 import DirectoryPage from "./pages/DirectoryPage";
 import SwagStorePage from "./pages/SwagStorePage";
 import JoinTeamPage from "./pages/JoinTeamPage";
 import JoinPage from "./pages/JoinPage";
+import LogInPage from "./pages/LogInPage";
 import { Popover } from "@typeform/embed-react";
 
 import {
@@ -16,7 +17,7 @@ import {
   responsiveFontSizes,
   Box,
 } from "@mui/material";
-
+    
 let theme = createTheme({
   palette: {
     type: "light",
@@ -67,6 +68,7 @@ function App() {
               <Route path="/directory" element={<DirectoryPage />} />
               <Route path="/joinTheTeam" element={<JoinTeamPage />} />
               <Route path="/join" element={<JoinPage />} />
+              <Route path="/login" element={<LogInPage />} />
             </Routes>
           </main>
           <Footer />
