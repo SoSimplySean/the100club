@@ -83,7 +83,6 @@ import MenuItem from "@mui/material/MenuItem";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import { Link } from "@mui/material";
 
-// const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Login"];
 
 const Header = () => {

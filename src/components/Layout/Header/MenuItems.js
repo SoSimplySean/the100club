@@ -1,9 +1,4 @@
 const MenuItems = [
-  // {
-  //   title: "Home",
-  //   url: "/",
-  // },
-
   {
     title: "Swag Store",
     url: "/store",
@@ -21,8 +16,8 @@ const MenuItems = [
 
   // {
   //   title: "Join",
-  //   url: "/join"
-  // }
+  //   url: "/join",
+  // },
 ];
 
 export default MenuItems;
