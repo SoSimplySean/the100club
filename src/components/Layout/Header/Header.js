@@ -80,11 +80,11 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import PermIdentityIcon from "@mui/icons-material/PermIdentity";
+// import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import AddIcon from "@mui/icons-material/Add";
 import { Link } from "@mui/material";
 
-const settings = ["Profile", "Account", "Logout"];
+// const settings = ["Profile", "Account", "Logout"];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
