@@ -37,9 +37,9 @@ export default function SignIn() {
   };
 
   return (
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="sm">
         <CssBaseline />
-        <Grid item xs={12} lg={5.5} component={Paper} elevation={6} square sx={{ height: "700px"}}>
+        <Grid item xs={12} lg={5.5} component={Paper} elevation={6} square sx={{ height: "700px" }}>
           <Box
             sx={{
               p: 2,
