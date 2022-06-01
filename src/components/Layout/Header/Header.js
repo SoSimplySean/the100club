@@ -80,10 +80,11 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import PermIdentityIcon from "@mui/icons-material/PermIdentity";
+// import PermIdentityIcon from "@mui/icons-material/PermIdentity";
+import AddIcon from "@mui/icons-material/Add";
 import { Link } from "@mui/material";
 
-const settings = ["Profile", "Account", "Login"];
+// const settings = ["Profile", "Account", "Logout"];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -255,7 +256,7 @@ const Header = () => {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Profile Photo" sx={{ bgcolor: "primary.main" }}>
-                  <PermIdentityIcon />
+                  <AddIcon />
                 </Avatar>
               </IconButton>
             </Tooltip>
@@ -275,13 +276,34 @@ const Header = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+              <Link
+                key={1}
+                component={RouterLink}
+                to={"/join"}
+                sx={{
+                  textDecoration: "none",
+                }}
+              >
+                <MenuItem key={1} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center" sx={{ fontWeight: "bold" }}>
-                    {setting}
+                    Sign Up
                   </Typography>
                 </MenuItem>
-              ))}
+              </Link>
+              <Link
+                key={2}
+                component={RouterLink}
+                to={"/login"}
+                sx={{
+                  textDecoration: "none",
+                }}
+              >
+                <MenuItem key={2} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center" sx={{ fontWeight: "bold" }}>
+                    Login
+                  </Typography>
+                </MenuItem>
+              </Link>
             </Menu>
           </Box>
         </Toolbar>
