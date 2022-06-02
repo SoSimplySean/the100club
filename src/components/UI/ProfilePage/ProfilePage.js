@@ -1,5 +1,3 @@
-import { Fragment } from "react";
-
 import Button from "../Button/Button";
 
 import { Grid, Typography, Avatar, Paper, Box } from "@mui/material";
@@ -36,19 +34,18 @@ const ProfilePage = (props) => {
         In Mastermind Group 002<br></br>
         From Singapore
       </Typography>
-      <Grid container rowSpacing={4} sx={{ maxWidth: "60%", mx: "auto" }}>
-        <Grid item xs={12} sm={6}>
-          <Button
-            text="Add to Key Connections"
-            link="https://t.me/MrRaincloud"
-            inverted="true"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Button text="Chat with Paul" link="https://t.me/MrRaincloud" />
-        </Grid>
-      </Grid>
-      <Paper sx={{ padding: "2rem", mt: "5rem", textAlign: "left" }}>
+      <Box sx={{ display: "flex", mx: "auto" }}>
+        <Button
+          text="Add to Key Connections"
+          link="https://t.me/MrRaincloud"
+          inverted="true"
+        />
+        <Button text="Chat with Paul" link="https://t.me/MrRaincloud" />
+      </Box>
+      <Paper
+        elevation={4}
+        sx={{ padding: "2rem", mt: "5rem", textAlign: "left" }}
+      >
         <Typography variant="h6" component="h3" sx={{ fontWeight: "bold" }}>
           About Paul
         </Typography>
@@ -85,7 +82,10 @@ const ProfilePage = (props) => {
           esse!
         </Typography>
       </Paper>
-      <Paper sx={{ padding: "2rem", mt: "3rem", textAlign: "left" }}>
+      <Paper
+        elevation={4}
+        sx={{ padding: "2rem", mt: "3rem", textAlign: "left" }}
+      >
         <Typography variant="h6" component="h3" sx={{ fontWeight: "bold" }}>
           About Dune
         </Typography>
@@ -111,7 +111,10 @@ const ProfilePage = (props) => {
         </Typography>
         <Typography variant="body1">F&B</Typography>
       </Paper>
-      <Paper sx={{ padding: "2rem", mt: "3rem", textAlign: "left" }}>
+      <Paper
+        elevation={4}
+        sx={{ padding: "2rem", mt: "3rem", textAlign: "left" }}
+      >
         <Typography variant="h6" component="h3" sx={{ fontWeight: "bold" }}>
           Mastermind Group
         </Typography>
@@ -121,7 +124,10 @@ const ProfilePage = (props) => {
           Lorem, ipsum dolor.<br></br>
         </Typography>
       </Paper>
-      <Paper sx={{ padding: "2rem", mt: "3rem", textAlign: "left" }}>
+      <Paper
+        elevation={4}
+        sx={{ padding: "2rem", mt: "3rem", textAlign: "left" }}
+      >
         <Typography variant="h6" component="h3" sx={{ fontWeight: "bold" }}>
           Contact
         </Typography>
