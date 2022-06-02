@@ -44,7 +44,7 @@ export default function SignUp() {
     <Grid
       container
       component="main"
-      sx={{ height: "1200px", mt: "5rem", justifyContent: "space-between" }} 
+      sx={{ height: "1200px", mt: "5rem", justifyContent: "space-between" }}
     >
       <CssBaseline />
       <Grid item xs={12} lg={5.5}>
@@ -71,7 +71,7 @@ export default function SignUp() {
           </Typography>
           <br></br>
           <br></br>
-          Right now we have a group of entreprenerus piloting our first ever
+          Right now we have a group of entrepreneurs piloting our first ever
           mastermind cohort. The next round of applications for the pro
           membership will reopen in July of 2022. In the meantime, create a free
           account to be notified when the next cohort launches. <br></br>{" "}
@@ -103,7 +103,7 @@ export default function SignUp() {
             component="form"
             noValidate
             onSubmit={handleSubmit}
-            sx={{ mt: 1 }} 
+            sx={{ mt: 1 }}
           >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
@@ -177,6 +177,5 @@ export default function SignUp() {
         </Box>
       </Grid>
     </Grid>
-
   );
 }
