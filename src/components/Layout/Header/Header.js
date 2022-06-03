@@ -66,7 +66,7 @@ import React from "react";
 import Logo from "../../../assets/Logo.png";
 import MenuItems from "./MenuItems";
 import ImageGrid from "../../UI/ImageGrid/ImageGrid";
-import MyButton from "../../UI/Button/Button";
+// import MyButton from "../../UI/Button/Button";
 
 import { Link as RouterLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
@@ -240,12 +240,12 @@ const Header = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0, display: "flex" }}>
-            <MyButton
+            {/* <MyButton
               text="Chat with Sean"
               link="https://t.me/MrRaincloud"
               symbol="arrow"
               // sx={{ mr: 2 }}
-            />
+            /> */}
             {/* <Button
               sx={{
                 mr: 3,
