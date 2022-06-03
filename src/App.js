@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import { Route, Routes } from "react-router-dom";
 
 import Header from "./components/Layout/Header/Header";
 import Footer from "./components/Layout/Footer/Footer";
@@ -10,6 +9,9 @@ import JoinTeamPage from "./pages/JoinTeamPage";
 import JoinPage from "./pages/JoinPage";
 import LogInPage from "./pages/LogInPage";
 import ProfilePage from "./components/UI/ProfilePage/ProfilePage";
+import UserDashboard from "./components/UI/UserDashboard/UserDashboard";
+
+import { Route, Routes } from "react-router-dom";
 import { Popover } from "@typeform/embed-react";
 
 import {
@@ -71,6 +73,7 @@ function App() {
               <Route path="/join" element={<JoinPage />} />
               <Route path="/login" element={<LogInPage />} />
               <Route path="/profilePage" element={<ProfilePage />} />
+              <Route path="/userDashboard" element={<UserDashboard />} />
             </Routes>
           </main>
           <Footer />

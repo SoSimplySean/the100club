@@ -75,7 +75,7 @@ const ProfilePage = (props) => {
           component="h3"
           sx={{ fontWeight: "bold", mt: "2rem" }}
         >
-          Paul's current goal is to:
+          Networking Objective:
         </Typography>
         <Typography variant="body1">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente,
