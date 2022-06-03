@@ -8,6 +8,8 @@ import DirectoryPage from "./pages/DirectoryPage";
 import SwagStorePage from "./pages/SwagStorePage";
 import JoinTeamPage from "./pages/JoinTeamPage";
 import JoinPage from "./pages/JoinPage";
+import LogInPage from "./pages/LogInPage";
+import ProfilePage from "./components/UI/ProfilePage/ProfilePage";
 import { Popover } from "@typeform/embed-react";
 
 import {
@@ -67,6 +69,8 @@ function App() {
               <Route path="/directory" element={<DirectoryPage />} />
               <Route path="/joinTheTeam" element={<JoinTeamPage />} />
               <Route path="/join" element={<JoinPage />} />
+              <Route path="/login" element={<LogInPage />} />
+              <Route path="/profilePage" element={<ProfilePage />} />
             </Routes>
           </main>
           <Footer />
