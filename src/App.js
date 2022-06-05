@@ -18,6 +18,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from './api';
 import AuthPage from "./pages/AuthPage";
 import Account from "./pages/Account";
+import SupabaseApp from "./pages/SupabaseApp";
 
 import {
   createTheme,
@@ -98,7 +99,7 @@ function App() {
                   <Route path="/userDashboard" element={<UserDashboard />} />
                 )
               }
-              <Route path="/auth" element={<AuthPage />} />
+              <Route path="/auth" element={<SupabaseApp />} />
               <Route path="/acc" element={<Account />} />
             </Routes>
           </main>
