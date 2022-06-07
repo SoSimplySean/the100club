@@ -8,17 +8,21 @@ import SwagStorePage from "./pages/SwagStorePage";
 import JoinTeamPage from "./pages/JoinTeamPage";
 import JoinPage from "./pages/JoinPage";
 import LogInPage from "./pages/LogInPage";
+// import AuthPage from "./pages/AuthPage";
+// import Account from "./pages/Account";
+// import SupabaseApp from "./pages/SupabaseApp";
+import SeanSignup from "./pages/SeanSignup";
+import SeanLogin from "./pages/SeanLogin";
+import SeanDashboard from "./pages/SeanDashboard";
 import ProfilePage from "./components/UI/ProfilePage/ProfilePage";
 import UserDashboard from "./components/UI/UserDashboard/UserDashboard";
+import { AuthProvider } from "./components/Context/AuthProvider";
+import { supabase } from "./api";
 
 import { Route, Routes } from "react-router-dom";
 import { Popover } from "@typeform/embed-react";
 
-import { useState, useEffect } from 'react';
-import { supabase } from './api';
-import AuthPage from "./pages/AuthPage";
-import Account from "./pages/Account";
-import SupabaseApp from "./pages/SupabaseApp";
+import { useState, useEffect } from "react";
 
 import {
   createTheme,
@@ -60,52 +64,59 @@ theme = responsiveFontSizes(theme);
 
 function App() {
   const [user, setUser] = useState(null);
+
   useEffect(() => {
-    const { data: authListener } = supabase.auth.onAuthStateChange(
-      async () => checkUser()
-    )
-    checkUser()
+    const { data: authListener } = supabase.auth.onAuthStateChange(async () =>
+      checkUser()
+    );
+    checkUser();
     return () => {
-      authListener?.unsubscribe()
+      authListener?.unsubscribe();
     };
-  }, [])
+  }, []);
+
   async function checkUser() {
-    const user = supabase.auth.user()
-    setUser(user)
+    const user = supabase.auth.user();
+    setUser(user);
   }
+
   return (
     <ThemeProvider theme={theme}>
-      <Fragment>
-        <Box sx={styles.container}>
-          <Popover
-            id="Wg8EdlDs"
-            buttonColor="#00203F"
-            customIcon="<span>&#9820;</span>"
-            size="100"
-          />
-          <Header />
-          <main>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/store" element={<SwagStorePage />} />
-              <Route path="/directory" element={<DirectoryPage />} />
-              <Route path="/joinTheTeam" element={<JoinTeamPage />} />
-              <Route path="/join" element={<JoinPage />} />
-              <Route path="/login" element={<LogInPage />} />
-              <Route path="/profilePage" element={<ProfilePage />} />
-              
-              {
-                user && (
+      <AuthProvider>
+        <Fragment>
+          <Box sx={styles.container}>
+            <Popover
+              id="Wg8EdlDs"
+              buttonColor="#00203F"
+              customIcon="<span>&#9820;</span>"
+              size="100"
+            />
+            <Header />
+            <main>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/store" element={<SwagStorePage />} />
+                <Route path="/directory" element={<DirectoryPage />} />
+                <Route path="/joinTheTeam" element={<JoinTeamPage />} />
+                <Route path="/join" element={<JoinPage />} />
+                <Route path="/login" element={<LogInPage />} />
+                <Route path="/profilePage" element={<ProfilePage />} />
+
+                {user && (
                   <Route path="/userDashboard" element={<UserDashboard />} />
-                )
-              }
-              <Route path="/auth" element={<SupabaseApp />} />
-              <Route path="/acc" element={<Account />} />
-            </Routes>
-          </main>
-          <Footer />
-        </Box>
-      </Fragment>
+                )}
+                {/* <Route path="/auth" element={<SupabaseApp />} /> */}
+                {/* <Route path="/acc" element={<Account />} />
+                <Route path="/authPage" element={<AuthPage />} /> */}
+                <Route path="/seanSignup" element={<SeanSignup />} />
+                <Route path="/seanLogin" element={<SeanLogin />} />
+                <Route path="/seanDashboard" element={<SeanDashboard />} />
+              </Routes>
+            </main>
+            <Footer />
+          </Box>
+        </Fragment>
+      </AuthProvider>
     </ThemeProvider>
   );
 }
