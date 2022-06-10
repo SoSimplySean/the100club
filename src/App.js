@@ -6,19 +6,18 @@ import HomePage from "./pages/HomePage";
 import DirectoryPage from "./pages/DirectoryPage";
 import SwagStorePage from "./pages/SwagStorePage";
 import JoinTeamPage from "./pages/JoinTeamPage";
-import JoinPage from "./pages/JoinPage";
-import LogInPage from "./pages/LogInPage";
 import ProfilePage from "./components/UI/ProfilePage/ProfilePage";
-import UserDashboard from "./components/UI/UserDashboard/UserDashboard";
 
 import { Route, Routes } from "react-router-dom";
 import { Popover } from "@typeform/embed-react";
 
 import { useState, useEffect } from 'react';
 import { supabase } from './api';
-import AuthPage from "./pages/AuthPage";
-import Account from "./pages/Account";
-import SupabaseApp from "./pages/SupabaseApp";
+import { AuthProvider } from "./components/Context/AuthProvider";
+import LogIn from "./pages/LogIn";
+import SignUp from "./pages/SignUp";
+import UserDashboard from "./pages/UserDashboard";
+
 
 import {
   createTheme,
@@ -60,52 +59,54 @@ theme = responsiveFontSizes(theme);
 
 function App() {
   const [user, setUser] = useState(null);
+
   useEffect(() => {
-    const { data: authListener } = supabase.auth.onAuthStateChange(
-      async () => checkUser()
-    )
-    checkUser()
+    const { data: authListener } = supabase.auth.onAuthStateChange(async () =>
+      checkUser()
+    );
+    checkUser();
     return () => {
-      authListener?.unsubscribe()
+      authListener?.unsubscribe();
     };
-  }, [])
+  }, []);
+
   async function checkUser() {
-    const user = supabase.auth.user()
-    setUser(user)
+    const user = supabase.auth.user();
+    setUser(user);
   }
   return (
     <ThemeProvider theme={theme}>
-      <Fragment>
-        <Box sx={styles.container}>
-          <Popover
-            id="Wg8EdlDs"
-            buttonColor="#00203F"
-            customIcon="<span>&#9820;</span>"
-            size="100"
-          />
-          <Header />
-          <main>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/store" element={<SwagStorePage />} />
-              <Route path="/directory" element={<DirectoryPage />} />
-              <Route path="/joinTheTeam" element={<JoinTeamPage />} />
-              <Route path="/join" element={<JoinPage />} />
-              <Route path="/login" element={<LogInPage />} />
-              <Route path="/profilePage" element={<ProfilePage />} />
-              
-              {
-                user && (
-                  <Route path="/userDashboard" element={<UserDashboard />} />
-                )
-              }
-              <Route path="/auth" element={<SupabaseApp />} />
-              <Route path="/acc" element={<Account />} />
-            </Routes>
-          </main>
-          <Footer />
-        </Box>
-      </Fragment>
+      <AuthProvider>
+        <Fragment>
+          <Box sx={styles.container}>
+            <Popover
+              id="Wg8EdlDs"
+              buttonColor="#00203F"
+              customIcon="<span>&#9820;</span>"
+              size="100"
+            />
+            <Header />
+            <main>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/store" element={<SwagStorePage />} />
+                <Route path="/directory" element={<DirectoryPage />} />
+                <Route path="/joinTheTeam" element={<JoinTeamPage />} />
+                <Route path="/join" element={<SignUp />} />
+                <Route path="/login" element={<LogIn />} />
+                <Route path="/profilePage" element={<ProfilePage />} />
+                <Route path="/userDashboard" element={<UserDashboard />} />
+                {
+                  user && (
+                    <Route path="/userDashboard" element={<UserDashboard />} />
+                  )
+                }
+              </Routes>
+            </main>
+            <Footer />
+          </Box>
+        </Fragment>
+      </AuthProvider>
     </ThemeProvider>
   );
 }
