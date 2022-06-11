@@ -16,7 +16,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '../api'
 
 export default function SignUp() {
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [username, setUsername] = useState(null)
@@ -35,26 +35,6 @@ export default function SignUp() {
         console.log("swerwewdasdsd")
         if (session) getProfile();
     }, [session]);
-
-    // okay basically here i need to setEmail or setUdername for every event
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     const data = new FormData(event.currentTarget);
-    //     console.log({
-    //     email: data.get("email"),
-    //     password: data.get("password"),
-    //     username: data.get("username"),
-    //     });
-    //     for (var key of data.keys()) {
-    //       if (key === "username") {
-    //         setUsername(data.get("username"));
-    //       } else if (key === "email") {
-    //         setUsername(data.get("email"));
-    //       } else if (key === "password") {
-    //         setUsername(data.get("password"));
-    //       }
-    //     }
-    // };
 
     const handleLogin = async (e) => {
       e.preventDefault()
@@ -78,7 +58,7 @@ export default function SignUp() {
   
         let { data, error, status } = await supabase
           .from('profiles')
-          .select(`username, email, password`)
+          .select(`username`)
           .eq('id', user.id)
           .single()
   
@@ -171,6 +151,7 @@ export default function SignUp() {
                   id="username"
                   label="Username"
                   name="username"
+                  value={username}
                   autoFocus
                   onChange={(e) => setUsername(e.target.value)}
                 />
@@ -182,6 +163,7 @@ export default function SignUp() {
                   id="email"
                   label="Email Address"
                   name="email"
+                  value={email}
                   autoComplete="off"
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -194,6 +176,7 @@ export default function SignUp() {
                   label="Password"
                   type="password"
                   id="password"
+                  value={password}
                   autoComplete="off"
                   onChange={(e) => setPassword(e.target.value)}
                 />

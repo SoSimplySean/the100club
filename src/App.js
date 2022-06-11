@@ -6,8 +6,7 @@ import HomePage from "./pages/HomePage";
 import DirectoryPage from "./pages/DirectoryPage";
 import SwagStorePage from "./pages/SwagStorePage";
 import JoinTeamPage from "./pages/JoinTeamPage";
-import JoinPage from "./pages/JoinPage";
-import LogInPage from "./pages/LogInPage";
+import SignIn from "./pages/SupabaseLogin";
 import ProfilePage from "./components/UI/ProfilePage/ProfilePage";
 import UserDashboard from "./components/UI/UserDashboard/UserDashboard";
 
@@ -16,7 +15,6 @@ import { Popover } from "@typeform/embed-react";
 
 import { useState, useEffect } from 'react';
 import { supabase } from './api';
-import AuthPage from "./pages/AuthPage";
 import Account from "./pages/Account";
 import SupabaseApp from "./pages/SupabaseApp";
 
@@ -90,8 +88,8 @@ function App() {
               <Route path="/store" element={<SwagStorePage />} />
               <Route path="/directory" element={<DirectoryPage />} />
               <Route path="/joinTheTeam" element={<JoinTeamPage />} />
-              <Route path="/join" element={<JoinPage />} />
-              <Route path="/login" element={<LogInPage />} />
+              <Route path="/join" element={<SupabaseApp />} />
+              <Route path="/login" element={<SignIn />} />
               <Route path="/profilePage" element={<ProfilePage />} />
               
               {
