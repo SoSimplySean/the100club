@@ -178,7 +178,7 @@ const UserDashboard = () => {
         >
           Networking Objective
         </Typography>
-        <TextField hiddenLabel size="small" select fullWidth>
+        <TextField hiddenLabel size="small" select fullWidth >
           <MenuItem key={1} value={"Find a co-founder"}>
             Find a co-founder
           </MenuItem>

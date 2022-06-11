@@ -6,17 +6,16 @@ import HomePage from "./pages/HomePage";
 import DirectoryPage from "./pages/DirectoryPage";
 import SwagStorePage from "./pages/SwagStorePage";
 import JoinTeamPage from "./pages/JoinTeamPage";
-import SignIn from "./pages/SupabaseLogin";
 import ProfilePage from "./components/UI/ProfilePage/ProfilePage";
-import UserDashboard from "./components/UI/UserDashboard/UserDashboard";
+import UserDashboard from "./components/UI/UserDashboard/UserDashboard"; 
 
 import { Route, Routes } from "react-router-dom";
 import { Popover } from "@typeform/embed-react";
 
 import { useState, useEffect } from 'react';
 import { supabase } from './api';
-import Account from "./pages/Account";
-import SignUp from "./pages/SupabaseSignUp";
+import SignUpControl from "./pages/SignUpControl";
+import LogInControl from "./pages/LogInControl";
 
 import {
   createTheme,
@@ -88,17 +87,16 @@ function App() {
               <Route path="/store" element={<SwagStorePage />} />
               <Route path="/directory" element={<DirectoryPage />} />
               <Route path="/joinTheTeam" element={<JoinTeamPage />} />
-              <Route path="/join" element={<SignUp />} />
-              <Route path="/login" element={<SignIn />} />
+              <Route path="/join" element={<SignUpControl />} />
+              <Route path="/login" element={<LogInControl />} />
               <Route path="/profilePage" element={<ProfilePage />} />
               
               {
                 user && (
-                  <Route path="/userDashboard" element={<UserDashboard />} />
+                  <Route path="/dashboard" element={<UserDashboard />} />
                 )
               }
-              <Route path="/auth" element={<SignUp />} />
-              <Route path="/acc" element={<Account />} />
+
             </Routes>
           </main>
           <Footer />

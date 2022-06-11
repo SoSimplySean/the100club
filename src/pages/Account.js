@@ -1,7 +1,23 @@
+import React from "react";
+
+import {
+  Grid,
+  Paper,
+  Typography,
+  Avatar,
+  TextField,
+  Button,
+  Box,
+} from "@mui/material";
+
 import { useState, useEffect } from 'react'
 import { supabase } from '../api'
 
-const Account = ({ session }) => {
+
+
+// ******************************************************************************************************************************
+
+const SAccount = ({ session }) => {
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState(null)
   const [website, setWebsite] = useState(null)
@@ -72,38 +88,106 @@ const Account = ({ session }) => {
       {loading ? (
         'Saving ...'
       ) : (
-        <form onSubmit={updateProfile} className="form-widget">
-          <div>Email: {session.user.email}</div>
-          <div>
-            <label htmlFor="username">Name</label>
-            <input
-              id="username"
-              type="text"
-              value={username || ''}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="website">Website</label>
-            <input
-              id="website"
-              type="url"
-              value={website || ''}
-              onChange={(e) => setWebsite(e.target.value)}
-            />
-          </div>
-          <div>
-            <button className="button block primary" disabled={loading}>
-              Update profile
-            </button>
-          </div>
-        </form>
+        <Grid>
+          <Box component="form" onSubmit={updateProfile} noValidate sx={{ mt: 1 }}>
+            <Paper
+              elevation={4}
+              sx={{ padding: "2rem", mt: "2rem", textAlign: "center" }}
+            >
+              <Avatar
+                alt="Remy Sharp"
+                src="https://picsum.photos/200"
+                sx={{ width: 150, height: 150, mx: "auto" }}
+              />
+              <Typography
+                variant="subtitle2"
+                sx={{ mt: "1.5rem", maxWidth: "250px", mx: "auto" }}
+              >
+                Image must be .jpg or .png with minimum size of 160x160 pixels.
+              </Typography>
+            </Paper>
+            <Paper
+              elevation={4}
+              sx={{ padding: "2rem", mt: "2rem", textAlign: "left" }}
+            >
+              <Typography
+                variant="subtitle1"
+                component="h3"
+                sx={{ fontWeight: "bold" }}
+              >
+                Email: {session.user.email}
+              </Typography>
+            </Paper>
+            <Paper
+              elevation={4}
+              sx={{ padding: "2rem", mt: "2rem", textAlign: "left" }}
+            >
+              {/* NAME */}
+              <Typography
+                variant="subtitle2"
+                component="h3"
+                sx={{ fontWeight: "bold" }}
+              >
+                Name
+              </Typography>
+              <TextField
+                hiddenLabel
+                multiline
+                rows={4}
+                fullWidth
+                size="small"
+                variant="outlined"
+                id="username"
+                type="text"
+                value={username || ''}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+
+              {/* WEBSITE */}
+              <Typography
+                variant="subtitle2"
+                component="h3"
+                sx={{ fontWeight: "bold", mt: "1.5rem" }}
+              >
+                Website
+              </Typography>
+              <TextField
+                hiddenLabel
+                multiline
+                rows={4}
+                fullWidth
+                size="small"
+                variant="outlined"
+                id="website"
+                type="url"
+                value={website || ''}
+                onChange={(e) => setWebsite(e.target.value)}
+                sx ={{ mb: "1.5rem" }}
+              />
+            </Paper>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 3 }}
+            >
+              Update Profile
+            </Button>
+          </Box>
+        </Grid>
       )}
-      <button type="button" className="button block" onClick={() => supabase.auth.signOut()}>
+      
+      <Button
+        type="button"
+        fullWidth
+        variant="contained"
+        color="secondary"
+        onClick={() => supabase.auth.signOut()}
+      >
         Sign Out
-      </button>
+      </Button>
     </div>
   )
 }
 
-export default Account
+export default SAccount

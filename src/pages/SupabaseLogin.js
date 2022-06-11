@@ -22,7 +22,7 @@ export default function SignIn() {
     const [password, setPassword] = useState('')
 
     const handleLogin = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         const data = new FormData(e.currentTarget);
         console.log({
         email: data.get('email'),
@@ -33,14 +33,13 @@ export default function SignIn() {
         setLoading(true)
         const { error } = await supabase.auth.signIn({ email, password })
         if (error) throw error
-        alert('Succesfully signed in!')
+        alert('Succesfully signed in!');
         } catch (error) {
         alert(error.error_description || error.message)
         } finally {
         setLoading(false)
         }
     }
-
 
   return (
       <Container component="main" maxWidth="sm">
