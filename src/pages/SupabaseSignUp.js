@@ -12,36 +12,20 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { supabase } from '../api'
 
 export default function SignUp() {
     const [loading, setLoading] = useState(false)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [username, setUsername] = useState(null)
-    const [session, setSession] = useState(null)
-    
-    useEffect(() => {
-        setSession(supabase.auth.session())
-    
-        supabase.auth.onAuthStateChange((_event, session) => {
-          setSession(session)
-        })
-      }, [])
-
-    useEffect(() => {
-        console.log(session)
-        console.log("swerwewdasdsd")
-        if (session) getProfile();
-    }, [session]);
 
     const handleLogin = async (e) => {
       e.preventDefault()
   
       try {
         setLoading(true)
-        const { error } = await supabase.auth.signUp({ username, email, password })
+        const { error } = await supabase.auth.signUp({ email, password })
         if (error) throw error
         alert('Thanks for signing up!')
       } catch (error) {
@@ -51,32 +35,7 @@ export default function SignUp() {
       }
     }
 
-    const getProfile = async () => {
-      try {
-        setLoading(true)
-        const user = supabase.auth.user()
   
-        let { data, error, status } = await supabase
-          .from('profiles')
-          .select(`username`)
-          .eq('id', user.id)
-          .single()
-  
-        if (error && status !== 406) {
-          throw error
-        }
-  
-        if (data) {
-          setUsername(data.username)
-          setEmail(data.email)
-          setPassword(data.password)
-        }
-      } catch (error) {
-        alert(error.message)
-      } finally {
-        setLoading(false)
-      }
-    }
 
   return (
     <Grid
@@ -144,18 +103,6 @@ export default function SignUp() {
             sx={{ mt: 1 }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="username"
-                  label="Username"
-                  name="username"
-                  value={username}
-                  autoFocus
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </Grid>
               <Grid item xs={12}>
                 <TextField
                   required

@@ -16,7 +16,7 @@ import { Popover } from "@typeform/embed-react";
 import { useState, useEffect } from 'react';
 import { supabase } from './api';
 import Account from "./pages/Account";
-import SupabaseApp from "./pages/SupabaseApp";
+import SignUp from "./pages/SupabaseSignUp";
 
 import {
   createTheme,
@@ -88,7 +88,7 @@ function App() {
               <Route path="/store" element={<SwagStorePage />} />
               <Route path="/directory" element={<DirectoryPage />} />
               <Route path="/joinTheTeam" element={<JoinTeamPage />} />
-              <Route path="/join" element={<SupabaseApp />} />
+              <Route path="/join" element={<SignUp />} />
               <Route path="/login" element={<SignIn />} />
               <Route path="/profilePage" element={<ProfilePage />} />
               
@@ -97,7 +97,7 @@ function App() {
                   <Route path="/userDashboard" element={<UserDashboard />} />
                 )
               }
-              <Route path="/auth" element={<SupabaseApp />} />
+              <Route path="/auth" element={<SignUp />} />
               <Route path="/acc" element={<Account />} />
             </Routes>
           </main>

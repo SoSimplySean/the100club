@@ -13,28 +13,34 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Paper from "@mui/material/Paper";
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        the100club
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import { useState } from 'react'
+import { supabase } from '../api'
 
 export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+    const [loading, setLoading] = useState(false)
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleLogin = async (e) => {
+        e.preventDefault()
+        const data = new FormData(e.currentTarget);
+        console.log({
+        email: data.get('email'),
+        password: data.get('password'),
+        });
+
+        try {
+        setLoading(true)
+        const { error } = await supabase.auth.signIn({ email, password })
+        if (error) throw error
+        alert('Succesfully signed in!')
+        } catch (error) {
+        alert(error.error_description || error.message)
+        } finally {
+        setLoading(false)
+        }
+    }
+
 
   return (
       <Container component="main" maxWidth="sm">
@@ -56,7 +62,7 @@ export default function SignIn() {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <Box component="form" onSubmit={handleLogin} noValidate sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -66,6 +72,7 @@ export default function SignIn() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                onChange={(e) => setEmail(e.target.value)}
               />
               <TextField
                 margin="normal"
@@ -76,6 +83,7 @@ export default function SignIn() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e) => setPassword(e.target.value)}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -103,7 +111,7 @@ export default function SignIn() {
               </Grid>
             </Box>
           </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+          {loading ? <p>Loading</p> : ""}
         </Grid>
       </Container>
   );
