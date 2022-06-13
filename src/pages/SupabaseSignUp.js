@@ -154,7 +154,7 @@ export default function SignUp() {
             </Grid>
 
           </Box>
-          {loading ? <p>Loading</p> : ""}
+          {loading ? <Box sx={{ padding: "2rem", mt: "2rem", textAlign: "center" }}>Loading . . .</Box> : ""}
         </Box>
       </Grid>
     </Grid>

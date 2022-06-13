@@ -110,7 +110,7 @@ export default function SignIn() {
               </Grid>
             </Box>
           </Box>
-          {loading ? <p>Loading</p> : ""}
+          {loading ? <Box sx={{ padding: "2rem", mt: "2rem", textAlign: "center" }}>Loading . . .</Box> : ""}
         </Grid>
       </Container>
   );
