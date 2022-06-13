@@ -285,6 +285,20 @@ const Header = () => {
               <Link
                 key={1}
                 component={RouterLink}
+                to={"/dashboard"}
+                sx={{
+                  textDecoration: "none",
+                }}
+              >
+                <MenuItem key={1} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center" sx={{ fontWeight: "bold" }}>
+                    Dashboard
+                  </Typography>
+                </MenuItem>
+              </Link>
+              <Link
+                key={1}
+                component={RouterLink}
                 to={"/join"}
                 sx={{
                   textDecoration: "none",
