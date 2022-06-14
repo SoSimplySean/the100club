@@ -1,8 +1,10 @@
 import React from "react";
 
 import EditProfile from "./EditProfile";
+import ApplicationProcess from "./ApplicationProcess/ApplicationProcess";
 
 import { Grid, Paper, Typography, Avatar, MenuItem } from "@mui/material";
+import { Link, Route, Routes } from "react-router-dom";
 
 const UserDashboard = () => {
   return (
@@ -25,20 +27,33 @@ const UserDashboard = () => {
       </Paper>
       <Paper
         elevation={4}
-        sx={{ padding: "2rem", mt: "2rem", textAlign: "center" }}
+        sx={{
+          padding: "2rem",
+          mt: "2rem",
+          textAlign: "center",
+        }}
       >
-        <MenuItem key={1} divider="true" value={"Application"}>
-          Apply to become a member of The 100 Club
-        </MenuItem>
-        <MenuItem key={1} divider="true" value={"Edit Profile"}>
-          Edit Profile
-        </MenuItem>
+        <Link to="application">
+          <MenuItem key={1} divider="true" value={"Application"}>
+            Apply to become a member of The 100 Club
+          </MenuItem>
+        </Link>
+
+        <Link to="editProfile">
+          <MenuItem key={1} divider="true" value={"Edit Profile"}>
+            Edit Profile
+          </MenuItem>
+        </Link>
+
         <MenuItem key={2} value={"Log Out"}>
           Logout
         </MenuItem>
       </Paper>
-      {/* Add router stuff */}
-      <EditProfile />
+
+      <Routes>
+        <Route path="editProfile" element={<EditProfile />} />
+        <Route path="application" element={<ApplicationProcess />} />
+      </Routes>
     </Grid>
   );
 };
