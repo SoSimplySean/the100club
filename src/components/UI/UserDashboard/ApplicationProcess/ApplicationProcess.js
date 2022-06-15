@@ -5,7 +5,7 @@ import StepTwoStatus from "./StepTwoStatus";
 import StepThreePayment from "./StepThreePayment";
 import Completed from "./Completed";
 
-import { Paper, Typography } from "@mui/material";
+import { Paper } from "@mui/material";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
