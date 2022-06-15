@@ -34,14 +34,25 @@ const UserDashboard = () => {
           textAlign: "center",
         }}
       >
-        <Link to="application">
-          <MenuItem key={1} divider="true" value={"Application"}>
+        <Link to="application" style={{ textDecoration: "none" }}>
+          <MenuItem
+            key={1}
+            divider="true"
+            value={"Application"}
+            sx={{ color: "primary.main" }}
+          >
             Apply to become a member of The 100 Club
           </MenuItem>
         </Link>
 
-        <Link to="editProfile">
-          <MenuItem key={1} divider="true" value={"Edit Profile"}>
+        <Link to="editProfile" style={{ textDecoration: "none" }}>
+          <MenuItem
+            key={1}
+            divider="true"
+            value={"Edit Profile"}
+            sx={{ color: "primary.main" }}
+            selected
+          >
             Edit Profile
           </MenuItem>
         </Link>
@@ -56,6 +67,7 @@ const UserDashboard = () => {
       </Paper>
 
       <Routes>
+        <Route path="/" element={<EditProfile />} />
         <Route path="editProfile" element={<EditProfile />} />
         <Route path="application" element={<ApplicationProcess />} />
       </Routes>
