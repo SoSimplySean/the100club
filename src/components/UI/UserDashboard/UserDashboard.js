@@ -3,7 +3,15 @@ import React from "react";
 import EditProfile from "./EditProfile";
 import ApplicationProcess from "./ApplicationProcess/ApplicationProcess";
 
-import { Grid, Paper, Typography, Avatar, MenuItem } from "@mui/material";
+import {
+  Grid,
+  Paper,
+  Typography,
+  Avatar,
+  MenuItem,
+  Chip,
+  Tooltip,
+} from "@mui/material";
 import { Link, Route, Routes } from "react-router-dom";
 import { supabase } from "../../../api";
 
@@ -25,6 +33,9 @@ const UserDashboard = () => {
         >
           Image must be .jpg or .png with minimum size of 160x160 pixels.
         </Typography>
+        <Tooltip title="You are currently part of our waitlist. Apply in the next cohort to become a member of The 100 Club.">
+          <Chip label="Waitlist Member" color="primary" sx={{ mt: "1.5rem" }} />
+        </Tooltip>
       </Paper>
       <Paper
         elevation={4}
@@ -41,7 +52,7 @@ const UserDashboard = () => {
             value={"Application"}
             sx={{ color: "primary.main" }}
           >
-            Apply to become a member of The 100 Club
+            Apply to become a member of The 100 Club ★
           </MenuItem>
         </Link>
 
