@@ -5,6 +5,7 @@ import ApplicationProcess from "./ApplicationProcess/ApplicationProcess";
 
 import { Grid, Paper, Typography, Avatar, MenuItem } from "@mui/material";
 import { Link, Route, Routes } from "react-router-dom";
+import { supabase } from "../../../api";
 
 const UserDashboard = () => {
   return (
@@ -45,7 +46,11 @@ const UserDashboard = () => {
           </MenuItem>
         </Link>
 
-        <MenuItem key={2} value={"Log Out"}>
+        <MenuItem
+          key={2}
+          value={"Log Out"}
+          onClick={() => supabase.auth.signOut()}
+        >
           Logout
         </MenuItem>
       </Paper>
