@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../api'
-import SAccount from './Account'
 import SignUp from './SupabaseSignUp'
+import EditProfile from '../components/UI/UserDashboard/EditProfile'
 
 export default function LogInControl() {
   const [session, setSession] = useState(null)
@@ -16,7 +16,7 @@ export default function LogInControl() {
 
   return (
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      {!session ? <SignUp /> : <SAccount key={session.user.id} session={session} />}
+      {!session ? <SignUp /> : <EditProfile key={session.user.id} session={session} />}
     </div>
   )
 }

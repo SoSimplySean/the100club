@@ -12,8 +12,6 @@ import UserDashboard from "./components/UI/UserDashboard/UserDashboard";
 import { Route, Routes } from "react-router-dom";
 import { Popover } from "@typeform/embed-react";
 
-import { useState, useEffect } from "react";
-import { supabase } from "./api";
 import SignUpControl from "./pages/SignUpControl";
 import LogInControl from "./pages/LogInControl";
 
@@ -56,20 +54,6 @@ const styles = {
 theme = responsiveFontSizes(theme);
 
 function App() {
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    const { data: authListener } = supabase.auth.onAuthStateChange(async () =>
-      checkUser()
-    );
-    checkUser();
-    return () => {
-      authListener?.unsubscribe();
-    };
-  }, []);
-  async function checkUser() {
-    const user = supabase.auth.user();
-    setUser(user);
-  }
   return (
     <ThemeProvider theme={theme}>
       <Fragment>
@@ -90,10 +74,7 @@ function App() {
               <Route path="/join" element={<SignUpControl />} />
               <Route path="/login" element={<LogInControl />} />
               <Route path="/profilePage" element={<ProfilePage />} />
-
-              {user && (
-                <Route path="/dashboard/*" element={<UserDashboard />} />
-              )}
+              <Route path="/dashboard/*" element={<UserDashboard />} />
             </Routes>
           </main>
           <Footer />
