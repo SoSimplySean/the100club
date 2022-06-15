@@ -5,6 +5,7 @@ import {
   Paper,
   Typography,
   Avatar,
+  MenuItem,
   TextField,
   Button,
   Box,
@@ -21,7 +22,16 @@ const SAccount = ({ session }) => {
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState(null)
   const [website, setWebsite] = useState(null)
-  const [avatar_url, setAvatarUrl] = useState(null)
+  const [email, setEmail] = useState(null)
+
+  const [about, setAbout] = useState(null)
+  const [age, setAge] = useState(null)
+  const [skills, setSkills] = useState(null)
+  const [networking, setNetworking] = useState(null)
+
+  const [company, setCompany] = useState(null)
+  const [founded, setFounded] = useState(null)
+  const [industry, setIndustry] = useState(null)
 
   useEffect(() => {
     getProfile()
@@ -34,7 +44,7 @@ const SAccount = ({ session }) => {
 
       let { data, error, status } = await supabase
         .from('profiles')
-        .select(`username, website, avatar_url`)
+        .select(`username, website, email, about, age, skills, networking, company, founded, industry`)
         .eq('id', user.id)
         .single()
 
@@ -45,7 +55,14 @@ const SAccount = ({ session }) => {
       if (data) {
         setUsername(data.username)
         setWebsite(data.website)
-        setAvatarUrl(data.avatar_url)
+        setEmail(data.email)
+        setAbout(data.about)
+        setAge(data.age)
+        setSkills(data.skills)
+        setNetworking(data.networking)
+        setCompany(data.company)
+        setFounded(data.founded)
+        setIndustry(data.industry)
       }
     } catch (error) {
       alert(error.message)
@@ -65,7 +82,14 @@ const SAccount = ({ session }) => {
         id: user.id,
         username,
         website,
-        avatar_url,
+        email,
+        about,
+        age,
+        skills,
+        networking,
+        company,
+        founded,
+        industry,
         updated_at: new Date(),
       }
 
@@ -133,7 +157,7 @@ const SAccount = ({ session }) => {
               <TextField
                 hiddenLabel
                 multiline
-                rows={4}
+                rows={1}
                 fullWidth
                 size="small"
                 variant="outlined"
@@ -154,7 +178,7 @@ const SAccount = ({ session }) => {
               <TextField
                 hiddenLabel
                 multiline
-                rows={4}
+                rows={1}
                 fullWidth
                 size="small"
                 variant="outlined"
@@ -164,7 +188,178 @@ const SAccount = ({ session }) => {
                 onChange={(e) => setWebsite(e.target.value)}
                 sx ={{ mb: "1.5rem" }}
               />
+
+              {/* EMAIL */}
+              <Typography
+                variant="subtitle2"
+                component="h3"
+                sx={{ fontWeight: "bold" }}
+              >
+                Email
+              </Typography>
+              <TextField
+                hiddenLabel
+                multiline
+                rows={1}
+                fullWidth
+                size="small"
+                variant="outlined"
+                id="email"
+                type="url"
+                value={email || ''}
+                onChange={(e) => setEmail(e.target.value)}
+                sx ={{ mb: "1.5rem" }}
+              />
             </Paper>
+            <Paper              
+              elevation={4}
+              sx={{ padding: "2rem", mt: "2rem", textAlign: "left" }}
+            >
+              {/* ABOUT YOU */}
+              <Typography
+                variant="subtitle2"
+                component="h3"
+                sx={{ fontWeight: "bold" }}
+              >
+                About You
+              </Typography>
+              <TextField
+                hiddenLabel
+                multiline
+                rows={4}
+                fullWidth
+                size="small"
+                variant="outlined"
+                id="about"
+                type="url"
+                value={about || ''}
+                onChange={(e) => setAbout(e.target.value)}
+                sx ={{ mb: "1.5rem" }}
+              />
+
+              {/* AGE */}
+              <Typography
+                variant="subtitle2"
+                component="h3"
+                sx={{ fontWeight: "bold" }}
+              >
+                Age
+              </Typography>
+              <TextField
+                hiddenLabel
+                multiline
+                rows={1}
+                fullWidth
+                size="small"
+                variant="outlined"
+                id="age"
+                type="url"
+                value={age || ''}
+                onChange={(e) => setAge(e.target.value)}
+                sx ={{ mb: "1.5rem" }}
+              />
+
+              {/* SKILLS & INTERESTS */}
+              <Typography
+                variant="subtitle2"
+                component="h3"
+                sx={{ fontWeight: "bold" }}
+              >
+                Skills & Interests
+              </Typography>
+              <TextField hiddenLabel size="small" select fullWidth onChange={(e) => setSkills(e.target.value)}>
+                <MenuItem key={1} value={"Marketing Pipelines"}>
+                  Marketing Pipelines
+                </MenuItem>
+                <MenuItem key={1} value={"UI/UX Design"}>
+                  UI/UX Design
+                </MenuItem>
+              </TextField>
+
+              {/* NETWORKING OBJECTIVES */}
+              <Typography
+                variant="subtitle2"
+                component="h3"
+                sx={{ fontWeight: "bold", mt: "1.5rem" }}
+              >
+                Networking Objective
+              </Typography>
+              <TextField hiddenLabel size="small" select fullWidth onChange={(e) => setNetworking(e.target.value)}>
+                <MenuItem key={1} value={"Find a co-founder"}>
+                  Find a co-founder
+                </MenuItem>
+                <MenuItem key={1} value={"Find suitable support partners"}>
+                  Find suitable support partners
+                </MenuItem>
+              </TextField>              
+            </Paper>
+
+            <Paper              
+              elevation={4}
+              sx={{ padding: "2rem", mt: "2rem", textAlign: "left" }}
+            >
+              {/* ABOUT YOUR COMPANY */}
+              <Typography
+                variant="subtitle2"
+                component="h3"
+                sx={{ fontWeight: "bold" }}
+              >
+                About Your Company
+              </Typography>
+              <TextField
+                hiddenLabel
+                multiline
+                rows={4}
+                fullWidth
+                size="small"
+                variant="outlined"
+                id="company"
+                type="url"
+                value={company || ''}
+                onChange={(e) => setCompany(e.target.value)}
+                sx ={{ mb: "1.5rem" }}
+              />
+
+              {/* FOUNDED IN */}
+              <Typography
+                variant="subtitle2"
+                component="h3"
+                sx={{ fontWeight: "bold" }}
+              >
+                Founded In
+              </Typography>
+              <TextField
+                hiddenLabel
+                multiline
+                rows={1}
+                fullWidth
+                size="small"
+                variant="outlined"
+                id="founded"
+                type="url"
+                value={founded || ''}
+                onChange={(e) => setFounded(e.target.value)}
+                sx ={{ mb: "1.5rem" }}
+              />
+
+              {/* INDUSTRY */}
+              <Typography
+                variant="subtitle2"
+                component="h3"
+                sx={{ fontWeight: "bold" }}
+              >
+                Industry
+              </Typography>
+              <TextField hiddenLabel size="small" select fullWidth onChange={(e) => setIndustry(e.target.value)}>
+                <MenuItem key={1} value={"Ecommerce"}>
+                  Ecommerce
+                </MenuItem>
+                <MenuItem key={1} value={"Healthcare Tech"}>
+                  Healthcare Tech
+                </MenuItem>
+              </TextField>          
+            </Paper>
+
             <Button
               type="submit"
               fullWidth
