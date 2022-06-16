@@ -4,16 +4,19 @@ import EditProfile from "./EditProfile";
 import ApplicationProcess from "./ApplicationProcess/ApplicationProcess";
 
 import { Grid, Paper, Typography, Avatar, MenuItem } from "@mui/material";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useLocation } from "react-router-dom";
 import { supabase } from "../../../api";
 
 const UserDashboard = () => {
+  const location = useLocation();
+
   return (
     <Grid>
       <Paper
         elevation={4}
         sx={{ padding: "2rem", mt: "2rem", textAlign: "center" }}
       >
+        <Typography>Path: {location.pathname}</Typography>
         <Avatar
           alt="Remy Sharp"
           src="https://picsum.photos/200"
