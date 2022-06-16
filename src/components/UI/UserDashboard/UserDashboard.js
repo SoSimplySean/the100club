@@ -12,10 +12,24 @@ import {
   Chip,
   Tooltip,
 } from "@mui/material";
-import { Link, Route, Routes } from "react-router-dom";
+import {
+  Link,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { supabase } from "../../../api";
 
 const UserDashboard = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const signOut = () => {
+    supabase.auth.signOut();
+    navigate("/", { replace: true });
+  };
+
   return (
     <Grid>
       <Paper
@@ -51,6 +65,7 @@ const UserDashboard = () => {
             divider="true"
             value={"Application"}
             sx={{ color: "primary.main" }}
+            selected={location.pathname === "/dashboard/application"}
           >
             Apply to become a member of The 100 Club ★
           </MenuItem>
@@ -62,17 +77,16 @@ const UserDashboard = () => {
             divider="true"
             value={"Edit Profile"}
             sx={{ color: "primary.main" }}
-            selected
+            selected={
+              location.pathname === "/dashboard/editProfile" ||
+              location.pathname === "/dashboard"
+            }
           >
             Edit Profile
           </MenuItem>
         </Link>
 
-        <MenuItem
-          key={2}
-          value={"Log Out"}
-          onClick={() => supabase.auth.signOut()}
-        >
+        <MenuItem key={2} value={"Log Out"} onClick={signOut}>
           Logout
         </MenuItem>
       </Paper>
