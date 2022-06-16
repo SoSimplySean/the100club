@@ -62,12 +62,10 @@
 
 // export default Headerimport * as React from 'react';
 import React from "react";
-import { useEffect, useState } from "react";
 
 import Logo from "../../../assets/Logo.png";
 import MenuItems from "./MenuItems";
 import ImageGrid from "../../UI/ImageGrid/ImageGrid";
-import { supabase } from "../../../api";
 
 import { Link as RouterLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
