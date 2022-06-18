@@ -66,7 +66,6 @@ import React from "react";
 import Logo from "../../../assets/Logo.png";
 import MenuItems from "./MenuItems";
 import ImageGrid from "../../UI/ImageGrid/ImageGrid";
-// import MyButton from "../../UI/Button/Button";
 
 import { Link as RouterLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
@@ -81,11 +80,8 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-// import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import AddIcon from "@mui/icons-material/Add";
 import { Link } from "@mui/material";
-
-// const settings = ["Profile", "Account", "Logout"];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -296,6 +292,7 @@ const Header = () => {
                   </Typography>
                 </MenuItem>
               </Link>
+
               <Link
                 key={1}
                 component={RouterLink}

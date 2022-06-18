@@ -3,11 +3,33 @@ import React from "react";
 import EditProfile from "./EditProfile";
 import ApplicationProcess from "./ApplicationProcess/ApplicationProcess";
 
-import { Grid, Paper, Typography, Avatar, MenuItem } from "@mui/material";
-import { Link, Route, Routes } from "react-router-dom";
+import {
+  Grid,
+  Paper,
+  Typography,
+  Avatar,
+  MenuItem,
+  Chip,
+  Tooltip,
+} from "@mui/material";
+import {
+  Link,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { supabase } from "../../../api";
 
 const UserDashboard = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const signOut = () => {
+    supabase.auth.signOut();
+    navigate("/", { replace: true });
+  };
+
   return (
     <Grid>
       <Paper
@@ -25,6 +47,9 @@ const UserDashboard = () => {
         >
           Image must be .jpg or .png with minimum size of 160x160 pixels.
         </Typography>
+        <Tooltip title="You are currently part of our waitlist. Apply in the next cohort to become a member of The 100 Club.">
+          <Chip label="Waitlist Member" color="primary" sx={{ mt: "1.5rem" }} />
+        </Tooltip>
       </Paper>
       <Paper
         elevation={4}
@@ -40,8 +65,9 @@ const UserDashboard = () => {
             divider="true"
             value={"Application"}
             sx={{ color: "primary.main" }}
+            selected={location.pathname === "/dashboard/application"}
           >
-            Apply to become a member of The 100 Club
+            Apply to become a member of The 100 Club ★
           </MenuItem>
         </Link>
 
@@ -51,17 +77,16 @@ const UserDashboard = () => {
             divider="true"
             value={"Edit Profile"}
             sx={{ color: "primary.main" }}
-            selected
+            selected={
+              location.pathname === "/dashboard/editProfile" ||
+              location.pathname === "/dashboard"
+            }
           >
             Edit Profile
           </MenuItem>
         </Link>
 
-        <MenuItem
-          key={2}
-          value={"Log Out"}
-          onClick={() => supabase.auth.signOut()}
-        >
+        <MenuItem key={2} value={"Log Out"} onClick={signOut}>
           Logout
         </MenuItem>
       </Paper>
