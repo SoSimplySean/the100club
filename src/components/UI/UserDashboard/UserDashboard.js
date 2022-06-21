@@ -58,6 +58,7 @@ const UserDashboard = () => {
           mt: "2rem",
           textAlign: "center",
         }}
+        data-testid="menu"
       >
         <Link to="application" style={{ textDecoration: "none" }}>
           <MenuItem

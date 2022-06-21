@@ -10,7 +10,6 @@
     "@supabase/supabase-js": "^1.35.3",
     "@supabase/ui": "^0.36.5",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
     "@typeform/embed-react": "^1.16.0",
     "formik": "^2.2.9",
@@ -45,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/react": "^13.3.0",
+    "react-test-renderer": "^18.2.0"
   }
 }
