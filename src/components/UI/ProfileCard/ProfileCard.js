@@ -45,7 +45,7 @@ const ProfileCard = (props) => {
             H
           </Avatar>
           <Typography variant="h5" component="h3" sx={{ mt: "2rem" }}>
-            {props.personName}
+            {props.fullName}
           </Typography>
           <Typography>{props.companyName}</Typography>
           <Typography variant="body1" sx={{ mt: "1rem" }}>
