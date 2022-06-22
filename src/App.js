@@ -9,7 +9,7 @@ import JoinTeamPage from "./pages/JoinTeamPage";
 import ProfilePage from "./components/UI/ProfilePage/ProfilePage";
 import UserDashboard from "./components/UI/UserDashboard/UserDashboard";
 
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { Popover } from "@typeform/embed-react";
 import { supabase } from "./api";
 import { useEffect, useState } from "react";
@@ -83,8 +83,8 @@ function App() {
               <Route path="/directory" element={<DirectoryPage />} />
               <Route path="/directory/:id" element={<ProfilePage />} />
               <Route path="/joinTheTeam" element={<JoinTeamPage />} />
-              <Route path="/join" element={!session ? <SignUp /> : <UserDashboard key={session.user.id} session={session} />} />
-              <Route path="/login" element={!session ? <SignIn /> : <UserDashboard key={session.user.id} session={session} />} />
+              <Route path="/join" element={!session ? <SignUp /> : <Navigate to="/dashboard" />} />
+              <Route path="/login" element={!session ? <SignIn /> : <Navigate to="/dashboard" />} />
               <Route path="/profilePage" element={<ProfilePage />} />
               <Route path="/dashboard/*" element={!session ? <SignIn /> : <UserDashboard key={session.user.id} session={session} />}/>
             </Routes>
