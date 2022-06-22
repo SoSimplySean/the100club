@@ -47,7 +47,7 @@ const UserDashboard = ({ session }) => {
               sx={{ color: "primary.main" }}
               selected={location.pathname === "/dashboard/application"}
             >
-              Apply to be a pro member ★
+              Apply to be a pro member ⮞
             </MenuItem>
           </Link>
 
