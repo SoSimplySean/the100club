@@ -6,13 +6,15 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import DoubleArrowSharpIcon from "@mui/icons-material/DoubleArrowSharp";
-import { Grid, Box } from "@mui/material";
+import { Grid } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const ProfileCard = (props) => {
+  let navigate = useNavigate();
+
   return (
     <Grid item lg={6} xl={3}>
       <Card
-        key={props.id}
         sx={{
           position: "relative",
           minHeight: 450,
@@ -23,7 +25,7 @@ const ProfileCard = (props) => {
           "&:hover": { transform: "scale3d(1.03, 1.03, 1)", zIndex: 1 },
         }}
       >
-        <Box
+        {/* <Box
           id="overlay"
           sx={{
             position: "absolute",
@@ -37,7 +39,7 @@ const ProfileCard = (props) => {
           }}
         >
           <Button variant="contained">The 100-exclusive</Button>
-        </Box>
+        </Box> */}
         <CardContent>
           <Avatar sx={{ bgcolor: "secondary.main", width: 56, height: 56 }}>
             H
@@ -51,7 +53,11 @@ const ProfileCard = (props) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" endIcon={<DoubleArrowSharpIcon />}>
+          <Button
+            size="small"
+            endIcon={<DoubleArrowSharpIcon />}
+            onClick={() => navigate(`/directory/${props.id}`)}
+          >
             Learn More
           </Button>
         </CardActions>
