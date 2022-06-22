@@ -17,7 +17,7 @@ const ProfileCard = (props) => {
       <Card
         sx={{
           position: "relative",
-          minHeight: 450,
+          minHeight: 350,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -47,9 +47,9 @@ const ProfileCard = (props) => {
           <Typography variant="h5" component="h3" sx={{ mt: "2rem" }}>
             {props.fullName}
           </Typography>
-          <Typography>{props.companyName}</Typography>
+          <Typography>{props.title}</Typography>
           <Typography variant="body1" sx={{ mt: "1rem" }}>
-            {props.companyDesc}
+            {props.companyAbout}
           </Typography>
         </CardContent>
         <CardActions>

@@ -28,7 +28,8 @@ const EditProfile = ({ session }) => {
   const [skills, setSkills] = useState(null);
   const [objective, setObjective] = useState(null);
 
-  const [company, setCompany] = useState(null);
+  const [companyName, setCompanyName] = useState(null);
+  const [companyAbout, setCompanyAbout] = useState(null);
   const [founded, setFounded] = useState(null);
   const [industry, setIndustry] = useState(null);
 
@@ -47,7 +48,7 @@ const EditProfile = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `fullName, title, about, age, skills, objective, company, founded, industry, linkedin, email`
+          `fullName, title, about, age, skills, objective, companyName, companyAbout, founded, industry, linkedin, email`
         )
         .eq("id", user.id)
         .single();
@@ -65,7 +66,8 @@ const EditProfile = ({ session }) => {
         setAge(data.age);
         setSkills(data.skills);
         setObjective(data.objective);
-        setCompany(data.company);
+        setCompanyName(data.companyName);
+        setCompanyAbout(data.companyAbout);
         setFounded(data.founded);
         setIndustry(data.industry);
       }
@@ -92,7 +94,8 @@ const EditProfile = ({ session }) => {
         age,
         skills,
         objective,
-        company,
+        companyName,
+        companyAbout,
         founded,
         industry,
         updated_at: new Date(),
@@ -304,6 +307,28 @@ const EditProfile = ({ session }) => {
               elevation={4}
               sx={{ padding: "2rem", mt: "2rem", textAlign: "left" }}
             >
+              {/* COMPANY NAME */}
+              <Typography
+                variant="subtitle2"
+                component="h3"
+                sx={{ fontWeight: "bold" }}
+              >
+                Company Name
+              </Typography>
+              <TextField
+                hiddenLabel
+                multiline
+                rows={1}
+                fullWidth
+                size="small"
+                variant="outlined"
+                id="companyName"
+                type="url"
+                value={companyName || ""}
+                onChange={(e) => setCompanyName(e.target.value)}
+                sx={{ mb: "1.5rem" }}
+              />
+
               {/* ABOUT YOUR COMPANY */}
               <Typography
                 variant="subtitle2"
@@ -319,10 +344,10 @@ const EditProfile = ({ session }) => {
                 fullWidth
                 size="small"
                 variant="outlined"
-                id="company"
+                id="companyAbout"
                 type="url"
-                value={company || ""}
-                onChange={(e) => setCompany(e.target.value)}
+                value={companyAbout || ""}
+                onChange={(e) => setCompanyAbout(e.target.value)}
                 sx={{ mb: "1.5rem" }}
               />
 

@@ -77,8 +77,8 @@ const Body = () => {
                 <ProfileCard
                   key={user.id}
                   fullName={user.fullName}
-                  companyName={user.company}
-                  companyDesc={user.about}
+                  title={user.title}
+                  companyAbout={user.companyAbout}
                   id={user.id}
                 />
               );
