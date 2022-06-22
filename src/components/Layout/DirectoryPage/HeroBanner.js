@@ -7,7 +7,7 @@ const HeroBanner = () => {
         Member Directory.
       </Typography>
       <Typography variant="h6" sx={{ my: "1rem" }}>
-        Connect and learn from other action-takers across our The 100 Club.
+        Connect and learn from other action-takers across The 100 Club.
       </Typography>
     </Box>
   );

@@ -1,8 +1,33 @@
+import { useEffect, useState } from "react";
+
 import Button from "../Button/Button";
+import { supabase } from "../../../api";
 
 import { Grid, Typography, Avatar, Paper, Box } from "@mui/material";
+import { useParams } from "react-router-dom";
 
 const ProfilePage = (props) => {
+  let [user, setUser] = useState({});
+  let { id } = useParams();
+
+  useEffect(() => {
+    getUser();
+    // eslint-disable-next-line
+  }, []);
+
+  const getUser = async () => {
+    const { data: user, error } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", id)
+      .single();
+    if (error) console.log(error);
+    else {
+      setUser(user);
+      console.log(user);
+    }
+  };
+
   return (
     <Grid
       container
@@ -24,7 +49,7 @@ const ProfilePage = (props) => {
         component="h1"
         sx={{ fontWeight: "bold", mt: "2rem" }}
       >
-        Paul Atreides
+        {user.username}
       </Typography>
       <Typography variant="h5" sx={{ mt: "0.5rem" }}>
         Founder of Dune
