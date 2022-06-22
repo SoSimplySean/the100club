@@ -6,6 +6,8 @@ import {
   Typography,
   Avatar,
   MenuItem,
+  Tooltip,
+  Chip,
   TextField,
   Button,
   Box,
@@ -129,6 +131,9 @@ const EditProfile = ({ session }) => {
               >
                 Image must be .jpg or .png with minimum size of 160x160 pixels.
               </Typography>
+              <Tooltip title="You are currently part of our waitlist. Apply in the next cohort to become a member of The 100 Club.">
+                <Chip label="Waitlist Member" color="primary" sx={{ mt: "1.5rem" }} />
+              </Tooltip>
             </Paper>
             <Paper
               elevation={4}

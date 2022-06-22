@@ -11,9 +11,10 @@ import UserDashboard from "./components/UI/UserDashboard/UserDashboard";
 
 import { Route, Routes } from "react-router-dom";
 import { Popover } from "@typeform/embed-react";
-
-import SignUpControl from "./pages/SignUpControl";
-import LogInControl from "./pages/LogInControl";
+import { supabase } from "./api";
+import { useEffect, useState } from "react";
+import SignIn from "./pages/SupabaseLogin";
+import SignUp from "./pages/SupabaseSignUp";
 
 import {
   createTheme,
@@ -54,6 +55,16 @@ const styles = {
 theme = responsiveFontSizes(theme);
 
 function App() {
+  const [session, setSession] = useState(null)
+
+    useEffect(() => {
+      setSession(supabase.auth.session())
+  
+      supabase.auth.onAuthStateChange((_event, session) => {
+        setSession(session)
+      })
+    }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <Fragment>
@@ -71,10 +82,10 @@ function App() {
               <Route path="/store" element={<SwagStorePage />} />
               <Route path="/directory" element={<DirectoryPage />} />
               <Route path="/joinTheTeam" element={<JoinTeamPage />} />
-              <Route path="/join" element={<SignUpControl />} />
-              <Route path="/login" element={<LogInControl />} />
+              <Route path="/join" element={!session ? <SignUp /> : <UserDashboard key={session.user.id} session={session} />} />
+              <Route path="/login" element={!session ? <SignIn /> : <UserDashboard key={session.user.id} session={session} />} />
               <Route path="/profilePage" element={<ProfilePage />} />
-              <Route path="/dashboard/*" element={<UserDashboard />} />
+              <Route path="/dashboard/*" element={!session ? <SignIn /> : <UserDashboard key={session.user.id} session={session} />}/>
             </Routes>
           </main>
           <Footer />

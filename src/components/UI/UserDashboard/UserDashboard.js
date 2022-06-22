@@ -6,11 +6,7 @@ import ApplicationProcess from "./ApplicationProcess/ApplicationProcess";
 import {
   Grid,
   Paper,
-  Typography,
-  Avatar,
   MenuItem,
-  Chip,
-  Tooltip,
 } from "@mui/material";
 import {
   Link,
@@ -21,7 +17,7 @@ import {
 } from "react-router-dom";
 import { supabase } from "../../../api";
 
-const UserDashboard = () => {
+const UserDashboard = ({ session }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -32,25 +28,6 @@ const UserDashboard = () => {
 
   return (
     <Grid>
-      <Paper
-        elevation={4}
-        sx={{ padding: "2rem", mt: "2rem", textAlign: "center" }}
-      >
-        <Avatar
-          alt="Remy Sharp"
-          src="https://picsum.photos/200"
-          sx={{ width: 150, height: 150, mx: "auto" }}
-        />
-        <Typography
-          variant="subtitle2"
-          sx={{ mt: "1.5rem", maxWidth: "250px", mx: "auto" }}
-        >
-          Image must be .jpg or .png with minimum size of 160x160 pixels.
-        </Typography>
-        <Tooltip title="You are currently part of our waitlist. Apply in the next cohort to become a member of The 100 Club.">
-          <Chip label="Waitlist Member" color="primary" sx={{ mt: "1.5rem" }} />
-        </Tooltip>
-      </Paper>
       <Paper
         elevation={4}
         sx={{
@@ -92,8 +69,8 @@ const UserDashboard = () => {
       </Paper>
 
       <Routes>
-        <Route path="/" element={<EditProfile />} />
-        <Route path="editProfile" element={<EditProfile />} />
+        <Route path="/" element={<EditProfile key={session.user.id} session={session}/>} />
+        <Route path="editProfile" element={<EditProfile key={session.user.id} session={session}/>} />
         <Route path="application" element={<ApplicationProcess />} />
       </Routes>
     </Grid>
