@@ -76,9 +76,9 @@ const Body = () => {
               return (
                 <ProfileCard
                   key={user.id}
-                  personName={user.username}
-                  companyName={user.company}
-                  companyDesc={user.about}
+                  fullName={user.fullName}
+                  title={user.title}
+                  companyAbout={user.companyAbout}
                   id={user.id}
                 />
               );

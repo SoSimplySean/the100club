@@ -3,11 +3,7 @@ import React from "react";
 import EditProfile from "./EditProfile";
 import ApplicationProcess from "./ApplicationProcess/ApplicationProcess";
 
-import {
-  Grid,
-  Paper,
-  MenuItem,
-} from "@mui/material";
+import { Grid, Paper, MenuItem } from "@mui/material";
 import {
   Link,
   Route,
@@ -27,9 +23,11 @@ const UserDashboard = ({ session }) => {
   };
 
   return (
-    <Grid container
+    <Grid
+      container
       component="main"
-      sx={{ mt: "4rem", justifyContent: "space-between" }}>
+      sx={{ mt: "4rem", justifyContent: "space-between" }}
+    >
       <Grid item xs={12} lg={4.5}>
         <Paper
           elevation={4}
@@ -47,7 +45,7 @@ const UserDashboard = ({ session }) => {
               sx={{ color: "primary.main" }}
               selected={location.pathname === "/dashboard/application"}
             >
-              Apply to be a pro member ⮞
+              Apply to be a pro member
             </MenuItem>
           </Link>
 
@@ -74,8 +72,14 @@ const UserDashboard = ({ session }) => {
 
       <Grid item xs={12} lg={7} elevation={6} square>
         <Routes>
-          <Route path="/" element={<EditProfile key={session.user.id} session={session}/>} />
-          <Route path="editProfile" element={<EditProfile key={session.user.id} session={session}/>} />
+          <Route
+            path="/"
+            element={<EditProfile key={session.user.id} session={session} />}
+          />
+          <Route
+            path="editProfile"
+            element={<EditProfile key={session.user.id} session={session} />}
+          />
           <Route path="application" element={<ApplicationProcess />} />
         </Routes>
       </Grid>
