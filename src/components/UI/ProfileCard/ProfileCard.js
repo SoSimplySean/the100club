@@ -7,15 +7,17 @@ import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import DoubleArrowSharpIcon from "@mui/icons-material/DoubleArrowSharp";
 import { Grid, Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const ProfileCard = (props) => {
+  let navigate = useNavigate();
+
   return (
     <Grid item lg={6} xl={3}>
       <Card
-        key={props.id}
         sx={{
           position: "relative",
-          minHeight: 450,
+          minHeight: 350,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -43,15 +45,19 @@ const ProfileCard = (props) => {
             H
           </Avatar>
           <Typography variant="h5" component="h3" sx={{ mt: "2rem" }}>
-            {props.personName}
+            {props.fullName}
           </Typography>
-          <Typography>{props.companyName}</Typography>
+          <Typography>{props.title}</Typography>
           <Typography variant="body1" sx={{ mt: "1rem" }}>
-            {props.companyDesc}
+            {props.companyAbout}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" endIcon={<DoubleArrowSharpIcon />}>
+          <Button
+            size="small"
+            endIcon={<DoubleArrowSharpIcon />}
+            onClick={() => navigate(`/directory/${props.id}`)}
+          >
             Learn More
           </Button>
         </CardActions>

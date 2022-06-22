@@ -168,7 +168,7 @@ const Header = () => {
                     textDecoration: "none",
                   }}
                 >
-                  <MenuItem key={item} onClick={handleCloseNavMenu}>
+                  <MenuItem key={index} onClick={handleCloseNavMenu}>
                     <Typography
                       textAlign="center"
                       sx={{

@@ -81,6 +81,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/store" element={<SwagStorePage />} />
               <Route path="/directory" element={<DirectoryPage />} />
+              <Route path="/directory/:id" element={<ProfilePage />} />
               <Route path="/joinTheTeam" element={<JoinTeamPage />} />
               <Route path="/join" element={!session ? <SignUp /> : <Navigate to="/dashboard" />} />
               <Route path="/login" element={!session ? <SignIn /> : <Navigate to="/dashboard" />} />

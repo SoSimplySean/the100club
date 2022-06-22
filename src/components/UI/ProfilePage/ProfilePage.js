@@ -1,8 +1,33 @@
+import { useEffect, useState } from "react";
+
 import Button from "../Button/Button";
+import { supabase } from "../../../api";
 
 import { Grid, Typography, Avatar, Paper, Box } from "@mui/material";
+import { useParams } from "react-router-dom";
 
 const ProfilePage = (props) => {
+  let [user, setUser] = useState({});
+  let { id } = useParams();
+
+  useEffect(() => {
+    getUser();
+    // eslint-disable-next-line
+  }, []);
+
+  const getUser = async () => {
+    const { data: user, error } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", id)
+      .single();
+    if (error) console.log(error);
+    else {
+      setUser(user);
+      console.log(user);
+    }
+  };
+
   return (
     <Grid
       container
@@ -24,15 +49,18 @@ const ProfilePage = (props) => {
         component="h1"
         sx={{ fontWeight: "bold", mt: "2rem" }}
       >
-        Paul Atreides
+        {user.fullName}
       </Typography>
       <Typography variant="h5" sx={{ mt: "0.5rem" }}>
-        Founder of Dune
+        {user.title}
       </Typography>
       <Typography variant="body1" sx={{ my: "2rem" }}>
-        Member of Cohort 008<br></br>
-        In Mastermind Group 002<br></br>
-        From Singapore
+        Member of Cohort {user.cohort}
+        <br></br>
+        {user.mastermind === null
+          ? "Still being matched into a mastermind"
+          : `In Mastermind Group ${user.mastermind}`}
+        <br></br>
       </Typography>
       <Box sx={{ display: "flex", mx: "auto" }}>
         <Button
@@ -40,28 +68,27 @@ const ProfilePage = (props) => {
           link="https://t.me/MrRaincloud"
           inverted="true"
         />
-        <Button text="Chat with Paul" link="https://t.me/MrRaincloud" />
+        <Button
+          text={`Chat with ${user.fullName}`}
+          link="https://t.me/MrRaincloud"
+        />
       </Box>
       <Paper
         elevation={4}
         sx={{ padding: "2rem", mt: "5rem", textAlign: "left" }}
       >
         <Typography variant="h6" component="h3" sx={{ fontWeight: "bold" }}>
-          About Paul
+          About {user.fullName}
         </Typography>
-        <Typography variant="body1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-          perspiciatis est aspernatur, doloremque veritatis harum iste eius modi
-          mollitia nostrum debitis incidunt blanditiis nobis. Commodi!
-        </Typography>
+        <Typography variant="body1">{user.about}</Typography>
         <Typography
           variant="h6"
           component="h3"
           sx={{ fontWeight: "bold", mt: "2rem" }}
         >
-          Age Group
+          Age
         </Typography>
-        <Typography variant="body1">25-34</Typography>
+        <Typography variant="body1">{user.age}</Typography>
         <Typography
           variant="h6"
           component="h3"
@@ -69,31 +96,24 @@ const ProfilePage = (props) => {
         >
           Skills & Interests
         </Typography>
-        <Typography variant="body1">Lorem ipsum dolor sit amet.</Typography>
+        <Typography variant="body1">{user.skills}</Typography>
         <Typography
           variant="h6"
           component="h3"
           sx={{ fontWeight: "bold", mt: "2rem" }}
         >
-          Networking Objective:
+          The Objective
         </Typography>
-        <Typography variant="body1">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente,
-          esse!
-        </Typography>
+        <Typography variant="body1">{user.objective}</Typography>
       </Paper>
       <Paper
         elevation={4}
         sx={{ padding: "2rem", mt: "3rem", textAlign: "left" }}
       >
         <Typography variant="h6" component="h3" sx={{ fontWeight: "bold" }}>
-          About Dune
+          About {user.companyName}
         </Typography>
-        <Typography variant="body1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-          perspiciatis est aspernatur, doloremque veritatis harum iste eius modi
-          mollitia nostrum debitis incidunt blanditiis nobis. Commodi!
-        </Typography>
+        <Typography variant="body1">{user.companyAbout}</Typography>
         <Typography
           variant="h6"
           component="h3"
@@ -101,7 +121,7 @@ const ProfilePage = (props) => {
         >
           Founded In
         </Typography>
-        <Typography variant="body1">2020</Typography>
+        <Typography variant="body1">{user.founded}</Typography>
         <Typography
           variant="h6"
           component="h3"
@@ -109,7 +129,7 @@ const ProfilePage = (props) => {
         >
           Industry
         </Typography>
-        <Typography variant="body1">F&B</Typography>
+        <Typography variant="body1">{user.industry}</Typography>
       </Paper>
       <Paper
         elevation={4}
@@ -119,9 +139,11 @@ const ProfilePage = (props) => {
           Mastermind Group
         </Typography>
         <Typography variant="body1">
-          Lorem, ipsum dolor.<br></br>
-          Lorem, ipsum dolor.<br></br>
-          Lorem, ipsum dolor.<br></br>
+          {user.mastermind !== null
+            ? "Still being matched into a mastermind"
+            : `${user.mastermindMembers[0]}, 
+            ${user.mastermindMembers[1]}, 
+            ${user.mastermindMembers[2]}`}
         </Typography>
       </Paper>
       <Paper
@@ -132,9 +154,10 @@ const ProfilePage = (props) => {
           Contact
         </Typography>
         <Typography variant="body1">
-          Slack: @PaulAtreides<br></br>
-          Email: dune@gmail.com<br></br>
-          LinkedIn: dune@linkedin.com<br></br>
+          Email: {user.email}
+          <br></br>
+          LinkedIn: {user.linkedin}
+          <br></br>
         </Typography>
       </Paper>
     </Grid>
