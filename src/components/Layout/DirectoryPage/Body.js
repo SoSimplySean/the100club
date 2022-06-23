@@ -15,7 +15,7 @@ import {
   Typography,
 } from "@mui/material";
 
-const Body = () => {
+const Body = ({ session, membershipLevel }) => {
   let [page, setPage] = useState(1);
   let [pageData, setPageData] = useState("");
   let [users, setUsers] = useState();
@@ -75,6 +75,8 @@ const Body = () => {
             pageData.currentData().map((user) => {
               return (
                 <ProfileCard
+                  session={session}
+                  membershipLevel={membershipLevel}
                   key={user.id}
                   fullName={user.fullName}
                   title={user.title}

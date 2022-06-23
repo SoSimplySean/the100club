@@ -55,15 +55,45 @@ const styles = {
 theme = responsiveFontSizes(theme);
 
 function App() {
-  const [session, setSession] = useState(null)
+  const [session, setSession] = useState(null);
+  const [membershipLevel, setMembershipLevel] = useState();
 
-    useEffect(() => {
-      setSession(supabase.auth.session())
-  
+  useEffect(
+    () => {
+      setSession(supabase.auth.session());
+
       supabase.auth.onAuthStateChange((_event, session) => {
-        setSession(session)
-      })
-    }, []);
+        setSession(session);
+      });
+
+      const user = supabase.auth.user();
+      if (user) {
+        getProfile(user);
+      }
+    },
+    // eslint-disable-next-line
+    [session]
+  );
+
+  const getProfile = async (user) => {
+    try {
+      let { data, error, status } = await supabase
+        .from("profiles")
+        .select(`membershipLevel`)
+        .eq("id", user.id)
+        .single();
+
+      if (error && status !== 406) {
+        throw error;
+      }
+
+      if (data) {
+        setMembershipLevel(data.membershipLevel);
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -75,18 +105,45 @@ function App() {
             customIcon="<span>&#9820;</span>"
             size="100"
           />
-          <Header />
+          <Header session={session} />
           <main>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/store" element={<SwagStorePage />} />
-              <Route path="/directory" element={<DirectoryPage />} />
+              <Route
+                path="/directory"
+                element={
+                  <DirectoryPage
+                    session={session}
+                    membershipLevel={membershipLevel}
+                  />
+                }
+              />
               <Route path="/directory/:id" element={<ProfilePage />} />
               <Route path="/joinTheTeam" element={<JoinTeamPage />} />
-              <Route path="/join" element={!session ? <SignUp /> : <Navigate to="/dashboard" />} />
-              <Route path="/login" element={!session ? <SignIn /> : <Navigate to="/dashboard" />} />
+              <Route
+                path="/join"
+                element={!session ? <SignUp /> : <Navigate to="/dashboard" />}
+              />
+              <Route
+                path="/login"
+                element={!session ? <SignIn /> : <Navigate to="/dashboard" />}
+              />
               <Route path="/profilePage" element={<ProfilePage />} />
-              <Route path="/dashboard/*" element={!session ? <SignIn /> : <UserDashboard key={session.user.id} session={session} />}/>
+              <Route
+                path="/dashboard/*"
+                element={
+                  !session ? (
+                    <SignIn />
+                  ) : (
+                    <UserDashboard
+                      key={session.user.id}
+                      session={session}
+                      membershipLevel={membershipLevel}
+                    />
+                  )
+                }
+              />
             </Routes>
           </main>
           <Footer />

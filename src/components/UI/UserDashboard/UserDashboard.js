@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 import { supabase } from "../../../api";
 
-const UserDashboard = ({ session }) => {
+const UserDashboard = ({ session, membershipLevel }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -74,11 +74,23 @@ const UserDashboard = ({ session }) => {
         <Routes>
           <Route
             path="/"
-            element={<EditProfile key={session.user.id} session={session} />}
+            element={
+              <EditProfile
+                key={session.user.id}
+                session={session}
+                membershipLevel={membershipLevel}
+              />
+            }
           />
           <Route
             path="editProfile"
-            element={<EditProfile key={session.user.id} session={session} />}
+            element={
+              <EditProfile
+                key={session.user.id}
+                session={session}
+                membershipLevel={membershipLevel}
+              />
+            }
           />
           <Route path="application" element={<ApplicationProcess />} />
         </Routes>
