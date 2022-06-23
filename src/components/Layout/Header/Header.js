@@ -1,66 +1,3 @@
-// import { HiMenuAlt3 } from "react-icons/hi";
-// import { useState } from "react";
-// import { Link } from "react-router-dom";
-
-// import css from "./Header.module.css";
-
-// import MyButton from "../../UI/Button/Button";
-
-// import MenuItems from "./MenuItems";
-
-// const Header = (props) => {
-//   const [clicked, setClicked] = useState(false);
-
-//   const handleClick = () => {
-//     setClicked(!clicked);
-//   };
-
-//   return (
-//     <nav onClick={clicked ? handleClick : null} className={css.navbar}>
-//       {/* <div className={css.navLogo}>
-//         <img src={NavLogo} alt="NavLogo" />
-//       </div> */}
-//       <div className={css.navIcon} onClick={handleClick}>
-//         <HiMenuAlt3 size={36} />
-//       </div>
-//       <ul
-//         className={
-//           clicked
-//             ? `${css.navMenu} ${css.active}`
-//             : `${css.navMenu} ${css.hidden}`
-//         }
-//       >
-//         {MenuItems.map((item, index) => {
-//           return (
-//             <li key={index}>
-//               <Link className={css.navLink} to={item.url}>
-//                 {item.title}
-//               </Link>
-//             </li>
-//           );
-//         })}
-//         <li>
-// <Button
-//   text="LOG IN"
-//   // typeform="true"
-//   link="https://t.me/JoinThe100Club"
-//   inverted={clicked ? "false" : "true"}
-//   className={css.navButton}
-// />
-//         </li>
-//         <li>
-// <Button
-//   text="JOIN WAITLIST"
-//   typeform="true"
-//   className={css.navButton}
-// />
-//         </li>
-//       </ul>
-//     </nav>
-//   );
-// };
-
-// export default Headerimport * as React from 'react';
 import React from "react";
 
 import Logo from "../../../assets/Logo.png";
@@ -83,7 +20,7 @@ import MenuItem from "@mui/material/MenuItem";
 import AddIcon from "@mui/icons-material/Add";
 import { Link } from "@mui/material";
 
-const Header = () => {
+const Header = ({ session }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -92,6 +29,7 @@ const Header = () => {
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
+    console.log(session);
   };
 
   const handleCloseNavMenu = () => {
@@ -236,25 +174,6 @@ const Header = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0, display: "flex" }}>
-            {/* <MyButton
-              text="Chat with Sean"
-              link="https://t.me/MrRaincloud"
-              symbol="arrow"
-              // sx={{ mr: 2 }}
-            /> */}
-            {/* <Button
-              sx={{
-                mr: 3,
-                my: 2,
-                color: "white",
-                display: { xs: "none", md: "block" },
-                fontWeight: "bold",
-                backgroundColor: "primary.main",
-                "&:hover": { backgroundColor: "black" },
-              }}
-            >
-              SIGN UP
-            </Button> */}
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Profile Photo" sx={{ bgcolor: "primary.main" }}>
@@ -278,49 +197,62 @@ const Header = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <Link
-                key={1}
-                component={RouterLink}
-                to={"/dashboard"}
-                sx={{
-                  textDecoration: "none",
-                }}
-              >
-                <MenuItem key={1} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center" sx={{ fontWeight: "bold" }}>
-                    Dashboard
-                  </Typography>
-                </MenuItem>
-              </Link>
+              {session && (
+                <Link
+                  key={1}
+                  component={RouterLink}
+                  to={"/dashboard"}
+                  sx={{
+                    textDecoration: "none",
+                  }}
+                >
+                  <MenuItem key={1} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center" sx={{ fontWeight: "bold" }}>
+                      Dashboard
+                    </Typography>
+                  </MenuItem>
+                </Link>
+              )}
 
-              <Link
-                key={1}
-                component={RouterLink}
-                to={"/join"}
-                sx={{
-                  textDecoration: "none",
-                }}
-              >
-                <MenuItem key={1} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center" sx={{ fontWeight: "bold" }}>
-                    Sign Up
-                  </Typography>
-                </MenuItem>
-              </Link>
-              <Link
-                key={2}
-                component={RouterLink}
-                to={"/login"}
-                sx={{
-                  textDecoration: "none",
-                }}
-              >
-                <MenuItem key={2} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center" sx={{ fontWeight: "bold" }}>
-                    Login
-                  </Typography>
-                </MenuItem>
-              </Link>
+              {!session && (
+                <Box>
+                  <Link
+                    key={1}
+                    component={RouterLink}
+                    to={"/join"}
+                    sx={{
+                      textDecoration: "none",
+                    }}
+                  >
+                    <MenuItem key={1} onClick={handleCloseUserMenu}>
+                      <Typography
+                        textAlign="center"
+                        sx={{ fontWeight: "bold" }}
+                      >
+                        Sign Up
+                      </Typography>
+                    </MenuItem>
+                  </Link>
+
+                  <Link
+                    key={2}
+                    component={RouterLink}
+                    to={"/login"}
+                    sx={{
+                      textDecoration: "none",
+                    }}
+                  >
+                    <MenuItem key={2} onClick={handleCloseUserMenu}>
+                      <Typography
+                        textAlign="center"
+                        sx={{ fontWeight: "bold" }}
+                      >
+                        Login
+                      </Typography>
+                    </MenuItem>
+                  </Link>
+                </Box>
+              )}
             </Menu>
           </Box>
         </Toolbar>
