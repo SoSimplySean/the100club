@@ -78,7 +78,7 @@ const Body = () => {
                   key={user.id}
                   fullName={user.fullName}
                   title={user.title}
-                  companyAbout={user.companyAbout}
+                  about={user.about}
                   id={user.id}
                 />
               );

@@ -17,7 +17,7 @@ const ProfileCard = (props) => {
       <Card
         sx={{
           position: "relative",
-          minHeight: 350,
+          minHeight: 375,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -25,7 +25,7 @@ const ProfileCard = (props) => {
           "&:hover": { transform: "scale3d(1.03, 1.03, 1)", zIndex: 1 },
         }}
       >
-        <Box
+        {/* <Box
           id="overlay"
           sx={{
             position: "absolute",
@@ -39,17 +39,21 @@ const ProfileCard = (props) => {
           }}
         >
           <Button variant="contained">The 100-exclusive</Button>
-        </Box>
+        </Box> */}
         <CardContent>
           <Avatar sx={{ bgcolor: "secondary.main", width: 56, height: 56 }}>
             H
           </Avatar>
-          <Typography variant="h5" component="h3" sx={{ mt: "2rem" }}>
+          <Typography
+            variant="h5"
+            component="h3"
+            sx={{ mt: "2rem", fontWeight: "bold" }}
+          >
             {props.fullName}
           </Typography>
           <Typography>{props.title}</Typography>
-          <Typography variant="body1" sx={{ mt: "1rem" }}>
-            {props.companyAbout}
+          <Typography variant="subtitle2" sx={{ mt: "1rem" }}>
+            {props.about}
           </Typography>
         </CardContent>
         <CardActions>

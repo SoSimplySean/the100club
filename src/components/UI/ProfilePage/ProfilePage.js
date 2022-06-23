@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import { supabase } from "../../../api";
 
-import { Grid, Typography, Avatar, Paper, Box } from "@mui/material";
+import { Grid, Typography, Avatar, Paper, Box, Chip } from "@mui/material";
 import { useParams } from "react-router-dom";
 
 const ProfilePage = (props) => {
@@ -27,6 +27,10 @@ const ProfilePage = (props) => {
       console.log(user);
     }
   };
+
+  if (user === undefined) {
+    return <Typography>Still loading...</Typography>;
+  }
 
   return (
     <Grid
@@ -96,15 +100,10 @@ const ProfilePage = (props) => {
         >
           Skills & Interests
         </Typography>
-        <Typography variant="body1">{user.skills}</Typography>
-        <Typography
-          variant="h6"
-          component="h3"
-          sx={{ fontWeight: "bold", mt: "2rem" }}
-        >
-          The Objective
-        </Typography>
-        <Typography variant="body1">{user.objective}</Typography>
+        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+          {user.skills &&
+            user.skills.map((value) => <Chip key={value} label={value} />)}
+        </Box>
       </Paper>
       <Paper
         elevation={4}
@@ -129,7 +128,10 @@ const ProfilePage = (props) => {
         >
           Industry
         </Typography>
-        <Typography variant="body1">{user.industry}</Typography>
+        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+          {user.industry &&
+            user.industry.map((value) => <Chip key={value} label={value} />)}
+        </Box>
       </Paper>
       <Paper
         elevation={4}
@@ -138,13 +140,19 @@ const ProfilePage = (props) => {
         <Typography variant="h6" component="h3" sx={{ fontWeight: "bold" }}>
           Mastermind Group
         </Typography>
-        <Typography variant="body1">
-          {user.mastermind !== null
-            ? "Still being matched into a mastermind"
-            : `${user.mastermindMembers[0]}, 
-            ${user.mastermindMembers[1]}, 
-            ${user.mastermindMembers[2]}`}
-        </Typography>
+
+        {user.mastermind === null ? (
+          <Typography variant="body1">
+            Still being matched into a mastermind
+          </Typography>
+        ) : (
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+            {user.mastermindMembers &&
+              user.mastermindMembers.map((value) => (
+                <Chip key={value} label={value} />
+              ))}
+          </Box>
+        )}
       </Paper>
       <Paper
         elevation={4}
