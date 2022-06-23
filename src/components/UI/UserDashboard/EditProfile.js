@@ -4,7 +4,6 @@ import {
   Grid,
   Paper,
   Typography,
-  Avatar,
   MenuItem,
   Tooltip,
   Chip,
@@ -17,6 +16,7 @@ import {
 
 import { useState, useEffect } from "react";
 import { supabase } from "../../../api";
+import Avatar from "../Avatar/Avatar";
 
 // ******************************************************************************************************************************
 
@@ -36,6 +36,7 @@ const EditProfile = ({ session }) => {
 
   const [linkedin, setLinkedIn] = useState(null);
   const [email, setEmail] = useState(null);
+  const [avatar_url, setAvatarUrl] = useState(null)
 
   useEffect(() => {
     getProfile();
@@ -114,7 +115,7 @@ const EditProfile = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `fullName, title, about, age, skills, companyName, companyAbout, founded, industry, linkedin, email`
+          `fullName, title, about, age, skills, companyName, companyAbout, founded, industry, linkedin, email, avatar_url`
         )
         .eq("id", user.id)
         .single();
@@ -161,6 +162,7 @@ const EditProfile = ({ session }) => {
         companyName,
         companyAbout,
         founded,
+        avatar_url,
         industry,
         updated_at: new Date(),
       };
@@ -195,11 +197,23 @@ const EditProfile = ({ session }) => {
               elevation={4}
               sx={{ padding: "2rem", mt: "2rem", textAlign: "center" }}
             >
-              <Avatar
+              <Box className="form-widget" sx={{ width: 150, height: 150, mx: "auto", mb: "35px" }}>
+                {/* Add to the body */}
+                <Avatar
+                  url={avatar_url}
+                  size={150}
+                  onUpload={(url) => {
+                    setAvatarUrl(url)
+                    updateProfile({ avatar_url: url })
+                  }}
+                />
+                {/* ... */}
+              </Box>
+              {/* <Avatar
                 alt="Remy Sharp"
                 src="https://picsum.photos/200"
                 sx={{ width: 150, height: 150, mx: "auto" }}
-              />
+              /> */}
               <Typography
                 variant="subtitle2"
                 sx={{ mt: "1.5rem", maxWidth: "250px", mx: "auto" }}
