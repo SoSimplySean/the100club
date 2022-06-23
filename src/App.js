@@ -55,15 +55,15 @@ const styles = {
 theme = responsiveFontSizes(theme);
 
 function App() {
-  const [session, setSession] = useState(null)
+  const [session, setSession] = useState(null);
 
-    useEffect(() => {
-      setSession(supabase.auth.session())
-  
-      supabase.auth.onAuthStateChange((_event, session) => {
-        setSession(session)
-      })
-    }, []);
+  useEffect(() => {
+    setSession(supabase.auth.session());
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -75,18 +75,33 @@ function App() {
             customIcon="<span>&#9820;</span>"
             size="100"
           />
-          <Header />
+          <Header session={session} />
           <main>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/store" element={<SwagStorePage />} />
-              <Route path="/directory" element={<DirectoryPage />} />
+              <Route path="/directory" element={<DirectoryPage session={session} />} />
               <Route path="/directory/:id" element={<ProfilePage />} />
               <Route path="/joinTheTeam" element={<JoinTeamPage />} />
-              <Route path="/join" element={!session ? <SignUp /> : <Navigate to="/dashboard" />} />
-              <Route path="/login" element={!session ? <SignIn /> : <Navigate to="/dashboard" />} />
+              <Route
+                path="/join"
+                element={!session ? <SignUp /> : <Navigate to="/dashboard" />}
+              />
+              <Route
+                path="/login"
+                element={!session ? <SignIn /> : <Navigate to="/dashboard" />}
+              />
               <Route path="/profilePage" element={<ProfilePage />} />
-              <Route path="/dashboard/*" element={!session ? <SignIn /> : <UserDashboard key={session.user.id} session={session} />}/>
+              <Route
+                path="/dashboard/*"
+                element={
+                  !session ? (
+                    <SignIn />
+                  ) : (
+                    <UserDashboard key={session.user.id} session={session} />
+                  )
+                }
+              />
             </Routes>
           </main>
           <Footer />
