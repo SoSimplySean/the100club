@@ -138,7 +138,7 @@ const ProfilePage = (props) => {
         sx={{ padding: "2rem", mt: "3rem", textAlign: "left" }}
       >
         <Typography variant="h6" component="h3" sx={{ fontWeight: "bold" }}>
-          Mastermind Group
+          Mastermind Group Members
         </Typography>
 
         {user.mastermind === null ? (

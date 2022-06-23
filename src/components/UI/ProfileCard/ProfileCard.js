@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import DoubleArrowSharpIcon from "@mui/icons-material/DoubleArrowSharp";
-import { Grid, Box } from "@mui/material";
+import { Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const ProfileCard = (props) => {
