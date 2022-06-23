@@ -20,7 +20,7 @@ import { supabase } from "../../../api";
 
 // ******************************************************************************************************************************
 
-const EditProfile = ({ session }) => {
+const EditProfile = ({ session, membershipLevel }) => {
   const [loading, setLoading] = useState(true);
 
   const [fullName, setFullName] = useState(null);
@@ -208,7 +208,11 @@ const EditProfile = ({ session }) => {
               </Typography>
               <Tooltip title="You are currently part of our waitlist. Apply in the next cohort to become a member of The 100 Club.">
                 <Chip
-                  label="Waitlist Member"
+                  label={
+                    membershipLevel === "waitlist"
+                      ? "Waitlist Member"
+                      : "The 100 Club Member"
+                  }
                   color="primary"
                   sx={{ mt: "1.5rem" }}
                 />

@@ -56,14 +56,43 @@ theme = responsiveFontSizes(theme);
 
 function App() {
   const [session, setSession] = useState(null);
+  const [membershipLevel, setMembershipLevel] = useState();
 
-  useEffect(() => {
-    setSession(supabase.auth.session());
+  useEffect(
+    () => {
+      setSession(supabase.auth.session());
 
-    supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-    });
-  }, []);
+      supabase.auth.onAuthStateChange((_event, session) => {
+        setSession(session);
+      });
+
+      getProfile();
+    },
+    // eslint-disable-next-line
+    [session]
+  );
+
+  const getProfile = async () => {
+    try {
+      const user = supabase.auth.user();
+
+      let { data, error, status } = await supabase
+        .from("profiles")
+        .select(`membershipLevel`)
+        .eq("id", user.id)
+        .single();
+
+      if (error && status !== 406) {
+        throw error;
+      }
+
+      if (data) {
+        setMembershipLevel(data.membershipLevel);
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -80,7 +109,15 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/store" element={<SwagStorePage />} />
-              <Route path="/directory" element={<DirectoryPage session={session} />} />
+              <Route
+                path="/directory"
+                element={
+                  <DirectoryPage
+                    session={session}
+                    membershipLevel={membershipLevel}
+                  />
+                }
+              />
               <Route path="/directory/:id" element={<ProfilePage />} />
               <Route path="/joinTheTeam" element={<JoinTeamPage />} />
               <Route
@@ -98,7 +135,11 @@ function App() {
                   !session ? (
                     <SignIn />
                   ) : (
-                    <UserDashboard key={session.user.id} session={session} />
+                    <UserDashboard
+                      key={session.user.id}
+                      session={session}
+                      membershipLevel={membershipLevel}
+                    />
                   )
                 }
               />
