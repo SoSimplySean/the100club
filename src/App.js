@@ -66,16 +66,17 @@ function App() {
         setSession(session);
       });
 
-      getProfile();
+      const user = supabase.auth.user();
+      if (user) {
+        getProfile(user);
+      }
     },
     // eslint-disable-next-line
     [session]
   );
 
-  const getProfile = async () => {
+  const getProfile = async (user) => {
     try {
-      const user = supabase.auth.user();
-
       let { data, error, status } = await supabase
         .from("profiles")
         .select(`membershipLevel`)
