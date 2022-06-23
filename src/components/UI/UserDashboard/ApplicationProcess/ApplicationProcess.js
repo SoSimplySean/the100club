@@ -12,7 +12,7 @@ import StepLabel from "@mui/material/StepLabel";
 
 const steps = ["Application Form", "Outcome Status", "Payment"];
 
-export default function HorizontalLinearStepper() {
+export default function HorizontalLinearStepper({ membershipLevel }) {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {

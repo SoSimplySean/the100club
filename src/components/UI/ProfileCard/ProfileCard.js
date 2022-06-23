@@ -25,7 +25,7 @@ const ProfileCard = (props) => {
           "&:hover": { transform: "scale3d(1.03, 1.03, 1)", zIndex: 1 },
         }}
       >
-        {!props.session && (
+        {props.membershipLevel !== "member" && (
           <Box
             id="overlay"
             sx={{
