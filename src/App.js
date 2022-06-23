@@ -9,13 +9,12 @@ import JoinTeamPage from "./pages/JoinTeamPage";
 import ProfilePage from "./components/UI/ProfilePage/ProfilePage";
 import UserDashboard from "./components/UI/UserDashboard/UserDashboard";
 
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { Popover } from "@typeform/embed-react";
-
-import { useState, useEffect } from "react";
 import { supabase } from "./api";
-import SignUpControl from "./pages/SignUpControl";
-import LogInControl from "./pages/LogInControl";
+import { useEffect, useState } from "react";
+import SignIn from "./pages/SupabaseLogin";
+import SignUp from "./pages/SupabaseSignUp";
 
 import {
   createTheme,
@@ -56,20 +55,45 @@ const styles = {
 theme = responsiveFontSizes(theme);
 
 function App() {
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    const { data: authListener } = supabase.auth.onAuthStateChange(async () =>
-      checkUser()
-    );
-    checkUser();
-    return () => {
-      authListener?.unsubscribe();
-    };
-  }, []);
-  async function checkUser() {
-    const user = supabase.auth.user();
-    setUser(user);
-  }
+  const [session, setSession] = useState(null);
+  const [membershipLevel, setMembershipLevel] = useState();
+
+  useEffect(
+    () => {
+      setSession(supabase.auth.session());
+
+      supabase.auth.onAuthStateChange((_event, session) => {
+        setSession(session);
+      });
+
+      getProfile();
+    },
+    // eslint-disable-next-line
+    [session]
+  );
+
+  const getProfile = async () => {
+    try {
+      const user = supabase.auth.user();
+
+      let { data, error, status } = await supabase
+        .from("profiles")
+        .select(`membershipLevel`)
+        .eq("id", user.id)
+        .single();
+
+      if (error && status !== 406) {
+        throw error;
+      }
+
+      if (data) {
+        setMembershipLevel(data.membershipLevel);
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <Fragment>
@@ -80,20 +104,45 @@ function App() {
             customIcon="<span>&#9820;</span>"
             size="100"
           />
-          <Header />
+          <Header session={session} />
           <main>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/store" element={<SwagStorePage />} />
-              <Route path="/directory" element={<DirectoryPage />} />
+              <Route
+                path="/directory"
+                element={
+                  <DirectoryPage
+                    session={session}
+                    membershipLevel={membershipLevel}
+                  />
+                }
+              />
+              <Route path="/directory/:id" element={<ProfilePage />} />
               <Route path="/joinTheTeam" element={<JoinTeamPage />} />
-              <Route path="/join" element={<SignUpControl />} />
-              <Route path="/login" element={<LogInControl />} />
+              <Route
+                path="/join"
+                element={!session ? <SignUp /> : <Navigate to="/dashboard" />}
+              />
+              <Route
+                path="/login"
+                element={!session ? <SignIn /> : <Navigate to="/dashboard" />}
+              />
               <Route path="/profilePage" element={<ProfilePage />} />
-
-              {user && (
-                <Route path="/dashboard/*" element={<UserDashboard />} />
-              )}
+              <Route
+                path="/dashboard/*"
+                element={
+                  !session ? (
+                    <SignIn />
+                  ) : (
+                    <UserDashboard
+                      key={session.user.id}
+                      session={session}
+                      membershipLevel={membershipLevel}
+                    />
+                  )
+                }
+              />
             </Routes>
           </main>
           <Footer />

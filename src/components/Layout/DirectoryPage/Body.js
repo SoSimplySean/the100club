@@ -1,15 +1,46 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import { default as rawData } from "./UserData.json";
+// import { default as rawData } from "./UserData.json";
 import Pagination from "../../UI/Pagination/Pagination";
 import ProfileCard from "../../UI/ProfileCard/ProfileCard";
+import { supabase } from "../../../api";
 
 import SearchIcon from "@mui/icons-material/Search";
-import { Box, Grid, Paper, InputBase, IconButton } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Paper,
+  InputBase,
+  IconButton,
+  Typography,
+} from "@mui/material";
 
-const Body = () => {
+const Body = ({ session, membershipLevel }) => {
   let [page, setPage] = useState(1);
   let [pageData, setPageData] = useState("");
+  let [users, setUsers] = useState();
+
+  useEffect(
+    () => {
+      fetchUsers();
+    }, // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
+
+  const fetchUsers = async () => {
+    let { data: users, error } = await supabase.from("profiles").select("*");
+    if (error) console.log(error);
+    else setUsers(users);
+  };
+
+  const passPageData = (data) => {
+    setPageData(data);
+    console.log(pageData);
+  };
+
+  if (users === undefined) {
+    return <Typography>Still loading...</Typography>;
+  }
 
   return (
     <Box sx={{ mt: "5rem" }}>
@@ -44,17 +75,20 @@ const Body = () => {
             pageData.currentData().map((user) => {
               return (
                 <ProfileCard
-                  personName={user.personName}
-                  companyName={user.companyName}
-                  companyDesc={user.companyDesc}
+                  session={session}
+                  membershipLevel={membershipLevel}
+                  key={user.id}
+                  fullName={user.fullName}
+                  title={user.title}
+                  about={user.about}
                   id={user.id}
                 />
               );
             })}
         </Grid>
         <Pagination
-          data={rawData}
-          passPageData={setPageData}
+          data={users}
+          passPageData={passPageData}
           page={page}
           passPage={setPage}
           size="large"

@@ -3,15 +3,7 @@ import React from "react";
 import EditProfile from "./EditProfile";
 import ApplicationProcess from "./ApplicationProcess/ApplicationProcess";
 
-import {
-  Grid,
-  Paper,
-  Typography,
-  Avatar,
-  MenuItem,
-  Chip,
-  Tooltip,
-} from "@mui/material";
+import { Grid, Paper, MenuItem } from "@mui/material";
 import {
   Link,
   Route,
@@ -21,7 +13,7 @@ import {
 } from "react-router-dom";
 import { supabase } from "../../../api";
 
-const UserDashboard = () => {
+const UserDashboard = ({ session, membershipLevel }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -31,20 +23,21 @@ const UserDashboard = () => {
   };
 
   return (
-    <Grid>
-      <Paper
-        elevation={4}
-        sx={{ padding: "2rem", mt: "2rem", textAlign: "center" }}
-      >
-        <Avatar
-          alt="Remy Sharp"
-          src="https://picsum.photos/200"
-          sx={{ width: 150, height: 150, mx: "auto" }}
-        />
-        <Typography
-          variant="subtitle2"
-          sx={{ mt: "1.5rem", maxWidth: "250px", mx: "auto" }}
+    <Grid
+      container
+      component="main"
+      sx={{ mt: "4rem", justifyContent: "space-between" }}
+    >
+      <Grid item xs={12} lg={4.5}>
+        <Paper
+          elevation={4}
+          sx={{
+            padding: "2rem",
+            mt: "2rem",
+            textAlign: "center",
+          }}
         >
+
           Image must be .jpg or .png with minimum size of 160x160 pixels.
         </Typography>
         <Tooltip title="You are currently part of our waitlist. Apply in the next cohort to become a member of The 100 Club.">
@@ -60,43 +53,64 @@ const UserDashboard = () => {
         }}
         data-testid="menu"
       >
-        <Link to="application" style={{ textDecoration: "none" }}>
-          <MenuItem
-            key={1}
-            divider="true"
-            value={"Application"}
-            sx={{ color: "primary.main" }}
-            selected={location.pathname === "/dashboard/application"}
-          >
-            Apply to become a member of The 100 Club ★
-          </MenuItem>
-        </Link>
+          <Link to="application" style={{ textDecoration: "none" }}>
+            <MenuItem
+              key={1}
+              divider="true"
+              value={"Application"}
+              sx={{ color: "primary.main" }}
+              selected={location.pathname === "/dashboard/application"}
+            >
+              Apply to be a pro member
+            </MenuItem>
+          </Link>
 
-        <Link to="editProfile" style={{ textDecoration: "none" }}>
-          <MenuItem
-            key={1}
-            divider="true"
-            value={"Edit Profile"}
-            sx={{ color: "primary.main" }}
-            selected={
-              location.pathname === "/dashboard/editProfile" ||
-              location.pathname === "/dashboard"
+          <Link to="editProfile" style={{ textDecoration: "none" }}>
+            <MenuItem
+              key={1}
+              divider="true"
+              value={"Edit Profile"}
+              sx={{ color: "primary.main" }}
+              selected={
+                location.pathname === "/dashboard/editProfile" ||
+                location.pathname === "/dashboard"
+              }
+            >
+              Edit Profile
+            </MenuItem>
+          </Link>
+
+          <MenuItem key={2} value={"Log Out"} onClick={signOut}>
+            Logout
+          </MenuItem>
+        </Paper>
+      </Grid>
+
+      <Grid item xs={12} lg={7} elevation={6} square>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <EditProfile
+                key={session.user.id}
+                session={session}
+                membershipLevel={membershipLevel}
+              />
             }
-          >
-            Edit Profile
-          </MenuItem>
-        </Link>
-
-        <MenuItem key={2} value={"Log Out"} onClick={signOut}>
-          Logout
-        </MenuItem>
-      </Paper>
-
-      <Routes>
-        <Route path="/" element={<EditProfile />} />
-        <Route path="editProfile" element={<EditProfile />} />
-        <Route path="application" element={<ApplicationProcess />} />
-      </Routes>
+          />
+          <Route
+            path="editProfile"
+            element={
+              <EditProfile
+                key={session.user.id}
+                session={session}
+                membershipLevel={membershipLevel}
+              />
+            }
+          />
+          <Route path="application" element={<ApplicationProcess />} />
+        </Routes>
+      </Grid>
     </Grid>
   );
 };

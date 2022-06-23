@@ -7,15 +7,17 @@ import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import DoubleArrowSharpIcon from "@mui/icons-material/DoubleArrowSharp";
 import { Grid, Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const ProfileCard = (props) => {
+  let navigate = useNavigate();
+
   return (
     <Grid item lg={6} xl={3}>
       <Card
-        key={props.id}
         sx={{
           position: "relative",
-          minHeight: 450,
+          minHeight: 375,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -23,35 +25,45 @@ const ProfileCard = (props) => {
           "&:hover": { transform: "scale3d(1.03, 1.03, 1)", zIndex: 1 },
         }}
       >
-        <Box
-          id="overlay"
-          sx={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            backdropFilter: "blur(8px)",
-            zIndex: "1000",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Button variant="contained">The 100-exclusive</Button>
-        </Box>
+        {props.membershipLevel !== "member" && (
+          <Box
+            id="overlay"
+            sx={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              backdropFilter: "blur(8px)",
+              zIndex: "1000",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Button variant="contained">The 100-exclusive</Button>
+          </Box>
+        )}
         <CardContent>
           <Avatar sx={{ bgcolor: "secondary.main", width: 56, height: 56 }}>
             H
           </Avatar>
-          <Typography variant="h5" component="h3" sx={{ mt: "2rem" }}>
-            {props.personName}
+          <Typography
+            variant="h5"
+            component="h3"
+            sx={{ mt: "2rem", fontWeight: "bold" }}
+          >
+            {props.fullName}
           </Typography>
-          <Typography>{props.companyName}</Typography>
-          <Typography variant="body1" sx={{ mt: "1rem" }}>
-            {props.companyDesc}
+          <Typography>{props.title}</Typography>
+          <Typography variant="subtitle2" sx={{ mt: "1rem" }}>
+            {props.about}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" endIcon={<DoubleArrowSharpIcon />}>
+          <Button
+            size="small"
+            endIcon={<DoubleArrowSharpIcon />}
+            onClick={() => navigate(`/directory/${props.id}`)}
+          >
             Learn More
           </Button>
         </CardActions>

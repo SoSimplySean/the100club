@@ -152,7 +152,7 @@ const SAccount = ({ session }) => {
                 component="h3"
                 sx={{ fontWeight: "bold" }}
               >
-                Name
+                Slack Username
               </Typography>
               <TextField
                 hiddenLabel
@@ -167,33 +167,11 @@ const SAccount = ({ session }) => {
                 onChange={(e) => setUsername(e.target.value)}
               />
 
-              {/* WEBSITE */}
-              <Typography
-                variant="subtitle2"
-                component="h3"
-                sx={{ fontWeight: "bold", mt: "1.5rem" }}
-              >
-                Website
-              </Typography>
-              <TextField
-                hiddenLabel
-                multiline
-                rows={1}
-                fullWidth
-                size="small"
-                variant="outlined"
-                id="website"
-                type="url"
-                value={website || ''}
-                onChange={(e) => setWebsite(e.target.value)}
-                sx ={{ mb: "1.5rem" }}
-              />
-
               {/* EMAIL */}
               <Typography
                 variant="subtitle2"
                 component="h3"
-                sx={{ fontWeight: "bold" }}
+                sx={{ fontWeight: "bold", mt: "1.5rem" }}
               >
                 Email
               </Typography>
@@ -210,6 +188,29 @@ const SAccount = ({ session }) => {
                 onChange={(e) => setEmail(e.target.value)}
                 sx ={{ mb: "1.5rem" }}
               />
+
+              {/* LINKEDIN */}
+              <Typography
+                variant="subtitle2"
+                component="h3"
+                sx={{ fontWeight: "bold" }}
+              >
+                LinkedIn
+              </Typography>
+              <TextField
+                hiddenLabel
+                multiline
+                rows={1}
+                fullWidth
+                size="small"
+                variant="outlined"
+                id="website"
+                type="url"
+                value={website || ''}
+                onChange={(e) => setWebsite(e.target.value)}
+                sx ={{ mb: "1.5rem" }}
+              />
+
             </Paper>
             <Paper              
               elevation={4}
