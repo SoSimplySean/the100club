@@ -11,6 +11,8 @@ import {
   TextField,
   Button,
   Box,
+  Select,
+  OutlinedInput,
 } from "@mui/material";
 
 import { useState, useEffect } from "react";
@@ -25,13 +27,12 @@ const EditProfile = ({ session }) => {
   const [about, setAbout] = useState(null);
   const [title, setTitle] = useState(null);
   const [age, setAge] = useState(null);
-  const [skills, setSkills] = useState(null);
-  const [objective, setObjective] = useState(null);
+  const [skills, setSkills] = useState([]);
 
   const [companyName, setCompanyName] = useState(null);
   const [companyAbout, setCompanyAbout] = useState(null);
   const [founded, setFounded] = useState(null);
-  const [industry, setIndustry] = useState(null);
+  const [industry, setIndustry] = useState([]);
 
   const [linkedin, setLinkedIn] = useState(null);
   const [email, setEmail] = useState(null);
@@ -39,6 +40,71 @@ const EditProfile = ({ session }) => {
   useEffect(() => {
     getProfile();
   }, [session]);
+
+  const skillsList = [
+    "Bootstrapping",
+    "Building a team",
+    "Content marketing",
+    "Conversion rate optimization",
+    "Copywriting",
+    "Customer success",
+    "Data science",
+    "Design / UX",
+    "Email marketing",
+    "Facebook ads",
+    "Go to market strategy",
+    "Google ads",
+    "Growth marketing",
+    "Idea validation",
+    "Link building",
+    "Operations",
+    "Marketing automation",
+    "No-code",
+    "Performance marketing",
+    "PPC strategies",
+    "Pricing strategy",
+    "Product analytics",
+    "Product management",
+    "Product market fit",
+    "Public relations",
+    "Raising funding",
+    "Sales",
+    "SEO",
+    "Social media",
+    "User research",
+    "Web Development",
+  ];
+
+  const industryList = [
+    "Creative Agency",
+    "Food",
+    "SaaS",
+    "Medtech",
+    "Entertainment",
+    "eCommerce",
+    "Marketplace",
+    "Membership Platform",
+  ];
+
+  const handleSkillsChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setSkills(
+      // On autofill we get a stringified value.
+      typeof value === "string" ? value.split(",") : value
+    );
+  };
+
+  const handleIndustryChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setIndustry(
+      // On autofill we get a stringified value.
+      typeof value === "string" ? value.split(",") : value
+    );
+  };
 
   const getProfile = async () => {
     try {
@@ -48,7 +114,7 @@ const EditProfile = ({ session }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `fullName, title, about, age, skills, objective, companyName, companyAbout, founded, industry, linkedin, email`
+          `fullName, title, about, age, skills, companyName, companyAbout, founded, industry, linkedin, email`
         )
         .eq("id", user.id)
         .single();
@@ -65,7 +131,6 @@ const EditProfile = ({ session }) => {
         setTitle(data.title);
         setAge(data.age);
         setSkills(data.skills);
-        setObjective(data.objective);
         setCompanyName(data.companyName);
         setCompanyAbout(data.companyAbout);
         setFounded(data.founded);
@@ -93,7 +158,6 @@ const EditProfile = ({ session }) => {
         title,
         age,
         skills,
-        objective,
         companyName,
         companyAbout,
         founded,
@@ -176,8 +240,6 @@ const EditProfile = ({ session }) => {
               </Typography>
               <TextField
                 hiddenLabel
-                multiline
-                rows={1}
                 fullWidth
                 size="small"
                 variant="outlined"
@@ -198,8 +260,6 @@ const EditProfile = ({ session }) => {
               </Typography>
               <TextField
                 hiddenLabel
-                multiline
-                rows={1}
                 fullWidth
                 size="small"
                 variant="outlined"
@@ -242,8 +302,6 @@ const EditProfile = ({ session }) => {
               </Typography>
               <TextField
                 hiddenLabel
-                multiline
-                rows={1}
                 fullWidth
                 size="small"
                 variant="outlined"
@@ -262,45 +320,27 @@ const EditProfile = ({ session }) => {
               >
                 What are your skills & interests?
               </Typography>
-              <TextField
-                hiddenLabel
-                size="small"
-                value={""}
-                select
+              <Select
                 fullWidth
-                onChange={(e) => setSkills(e.target.value)}
-              >
-                <MenuItem key={1} value={"Marketing Pipelines"}>
-                  Marketing Pipelines
-                </MenuItem>
-                <MenuItem key={1} value={"UI/UX Design"}>
-                  UI/UX Design
-                </MenuItem>
-              </TextField>
-
-              {/* NETWORKING OBJECTIVES */}
-              <Typography
-                variant="subtitle2"
-                component="h3"
-                sx={{ fontWeight: "bold", mt: "1.5rem" }}
-              >
-                What is your objective here?
-              </Typography>
-              <TextField
-                hiddenLabel
                 size="small"
-                value={""}
-                select
-                fullWidth
-                onChange={(e) => setObjective(e.target.value)}
+                multiple
+                value={skills || ""}
+                onChange={handleSkillsChange}
+                input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+                renderValue={(selected) => (
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+                    {selected.map((value) => (
+                      <Chip key={value} label={value} />
+                    ))}
+                  </Box>
+                )}
               >
-                <MenuItem key={1} value={"Find a co-founder"}>
-                  Find a co-founder
-                </MenuItem>
-                <MenuItem key={1} value={"Find suitable support partners"}>
-                  Find suitable support partners
-                </MenuItem>
-              </TextField>
+                {skillsList.map((name) => (
+                  <MenuItem key={name} value={name}>
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
             </Paper>
 
             <Paper
@@ -317,8 +357,6 @@ const EditProfile = ({ session }) => {
               </Typography>
               <TextField
                 hiddenLabel
-                multiline
-                rows={1}
                 fullWidth
                 size="small"
                 variant="outlined"
@@ -361,8 +399,6 @@ const EditProfile = ({ session }) => {
               </Typography>
               <TextField
                 hiddenLabel
-                multiline
-                rows={1}
                 fullWidth
                 size="small"
                 variant="outlined"
@@ -381,21 +417,27 @@ const EditProfile = ({ session }) => {
               >
                 What industry does your company operate in?
               </Typography>
-              <TextField
-                hiddenLabel
-                size="small"
-                value={""}
-                select
+              <Select
                 fullWidth
-                onChange={(e) => setIndustry(e.target.value)}
+                size="small"
+                multiple
+                value={industry || ""}
+                onChange={handleIndustryChange}
+                input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+                renderValue={(selected) => (
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+                    {selected.map((value) => (
+                      <Chip key={value} label={value} />
+                    ))}
+                  </Box>
+                )}
               >
-                <MenuItem key={1} value={"Ecommerce"}>
-                  Ecommerce
-                </MenuItem>
-                <MenuItem key={1} value={"Healthcare Tech"}>
-                  Healthcare Tech
-                </MenuItem>
-              </TextField>
+                {industryList.map((name) => (
+                  <MenuItem key={name} value={name}>
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
             </Paper>
 
             <Paper
@@ -412,8 +454,6 @@ const EditProfile = ({ session }) => {
               </Typography>
               <TextField
                 hiddenLabel
-                multiline
-                rows={1}
                 fullWidth
                 size="small"
                 variant="outlined"
@@ -434,8 +474,6 @@ const EditProfile = ({ session }) => {
               </Typography>
               <TextField
                 hiddenLabel
-                multiline
-                rows={1}
                 fullWidth
                 size="small"
                 variant="outlined"
