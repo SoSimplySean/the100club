@@ -73,9 +73,12 @@ export default function SignUp() {
           <br></br>
           Right now we have a group of entrepreneurs piloting our first ever
           mastermind cohort. The next round of applications for the pro
-          membership will reopen in July of 2022. In the meantime, create a free
-          account to be notified when the next cohort launches. <br></br>{" "}
-          <br></br>
+          membership will reopen in August of 2022.{" "}
+          <strong>
+            In the meantime, create a free account to be notified when the next
+            cohort launches.
+          </strong>{" "}
+          <br></br> <br></br>
           Do you have a business idea that you're eager to try out? Are you keen
           on learning more about this mastermind community? Create a free
           account to join our waitlist, and be notified on the launch of our

@@ -12,30 +12,28 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 
-import { useState } from 'react'
-import { supabase } from '../api'
+import { useState } from "react";
+import { supabase } from "../api";
 
 export default function SignUp() {
-    const [loading, setLoading] = useState(false)
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const handleLogin = async (e) => {
-      e.preventDefault()
-  
-      try {
-        setLoading(true)
-        const { error } = await supabase.auth.signUp({ email, password })
-        if (error) throw error
-        alert('Thanks for signing up!')
-      } catch (error) {
-        alert(error.error_description || error.message)
-      } finally {
-        setLoading(false)
-      }
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+      const { error } = await supabase.auth.signUp({ email, password });
+      if (error) throw error;
+      alert("Thanks for signing up!");
+    } catch (error) {
+      alert(error.error_description || error.message);
+    } finally {
+      setLoading(false);
     }
-
-  
+  };
 
   return (
     <Grid
@@ -70,13 +68,16 @@ export default function SignUp() {
           <br></br>
           Right now we have a group of entrepreneurs piloting our first ever
           mastermind cohort. The next round of applications for the pro
-          membership will reopen in July of 2022. In the meantime, create a free
-          account to be notified when the next cohort launches. <br></br>{" "}
-          <br></br>
+          membership will reopen in July of 2022.{" "}
+          <strong>
+            In the meantime, create a free account to be notified when the next
+            cohort launches.
+          </strong>{" "}
+          {/* <br></br> <br></br>
           Do you have a business idea that you're eager to try out? Are you keen
           on learning more about this mastermind community? Create a free
           account to join our waitlist, and be notified on the launch of our
-          next cohort.
+          next cohort. */}
         </Typography>
       </Grid>
 
@@ -131,9 +132,13 @@ export default function SignUp() {
               <Grid item xs={12}>
                 <FormControlLabel
                   control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
+                    <Checkbox
+                      defaultChecked
+                      value="allowExtraEmails"
+                      color="primary"
+                    />
                   }
-                  label="I want to receive inspiration, marketing promotions and updates via email."
+                  label="I want to receive updates via email."
                 />
               </Grid>
             </Grid>
@@ -152,9 +157,14 @@ export default function SignUp() {
                 </Link>
               </Grid>
             </Grid>
-
           </Box>
-          {loading ? <Box sx={{ padding: "2rem", mt: "2rem", textAlign: "center" }}>Loading . . .</Box> : ""}
+          {loading ? (
+            <Box sx={{ padding: "2rem", mt: "2rem", textAlign: "center" }}>
+              Loading . . .
+            </Box>
+          ) : (
+            ""
+          )}
         </Box>
       </Grid>
     </Grid>

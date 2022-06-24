@@ -17,7 +17,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AddIcon from "@mui/icons-material/Add";
+import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "@mui/material";
 
 const Header = ({ session }) => {
@@ -177,7 +177,7 @@ const Header = ({ session }) => {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Profile Photo" sx={{ bgcolor: "primary.main" }}>
-                  <AddIcon />
+                  <PersonIcon />
                 </Avatar>
               </IconButton>
             </Tooltip>

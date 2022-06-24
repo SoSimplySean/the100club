@@ -1,5 +1,6 @@
 import Container from "../../../UI/Container/Container";
 
+import { Link } from "react-router-dom";
 import { Typography } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -38,6 +39,51 @@ const FAQ = (props) => {
         <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel3a-content"
+            id="panel3a-header"
+          >
+            <Typography sx={{ fontWeight: "bold" }}>
+              What is a mastermind group?
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              A mastermind group is essentially a group of entrepreneurs and
+              friends getting together every 2 weeks to have a chat about their
+              wins and losses. Use the opportunity to bounce ideas off each
+              other, hold each other accountable on tasks to be completed and
+              leverage on each other's network!
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel3a-content"
+            id="panel3a-header"
+          >
+            <Typography sx={{ fontWeight: "bold" }}>
+              How is a mastermind group formed?
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              You can trust that we have a very robust process in place to make
+              it easy for you. On our end, when a new cohort launches, we will
+              first identify 4 individuals who are a good fit for each other,
+              based on their niche and stage of their business. From there, we
+              will organise a physical meal with all 4 individuals along with
+              the founders of the club to have a vibe check. If everybody's
+              happy with each other, we'll onboard the group at the end of the
+              meal, identifying the meeting frequency, the group moderator, the
+              agenda for meetings, and so on. All grey area will be removed so
+              that you can just go into biweekly catchups and talk business!
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
@@ -47,8 +93,17 @@ const FAQ = (props) => {
             <Typography>
               Cohorts are launched at the start of every quarter. Our next
               cohort is set to launch in Aug 2022. In the mean time, to stay
-              updated and ensure you don't miss applications, join our email
-              list and telegram channel for exciting content.
+              updated and ensure you don't miss applications,{" "}
+              <strong>
+                <Link to={"/join"}>join our waitlist</Link>
+              </strong>{" "}
+              by creating a free account and check out our{" "}
+              <strong>
+                <a target="_blank" href="https://t.me/JoinThe100Club">
+                  Telegram channel for more general updates
+                </a>
+              </strong>
+              .
             </Typography>
           </AccordionDetails>
         </Accordion>
