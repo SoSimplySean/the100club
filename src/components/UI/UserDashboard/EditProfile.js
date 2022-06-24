@@ -261,7 +261,7 @@ const EditProfile = ({ session, membershipLevel }) => {
                 fullWidth
                 size="small"
                 variant="outlined"
-                id="age"
+                id="fullName"
                 type="url"
                 value={fullName || ""}
                 onChange={(e) => setFullName(e.target.value)}
@@ -281,7 +281,7 @@ const EditProfile = ({ session, membershipLevel }) => {
                 fullWidth
                 size="small"
                 variant="outlined"
-                id="age"
+                id="title"
                 type="url"
                 value={title || ""}
                 onChange={(e) => setTitle(e.target.value)}

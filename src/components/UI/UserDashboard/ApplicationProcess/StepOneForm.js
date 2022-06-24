@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Typography, Box, Button, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { supabase } from "../../../../api";
 
 const validationSchema = yup.object({
   name: yup.string("Enter your name").required("Full Name is required"),
@@ -27,9 +28,14 @@ const StepOneForm = (props) => {
       project: "",
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       handleSubmit(true);
       alert(JSON.stringify(values, null, 2));
+      let { error } = await supabase.from('applications').upsert(JSON.stringify(values), {
+        returning: "minimal", // Don't return the value after inserting
+      });
+      if (error) console.log("error", error);
+      alert('successful');
     },
   });
 
