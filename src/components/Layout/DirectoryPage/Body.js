@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
-// import { default as rawData } from "./UserData.json";
 import Pagination from "../../UI/Pagination/Pagination";
 import ProfileCard from "../../UI/ProfileCard/ProfileCard";
 import { supabase } from "../../../api";
 
+import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import {
   Box,
@@ -28,7 +28,10 @@ const Body = ({ session, membershipLevel }) => {
   );
 
   const fetchUsers = async () => {
-    let { data: users, error } = await supabase.from("profiles").select("*");
+    let { data: users, error } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("membershipLevel", "member");
     if (error) console.log(error);
     else setUsers(users);
   };
@@ -52,6 +55,37 @@ const Body = ({ session, membershipLevel }) => {
           mt: "3rem",
         }}
       >
+        {" "}
+        {membershipLevel !== "member" && (
+          <Link
+            to={"/dashboard/application"}
+            style={{
+              width: "100%",
+              textDecoration: "none",
+            }}
+          >
+            <Paper
+              elevation={4}
+              sx={{
+                p: "2px 4px",
+                mb: "2rem",
+                width: "100%",
+                backgroundColor: "primary.main",
+              }}
+            >
+              <Typography
+                sx={{
+                  ml: 1,
+                  p: "10px",
+                  color: "white",
+                }}
+              >
+                Create an account and apply to become a member of The 100 Club
+                for access
+              </Typography>
+            </Paper>
+          </Link>
+        )}
         <Paper
           component="form"
           sx={{

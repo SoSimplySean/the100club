@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 
+import Banner from "./components/Layout/Banner/Banner";
 import Header from "./components/Layout/Header/Header";
 import Footer from "./components/Layout/Footer/Footer";
 import HomePage from "./pages/HomePage";
@@ -98,6 +99,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Fragment>
+        <Banner />
         <Box sx={styles.container}>
           <Popover
             id="Wg8EdlDs"
