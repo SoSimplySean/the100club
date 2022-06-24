@@ -99,7 +99,11 @@ const FAQ = (props) => {
               </strong>{" "}
               by creating a free account and check out our{" "}
               <strong>
-                <a target="_blank" href="https://t.me/JoinThe100Club">
+                <a
+                  target="_blank"
+                  href="https://t.me/JoinThe100Club"
+                  rel="noreferrer"
+                >
                   Telegram channel for more general updates
                 </a>
               </strong>
