@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../../../api'
 import VisuallyHidden from '@reach/visually-hidden'
+import { Avatar } from '@mui/material'
 
-export default function Avatar({ url, size, onUpload }) {
+export default function Avatarr({ url, size, onUpload }) {
   const [avatarUrl, setAvatarUrl] = useState(null)
   const [uploading, setUploading] = useState(false)
 
@@ -52,11 +53,11 @@ export default function Avatar({ url, size, onUpload }) {
 
   return (
     <div style={{ width: size }} aria-live="polite">
-      <img
+      <Avatar
         src={avatarUrl ? avatarUrl : `https://place-hold.it/${size}x${size}`}
         alt={avatarUrl ? 'Avatar' : 'No image'}
         className="avatar image"
-        style={{ height: size, width: size, borderRadius: "50%" }}
+        style={{ height: size, width: size, border: '4px solid #F6F6F6' }}
       />
       {uploading ? "Uploading..." : (
         <>

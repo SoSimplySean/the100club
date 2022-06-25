@@ -31,14 +31,14 @@ const StepOneForm = (props) => {
     onSubmit: async (values) => {
       handleSubmit(true);
       alert(JSON.stringify(values, null, 2));
-      let { error } = await supabase.from('applications').upsert(JSON.stringify(values), {
+      let { error } = await supabase.from('applications').insert(values, {
         returning: "minimal", // Don't return the value after inserting
       });
       if (error) console.log("error", error);
       alert('successful');
     },
   });
-
+ 
   return (
     <React.Fragment>
       <Typography variant="h5" sx={{ mt: "3rem", mb: 1, fontWeight: "bold" }}>

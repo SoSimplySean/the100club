@@ -16,7 +16,7 @@ import {
 
 import { useState, useEffect } from "react";
 import { supabase } from "../../../api";
-import Avatar from "../Avatar/Avatar";
+import Avatarr from "../Avatar/Avatar";
 
 // ******************************************************************************************************************************
 
@@ -136,6 +136,7 @@ const EditProfile = ({ session, membershipLevel }) => {
         setCompanyAbout(data.companyAbout);
         setFounded(data.founded);
         setIndustry(data.industry);
+        setAvatarUrl(data.avatar_url);
       }
     } catch (error) {
       alert(error.message);
@@ -199,7 +200,7 @@ const EditProfile = ({ session, membershipLevel }) => {
             >
               <Box className="form-widget" sx={{ width: 150, height: 150, mx: "auto", mb: "35px" }}>
                 {/* Add to the body */}
-                <Avatar
+                <Avatarr
                   url={avatar_url}
                   size={150}
                   onUpload={(url) => {
