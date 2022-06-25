@@ -13,7 +13,7 @@ const ProfileCard = (props) => {
   let navigate = useNavigate();
 
   return (
-    <Grid item lg={6} xl={3}>
+    <Grid item lg={6} xl={3} data-testid="ProfileCard">
       <Card
         sx={{
           position: "relative",
