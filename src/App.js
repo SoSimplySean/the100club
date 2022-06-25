@@ -111,7 +111,15 @@ function App() {
           <main>
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/store" element={<SwagStorePage />} />
+              <Route
+                path="/store"
+                element={
+                  <SwagStorePage
+                    session={session}
+                    membershipLevel={membershipLevel}
+                  />
+                }
+              />
               <Route
                 path="/directory"
                 element={
