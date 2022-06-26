@@ -5,15 +5,7 @@ import SwagItem from "../../UI/SwagItem/SwagItem";
 import { supabase } from "../../../api";
 
 import { Link } from "react-router-dom";
-import SearchIcon from "@mui/icons-material/Search";
-import {
-  Box,
-  Grid,
-  Paper,
-  InputBase,
-  IconButton,
-  Typography,
-} from "@mui/material";
+import { Box, Grid, Paper, Typography } from "@mui/material";
 
 const Body = ({ session, membershipLevel }) => {
   let [page, setPage] = useState(1);
@@ -83,22 +75,23 @@ const Body = ({ session, membershipLevel }) => {
           </Link>
         )}
         <Paper
-          component="form"
+          elevation={4}
           sx={{
             p: "2px 4px",
-            display: "flex",
-            alignItems: "center",
+            mb: "2rem",
             width: "100%",
           }}
         >
-          <InputBase
-            sx={{ ml: 1, flex: 1 }}
-            placeholder="Search Directory"
-            inputProps={{ "aria-label": "search directory" }}
-          />
-          <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
-            <SearchIcon />
-          </IconButton>
+          <Typography
+            sx={{
+              ml: 1,
+              p: "10px",
+            }}
+          >
+            {membershipLevel === "member"
+              ? `You currently have ${2} credits`
+              : `You currently have 0 credits. Only members get credits to purchase swag.`}
+          </Typography>
         </Paper>
         <Grid container spacing={2} sx={{ mt: "3rem" }}>
           {pageData &&
