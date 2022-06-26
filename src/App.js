@@ -57,7 +57,7 @@ theme = responsiveFontSizes(theme);
 
 function App() {
   const [session, setSession] = useState(null);
-  const [membershipLevel, setMembershipLevel] = useState();
+  const [user, setUser] = useState({});
 
   useEffect(
     () => {
@@ -80,7 +80,7 @@ function App() {
     try {
       let { data, error, status } = await supabase
         .from("profiles")
-        .select(`membershipLevel`)
+        .select(`*`)
         .eq("id", user.id)
         .single();
 
@@ -89,10 +89,12 @@ function App() {
       }
 
       if (data) {
-        setMembershipLevel(data.membershipLevel);
+        setUser(data);
       }
     } catch (error) {
       alert(error.message);
+    } finally {
+      console.log(user);
     }
   };
 
@@ -113,21 +115,11 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route
                 path="/store"
-                element={
-                  <SwagStorePage
-                    session={session}
-                    membershipLevel={membershipLevel}
-                  />
-                }
+                element={<SwagStorePage session={session} user={user} />}
               />
               <Route
                 path="/directory"
-                element={
-                  <DirectoryPage
-                    session={session}
-                    membershipLevel={membershipLevel}
-                  />
-                }
+                element={<DirectoryPage session={session} user={user} />}
               />
               <Route path="/directory/:id" element={<ProfilePage />} />
               <Route path="/joinTheTeam" element={<JoinTeamPage />} />
@@ -146,11 +138,7 @@ function App() {
                   !session ? (
                     <SignIn />
                   ) : (
-                    <UserDashboard
-                      key={session.user.id}
-                      session={session}
-                      membershipLevel={membershipLevel}
-                    />
+                    <UserDashboard key={session.user.id} session={session} />
                   )
                 }
               />

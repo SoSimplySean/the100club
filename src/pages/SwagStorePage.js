@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import HeroBanner from "../components/Layout/SwagStorePage/HeroBanner";
 import Body from "../components/Layout/SwagStorePage/Body";
 
-const SwagStorePage = ({ session, membershipLevel }) => {
+const SwagStorePage = ({ session, user }) => {
   return (
     // <Container>
     //   <p style={{ textAlign: "center", fontWeight: "bold" }}>
@@ -13,7 +13,7 @@ const SwagStorePage = ({ session, membershipLevel }) => {
     // </Container>
     <Fragment>
       <HeroBanner />
-      <Body session={session} membershipLevel={membershipLevel} />
+      <Body session={session} user={user} />
     </Fragment>
   );
 };

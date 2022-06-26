@@ -7,7 +7,7 @@ import { supabase } from "../../../api";
 import { Link } from "react-router-dom";
 import { Box, Grid, Paper, Typography } from "@mui/material";
 
-const Body = ({ session, membershipLevel }) => {
+const Body = ({ session, user }) => {
   let [page, setPage] = useState(1);
   let [pageData, setPageData] = useState("");
   let [items, setItems] = useState();
@@ -44,7 +44,7 @@ const Body = ({ session, membershipLevel }) => {
         }}
       >
         {" "}
-        {membershipLevel !== "member" && (
+        {user.membershipLevel !== "member" && (
           <Link
             to={"/dashboard/application"}
             style={{
@@ -88,8 +88,8 @@ const Body = ({ session, membershipLevel }) => {
               p: "10px",
             }}
           >
-            {membershipLevel === "member"
-              ? `You currently have ${2} credits`
+            {user.membershipLevel === "member"
+              ? `You currently have ${user.credits} credits`
               : `You currently have 0 credits. Only members get credits to purchase swag.`}
           </Typography>
         </Paper>
@@ -99,7 +99,7 @@ const Body = ({ session, membershipLevel }) => {
               return (
                 <SwagItem
                   session={session}
-                  membershipLevel={membershipLevel}
+                  membershipLevel={user.membershipLevel}
                   key={item.id}
                   itemName={item.itemName}
                   itemBrief={item.itemBrief}

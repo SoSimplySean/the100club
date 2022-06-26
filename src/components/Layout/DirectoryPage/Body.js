@@ -15,7 +15,7 @@ import {
   Typography,
 } from "@mui/material";
 
-const Body = ({ session, membershipLevel }) => {
+const Body = ({ session, user }) => {
   let [page, setPage] = useState(1);
   let [pageData, setPageData] = useState("");
   let [users, setUsers] = useState();
@@ -56,7 +56,7 @@ const Body = ({ session, membershipLevel }) => {
         }}
       >
         {" "}
-        {membershipLevel !== "member" && (
+        {user.membershipLevel !== "member" && (
           <Link
             to={"/dashboard/application"}
             style={{
@@ -106,16 +106,16 @@ const Body = ({ session, membershipLevel }) => {
         </Paper>
         <Grid container spacing={2} sx={{ mt: "3rem" }}>
           {pageData &&
-            pageData.currentData().map((user) => {
+            pageData.currentData().map((profile) => {
               return (
                 <ProfileCard
                   session={session}
-                  membershipLevel={membershipLevel}
-                  key={user.id}
-                  fullName={user.fullName}
-                  title={user.title}
-                  about={user.about}
-                  id={user.id}
+                  membershipLevel={user.membershipLevel}
+                  key={profile.id}
+                  fullName={profile.fullName}
+                  title={profile.title}
+                  about={profile.about}
+                  id={profile.id}
                 />
               );
             })}

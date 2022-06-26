@@ -4,11 +4,11 @@ import { Fragment } from "react";
 import HeroBanner from "../components/Layout/DirectoryPage/HeroBanner";
 import Body from "../components/Layout/DirectoryPage/Body";
 
-const DirectoryPage = ({ session, membershipLevel }) => {
+const DirectoryPage = ({ session, user }) => {
   return (
     <Fragment>
       <HeroBanner />
-      <Body session={session} membershipLevel={membershipLevel} />
+      <Body session={session} user={user} />
     </Fragment>
   );
 };
