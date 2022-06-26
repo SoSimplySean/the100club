@@ -6,6 +6,7 @@ import Footer from "./components/Layout/Footer/Footer";
 import HomePage from "./pages/HomePage";
 import DirectoryPage from "./pages/DirectoryPage";
 import SwagStorePage from "./pages/SwagStorePage";
+import SwagPage from "./components/UI/SwagPage/SwagPage";
 import JoinTeamPage from "./pages/JoinTeamPage";
 import ProfilePage from "./components/UI/ProfilePage/ProfilePage";
 import UserDashboard from "./components/UI/UserDashboard/UserDashboard";
@@ -117,6 +118,7 @@ function App() {
                 path="/store"
                 element={<SwagStorePage session={session} user={user} />}
               />
+              <Route path="/store/:id" element={<SwagPage />} />
               <Route
                 path="/directory"
                 element={<DirectoryPage session={session} user={user} />}
