@@ -43,9 +43,12 @@ const ProfileCard = (props) => {
           </Box>
         )}
         <CardContent>
-          <Avatar sx={{ bgcolor: "secondary.main", width: 56, height: 56 }}>
-            H
-          </Avatar>
+          <Avatar
+            src={props.avatar_url ? `https://hnjiwdxlyyttjbocwpfw.supabase.co/storage/v1/object/public/avatars/${props.avatar_url}` : "https://picsum.photos/200"}
+            alt={props.avatar_url ? 'Avatar' : 'No image'}
+            className="avatar image"
+            style={{ height: 80, width: 80, border: '4px solid #F6F6F6' }}
+          />
           <Typography
             variant="h5"
             component="h3"
