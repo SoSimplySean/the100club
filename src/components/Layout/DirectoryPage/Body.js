@@ -116,6 +116,7 @@ const Body = ({ session, membershipLevel }) => {
                   title={user.title}
                   about={user.about}
                   id={user.id}
+                  avatar_url={user.avatar_url}
                 />
               );
             })}
