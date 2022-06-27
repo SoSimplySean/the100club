@@ -2,7 +2,7 @@ import ImageGrid from "../../../UI/ImageGrid/ImageGrid";
 import Button from "../../../UI/Button/Button";
 import heroBannerImage from "../../../../assets/HomePage/HeroBannerImg.png";
 
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, Link } from "@mui/material";
 
 const HeroBanner = (props) => {
   return (
@@ -36,7 +36,14 @@ const HeroBanner = (props) => {
           Cohort 002 application: <b>01 Oct 22 - 08 Oct 22</b>
         </Typography>
         <Typography variant="body1">
-          In the mean time, create a free account to join our waitlist.
+          For now, create an account to join our waitlist +{" "}
+          <Link
+            href="https://t.me/JoinThe100Club"
+            target="_blank"
+            rel="noreferrer"
+          >
+            check out Telegram.
+          </Link>
         </Typography>
       </Grid>
       <ImageGrid
