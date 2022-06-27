@@ -21,10 +21,10 @@ const HeroBanner = (props) => {
           for Singaporean entrepreneurs.
         </Typography>
         <Typography variant="body1" sx={{ my: "2rem" }}>
-          The 100 Club, is a mastermind community, that matches entrepreneurial
-          individuals into groups of 4, in order for them to support each other
-          in staying accountable, sharing advice, and networking to grow their
-          business.
+          The 100 Club, is a mastermind community, that matches entrepreneurs
+          into groups of 4, that meet regularly, in order for them to support
+          each other in staying accountable, sharing advice, and networking to
+          grow their business.
         </Typography>
         <Button
           text="Join Waitlist"
@@ -33,10 +33,10 @@ const HeroBanner = (props) => {
           symbol="arrow"
         />
         <Typography variant="body1" sx={{ mt: "1.6rem", mb: "0.6rem" }}>
-          Cohort 001 application: <b>01 Aug 22 - 08 Aug 22</b>
+          Cohort 002 application: <b>01 Oct 22 - 08 Oct 22</b>
         </Typography>
         <Typography variant="body1">
-          In the mean time, join our waitlist to stay updated.
+          In the mean time, create a free account to join our waitlist.
         </Typography>
       </Grid>
       <ImageGrid
