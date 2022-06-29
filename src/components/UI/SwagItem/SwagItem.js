@@ -64,7 +64,7 @@ const SwagItem = (props) => {
             endIcon={<DoubleArrowSharpIcon />}
             onClick={() => navigate(`/store/${props.id}`)}
           >
-            BUY NOW
+            Learn more
           </Button>
         </CardActions>
       </Card>

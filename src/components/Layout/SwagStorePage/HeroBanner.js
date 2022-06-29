@@ -2,7 +2,7 @@ import { Typography, Box } from "@mui/material";
 
 const HeroBanner = () => {
   return (
-    <Box sx={{ mt: "7rem" }}>
+    <Box sx={{ mt: "4rem" }}>
       <Typography variant="h2" component="h1" sx={{ fontWeight: "bold" }}>
         Swag Store.
       </Typography>

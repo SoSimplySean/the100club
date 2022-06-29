@@ -10,6 +10,7 @@ import SwagPage from "./components/UI/SwagPage/SwagPage";
 import JoinTeamPage from "./pages/JoinTeamPage";
 import ProfilePage from "./components/UI/ProfilePage/ProfilePage";
 import UserDashboard from "./components/UI/UserDashboard/UserDashboard";
+import CartPage from "./pages/Cart";
 
 import { Route, Routes, Navigate } from "react-router-dom";
 import { Popover } from "@typeform/embed-react";
@@ -141,6 +142,14 @@ function App() {
                     <SignIn />
                   ) : (
                     <UserDashboard key={session.user.id} session={session} />
+                  )
+                }
+              />
+              <Route
+                path="/cart"
+                element={
+                  session && (
+                    <CartPage key={session.user.id} session={session} />
                   )
                 }
               />

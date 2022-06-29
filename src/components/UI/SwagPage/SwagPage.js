@@ -109,7 +109,7 @@ const SwagPage = (props) => {
             variant="contained"
             sx={{ backgroundColor: "primary", mt: "2rem" }}
           >
-            Buy Now
+            Add to cart
           </Button>
         </Paper>
       </Grid>

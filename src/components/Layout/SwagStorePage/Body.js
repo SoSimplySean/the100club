@@ -34,7 +34,7 @@ const Body = ({ session, user }) => {
   }
 
   return (
-    <Box sx={{ mt: "5rem" }}>
+    <Box sx={{ mt: "3rem" }}>
       <Box
         sx={{
           display: "flex",
