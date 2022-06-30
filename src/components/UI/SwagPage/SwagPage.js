@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import { supabase } from "../../../api";
 import SwagImage from "./SwagImage";
 
-import Carousel from "react-material-ui-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+
 import {
   Grid,
   Typography,
@@ -51,6 +53,7 @@ const SwagPage = (props) => {
         mt: "4rem",
         mx: "auto",
         textAlign: "center",
+        justifyContent: "space-between",
       }}
     >
       <Grid item xs={12} lg={5.5}>
