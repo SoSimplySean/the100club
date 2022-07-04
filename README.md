@@ -26,7 +26,7 @@
     <br />
     <a href="https://the100club.netlify.app/">View Demo</a>
     ·
-    <a href="https://nus-sg.zoom.us/j/7360302979">Join Telegram Channel</a>
+    <a href="https://t.me/JoinThe100Club">Join Telegram Channel</a>
     <!-- ·
     <a href="https://github.com/github_username/repo_name/issues">Request Feature</a> -->
   </p>
