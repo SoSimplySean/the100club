@@ -74,13 +74,13 @@
 
 - [x] Landing Page
 - [x] Typeform Integration
-- [ ] Membership Account Creation
-- [ ] Hidden Pages for Non-Members
+- [x] Membership Account Creation
+- [x] Hidden Pages for Non-Members
+- [x] Directory of Members
+- [x] Customisable User Profile
 - [ ] Swag eCommerce Store
 - [ ] Credit System to Purchase Items from Store
 - [ ] Recurring Payments System
-- [ ] Directory of Members
-- [ ] Customisable User Profile
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
