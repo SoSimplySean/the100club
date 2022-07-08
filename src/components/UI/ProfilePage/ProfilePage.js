@@ -44,9 +44,9 @@ const ProfilePage = (props) => {
       }}
     >
       <Avatar
-        alt="Remy Sharp"
-        src="https://picsum.photos/200"
-        sx={{ width: 150, height: 150, mx: "auto" }}
+        src={user.avatar_url ? `https://hnjiwdxlyyttjbocwpfw.supabase.co/storage/v1/object/public/avatars/${user.avatar_url}` : "https://picsum.photos/200"}
+        alt={user.avatar_url ? 'Avatar' : 'No image'}
+        sx={{ width: 150, height: 150, mx: "auto", border: '4px solid #F6F6F6' }}
       />
       <Typography
         variant="h3"

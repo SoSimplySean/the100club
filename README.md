@@ -26,7 +26,7 @@
     <br />
     <a href="https://the100club.netlify.app/">View Demo</a>
     ·
-    <a href="https://4x6toyulyzs.typeform.com/to/Ad0SWlc0">Sign up for waitlist</a>
+    <a href="https://t.me/JoinThe100Club">Join Telegram Channel</a>
     <!-- ·
     <a href="https://github.com/github_username/repo_name/issues">Request Feature</a> -->
   </p>
@@ -74,13 +74,13 @@
 
 - [x] Landing Page
 - [x] Typeform Integration
-- [ ] Membership Account Creation
-- [ ] Hidden Pages for Non-Members
+- [x] Membership Account Creation
+- [x] Hidden Pages for Non-Members
+- [x] Directory of Members
+- [x] Customisable User Profile
 - [ ] Swag eCommerce Store
 - [ ] Credit System to Purchase Items from Store
 - [ ] Recurring Payments System
-- [ ] Directory of Members
-- [ ] Customisable User Profile
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

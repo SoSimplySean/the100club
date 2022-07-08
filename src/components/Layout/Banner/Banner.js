@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Paper, Typography } from "@mui/material";
+import { Paper, Typography, Link } from "@mui/material";
 
 const Banner = () => {
   const [show] = React.useState(true);
@@ -24,8 +24,16 @@ const Banner = () => {
               color: "white",
             }}
           >
-            This membership platform is a WIP, but feel free to look around +
-            create a free account :)
+            This membership platform is a WIP, but feel free to look around +{" "}
+            <Link
+              href="https://t.me/JoinThe100Club"
+              target="_blank"
+              rel="noreferrer"
+              sx={{ color: "white" }}
+            >
+              join our Telegram channel
+            </Link>{" "}
+            :)
           </Typography>
         </Paper>
       ) : null}
