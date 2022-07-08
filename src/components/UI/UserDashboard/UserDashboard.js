@@ -3,7 +3,7 @@ import React from "react";
 import EditProfile from "./EditProfile";
 import ApplicationProcess from "./ApplicationProcess/ApplicationProcess";
 
-import { Grid, Paper, MenuItem } from "@mui/material";
+import { Grid, Paper, MenuItem, Typography } from "@mui/material";
 import {
   Link,
   Route,
@@ -68,6 +68,24 @@ const UserDashboard = ({ session, membershipLevel }) => {
             Logout
           </MenuItem>
         </Paper>
+        {membershipLevel !== "member" && (
+          <Paper
+            elevation={4}
+            sx={{
+              padding: "2rem",
+              mt: "2rem",
+              textAlign: "left",
+              bgcolor: "primary.main",
+              color: "white",
+            }}
+          >
+            <Typography>
+              You are currently part of our waitlist. Apply in the next cohort
+              to become a member of The 100 Club and get upgraded access. Or
+              message Sean via telegram @MrRaincloud
+            </Typography>
+          </Paper>
+        )}
       </Grid>
 
       <Grid item xs={12} lg={7} elevation={6} square>
