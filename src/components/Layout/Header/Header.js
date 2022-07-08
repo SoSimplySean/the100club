@@ -198,20 +198,42 @@ const Header = ({ session }) => {
               onClose={handleCloseUserMenu}
             >
               {session && (
-                <Link
-                  key={1}
-                  component={RouterLink}
-                  to={"/dashboard"}
-                  sx={{
-                    textDecoration: "none",
-                  }}
-                >
-                  <MenuItem key={1} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center" sx={{ fontWeight: "bold" }}>
-                      Dashboard
-                    </Typography>
-                  </MenuItem>
-                </Link>
+                <Box>
+                  <Link
+                    key={1}
+                    component={RouterLink}
+                    to={"/dashboard"}
+                    sx={{
+                      textDecoration: "none",
+                    }}
+                  >
+                    <MenuItem key={1} onClick={handleCloseUserMenu}>
+                      <Typography
+                        textAlign="center"
+                        sx={{ fontWeight: "bold" }}
+                      >
+                        Dashboard
+                      </Typography>
+                    </MenuItem>
+                  </Link>
+                  <Link
+                    key={2}
+                    component={RouterLink}
+                    to={"/cart"}
+                    sx={{
+                      textDecoration: "none",
+                    }}
+                  >
+                    <MenuItem key={2} onClick={handleCloseUserMenu}>
+                      <Typography
+                        textAlign="center"
+                        sx={{ fontWeight: "bold" }}
+                      >
+                        Cart
+                      </Typography>
+                    </MenuItem>
+                  </Link>
+                </Box>
               )}
 
               {!session && (

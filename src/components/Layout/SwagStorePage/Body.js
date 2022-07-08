@@ -1,47 +1,35 @@
 import { useState, useEffect } from "react";
 
 import Pagination from "../../UI/Pagination/Pagination";
-import ProfileCard from "../../UI/ProfileCard/ProfileCard";
+import SwagItem from "../../UI/SwagItem/SwagItem";
 import { supabase } from "../../../api";
 
 import { Link } from "react-router-dom";
-import SearchIcon from "@mui/icons-material/Search";
-import {
-  Box,
-  Grid,
-  Paper,
-  InputBase,
-  IconButton,
-  Typography,
-} from "@mui/material";
+import { Box, Grid, Paper, Typography } from "@mui/material";
 
 const Body = ({ session, user }) => {
   let [page, setPage] = useState(1);
   let [pageData, setPageData] = useState("");
-  let [users, setUsers] = useState();
+  let [items, setItems] = useState();
 
   useEffect(
     () => {
-      fetchUsers();
+      fetchItems();
     }, // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 
-  const fetchUsers = async () => {
-    let { data: users, error } = await supabase
-      .from("profiles")
-      .select("*")
-      .eq("membershipLevel", "member");
+  const fetchItems = async () => {
+    let { data: swagItems, error } = await supabase.from("swag").select("*");
     if (error) console.log(error);
-    else setUsers(users);
+    else setItems(swagItems);
   };
 
   const passPageData = (data) => {
     setPageData(data);
-    console.log(pageData);
   };
 
-  if (users === undefined) {
+  if (items === undefined) {
     return <Typography>Still loading...</Typography>;
   }
 
@@ -87,43 +75,42 @@ const Body = ({ session, user }) => {
           </Link>
         )}
         <Paper
-          component="form"
+          elevation={4}
           sx={{
             p: "2px 4px",
-            display: "flex",
-            alignItems: "center",
+            mb: "2rem",
             width: "100%",
           }}
         >
-          <InputBase
-            sx={{ ml: 1, flex: 1 }}
-            placeholder="Search Directory"
-            inputProps={{ "aria-label": "search directory" }}
-          />
-          <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
-            <SearchIcon />
-          </IconButton>
+          <Typography
+            sx={{
+              ml: 1,
+              p: "10px",
+            }}
+          >
+            {user.membershipLevel === "member"
+              ? `You currently have ${user.credits} credits`
+              : `You currently have 0 credits. Only members get credits to purchase swag.`}
+          </Typography>
         </Paper>
         <Grid container spacing={2} sx={{ mt: "3rem" }}>
           {pageData &&
-            pageData.currentData().map((profile) => {
+            pageData.currentData().map((item) => {
               return (
-                <ProfileCard
-                  // test
+                <SwagItem
                   session={session}
                   membershipLevel={user.membershipLevel}
-                  key={profile.id}
-                  fullName={profile.fullName}
-                  title={profile.title}
-                  about={profile.about}
-                  id={profile.id}
-                  avatar_url={profile.avatar_url}
+                  key={item.id}
+                  itemName={item.itemName}
+                  itemBrief={item.itemBrief}
+                  itemImg={item.itemImg}
+                  id={item.id}
                 />
               );
             })}
         </Grid>
         <Pagination
-          data={users}
+          data={items}
           passPageData={passPageData}
           page={page}
           passPage={setPage}

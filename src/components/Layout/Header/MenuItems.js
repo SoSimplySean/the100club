@@ -1,12 +1,11 @@
 const MenuItems = [
   {
-    title: "Swag Store",
-    url: "/store",
-  },
-
-  {
     title: "Member Directory",
     url: "/directory",
+  },
+  {
+    title: "Swag Store",
+    url: "/store",
   },
 
   {

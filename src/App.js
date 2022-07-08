@@ -6,9 +6,11 @@ import Footer from "./components/Layout/Footer/Footer";
 import HomePage from "./pages/HomePage";
 import DirectoryPage from "./pages/DirectoryPage";
 import SwagStorePage from "./pages/SwagStorePage";
+import SwagPage from "./components/UI/SwagPage/SwagPage";
 import JoinTeamPage from "./pages/JoinTeamPage";
 import ProfilePage from "./components/UI/ProfilePage/ProfilePage";
 import UserDashboard from "./components/UI/UserDashboard/UserDashboard";
+import CartPage from "./pages/Cart";
 
 import { Route, Routes, Navigate } from "react-router-dom";
 import { Popover } from "@typeform/embed-react";
@@ -57,7 +59,7 @@ theme = responsiveFontSizes(theme);
 
 function App() {
   const [session, setSession] = useState(null);
-  const [membershipLevel, setMembershipLevel] = useState();
+  const [user, setUser] = useState({});
 
   useEffect(
     () => {
@@ -80,7 +82,7 @@ function App() {
     try {
       let { data, error, status } = await supabase
         .from("profiles")
-        .select(`membershipLevel`)
+        .select(`*`)
         .eq("id", user.id)
         .single();
 
@@ -89,10 +91,12 @@ function App() {
       }
 
       if (data) {
-        setMembershipLevel(data.membershipLevel);
+        setUser(data);
       }
     } catch (error) {
       alert(error.message);
+    } finally {
+      console.log(user);
     }
   };
 
@@ -111,15 +115,14 @@ function App() {
           <main>
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/store" element={<SwagStorePage />} />
+              <Route
+                path="/store"
+                element={<SwagStorePage session={session} user={user} />}
+              />
+              <Route path="/store/:id" element={<SwagPage />} />
               <Route
                 path="/directory"
-                element={
-                  <DirectoryPage
-                    session={session}
-                    membershipLevel={membershipLevel}
-                  />
-                }
+                element={<DirectoryPage session={session} user={user} />}
               />
               <Route path="/directory/:id" element={<ProfilePage />} />
               <Route path="/joinTheTeam" element={<JoinTeamPage />} />
@@ -138,11 +141,15 @@ function App() {
                   !session ? (
                     <SignIn />
                   ) : (
-                    <UserDashboard
-                      key={session.user.id}
-                      session={session}
-                      membershipLevel={membershipLevel}
-                    />
+                    <UserDashboard key={session.user.id} session={session} />
+                  )
+                }
+              />
+              <Route
+                path="/cart"
+                element={
+                  session && (
+                    <CartPage key={session.user.id} session={session} />
                   )
                 }
               />

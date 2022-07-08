@@ -4,10 +4,11 @@ const HeroBanner = () => {
   return (
     <Box sx={{ mt: "4rem" }}>
       <Typography variant="h2" component="h1" sx={{ fontWeight: "bold" }}>
-        Member Directory.
+        Swag Store.
       </Typography>
       <Typography variant="h6" sx={{ my: "1rem" }}>
-        Connect and learn from other action-takers across The 100 Club.
+        We know you want to flex that you're a member of The 100 Club - do it
+        subtly with premium merch.
       </Typography>
     </Box>
   );

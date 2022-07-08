@@ -36,7 +36,7 @@ const EditProfile = ({ session, membershipLevel }) => {
 
   const [linkedin, setLinkedIn] = useState(null);
   const [email, setEmail] = useState(null);
-  const [avatar_url, setAvatarUrl] = useState(null)
+  const [avatar_url, setAvatarUrl] = useState(null);
 
   useEffect(() => {
     getProfile();
@@ -198,14 +198,17 @@ const EditProfile = ({ session, membershipLevel }) => {
               elevation={4}
               sx={{ padding: "2rem", mt: "2rem", textAlign: "center" }}
             >
-              <Box className="form-widget" sx={{ width: 150, height: 150, mx: "auto", mb: "35px" }}>
+              <Box
+                className="form-widget"
+                sx={{ width: 150, height: 150, mx: "auto", mb: "35px" }}
+              >
                 {/* Add to the body */}
                 <Avatarr
                   url={avatar_url}
                   size={150}
                   onUpload={(url) => {
-                    setAvatarUrl(url)
-                    updateProfile({ avatar_url: url })
+                    setAvatarUrl(url);
+                    updateProfile({ avatar_url: url });
                   }}
                 />
                 {/* ... */}
@@ -224,7 +227,7 @@ const EditProfile = ({ session, membershipLevel }) => {
               <Tooltip title="You are currently part of our waitlist. Apply in the next cohort to become a member of The 100 Club.">
                 <Chip
                   label={
-                    membershipLevel === "waitlist"
+                    membershipLevel !== "member"
                       ? "Waitlist Member"
                       : "The 100 Club Member"
                   }
@@ -233,18 +236,6 @@ const EditProfile = ({ session, membershipLevel }) => {
                 />
               </Tooltip>
             </Paper>
-            {/* <Paper
-              elevation={4}
-              sx={{ padding: "2rem", mt: "2rem", textAlign: "left" }}
-            >
-              <Typography
-                variant="subtitle1"
-                component="h3"
-                sx={{ fontWeight: "bold" }}
-              >
-                Email: {session.user.email}
-              </Typography>
-            </Paper> */}
             <Paper
               elevation={4}
               sx={{ padding: "2rem", mt: "2rem", textAlign: "left" }}
