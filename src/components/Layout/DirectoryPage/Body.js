@@ -111,13 +111,13 @@ const Body = ({ session, user }) => {
                 <ProfileCard
                   // test
                   session={session}
-                  membershipLevel={membershipLevel}
-                  key={user.id}
-                  fullName={user.fullName}
-                  title={user.title}
-                  about={user.about}
-                  id={user.id}
-                  avatar_url={user.avatar_url}
+                  membershipLevel={user.membershipLevel}
+                  key={profile.id}
+                  fullName={profile.fullName}
+                  title={profile.title}
+                  about={profile.about}
+                  id={profile.id}
+                  avatar_url={profile.avatar_url}
                 />
               );
             })}
