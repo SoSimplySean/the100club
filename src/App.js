@@ -141,7 +141,11 @@ function App() {
                   !session ? (
                     <SignIn />
                   ) : (
-                    <UserDashboard key={session.user.id} session={session} />
+                    <UserDashboard
+                      key={session.user.id}
+                      session={session}
+                      user={user}
+                    />
                   )
                 }
               />

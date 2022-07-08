@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 import { supabase } from "../../../api";
 
-const UserDashboard = ({ session, membershipLevel }) => {
+const UserDashboard = ({ session, user }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -68,7 +68,7 @@ const UserDashboard = ({ session, membershipLevel }) => {
             Logout
           </MenuItem>
         </Paper>
-        {membershipLevel !== "member" && (
+        {user.membershipLevel !== "member" && (
           <Paper
             elevation={4}
             sx={{
@@ -96,7 +96,7 @@ const UserDashboard = ({ session, membershipLevel }) => {
               <EditProfile
                 key={session.user.id}
                 session={session}
-                membershipLevel={membershipLevel}
+                membershipLevel={user.membershipLevel}
               />
             }
           />
@@ -106,7 +106,7 @@ const UserDashboard = ({ session, membershipLevel }) => {
               <EditProfile
                 key={session.user.id}
                 session={session}
-                membershipLevel={membershipLevel}
+                membershipLevel={user.membershipLevel}
               />
             }
           />
