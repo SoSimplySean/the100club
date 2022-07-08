@@ -109,6 +109,7 @@ const Body = ({ session, user }) => {
             pageData.currentData().map((profile) => {
               return (
                 <ProfileCard
+                  // test
                   session={session}
                   membershipLevel={user.membershipLevel}
                   key={profile.id}
