@@ -31,11 +31,14 @@ const StepOneForm = (props) => {
     onSubmit: async (values) => {
       handleSubmit(true);
       alert(JSON.stringify(values, null, 2));
-      let { error } = await supabase.from('applications').insert(values, {
-        returning: "minimal", // Don't return the value after inserting
-      });
+      alert(values);
+      const user = supabase.auth.user();
+      let { data, error } = await supabase.from("applications").insert({values, id: user.id});
+      //const { data, error } = await supabase.from('test').insert([{ note: 'I need to nor forget this' },]);
+      console.log(data, error);
       if (error) console.log("error", error);
       alert('successful');
+      alert(JSON.stringify(user.id)); 
     },
   });
  
