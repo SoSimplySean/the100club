@@ -38,7 +38,7 @@ const OurMembers = (props) => {
         our members.
       </Typography>
       <Typography variant="subtitle" sx={{ fontStyle: "italic" }}>
-        Placeholder logos until we get our 20+ member's logos.
+        Placeholder logos until we get our 50+ member's logos.
       </Typography>
       <Grid
         columnSpacing={{ xs: 4, md: 3, lg: 2 }}
