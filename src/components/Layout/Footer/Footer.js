@@ -66,6 +66,15 @@ const Footer = (props) => {
             Sean Tan.
           </Link>
           <Link
+            href="https://www.niftymediasg.com/"
+            underline="none"
+            target="_blank"
+            rel="noopener"
+            sx={styles.link}
+          >
+            NiftyMedia (Nicholas Cheng & Joshen Lim).
+          </Link>
+          <Link
             href="https://www.linkedin.com/in/joseph-ozl/"
             underline="none"
             target="_blank"
@@ -75,15 +84,6 @@ const Footer = (props) => {
             Joseph Ong.
           </Link>
           <Link
-            href="https://www.linkedin.com/in/shawn-kok/"
-            underline="none"
-            target="_blank"
-            rel="noopener"
-            sx={styles.link}
-          >
-            Shawn Kok.
-          </Link>
-          <Link
             href="https://www.linkedin.com/in/jonas-tan-1bbbb3202/"
             underline="none"
             target="_blank"
@@ -91,6 +91,15 @@ const Footer = (props) => {
             sx={styles.link}
           >
             Jonas Tan.
+          </Link>
+          <Link
+            href="https://www.linkedin.com/in/shawn-kok/"
+            underline="none"
+            target="_blank"
+            rel="noopener"
+            sx={styles.link}
+          >
+            Shawn Kok.
           </Link>
         </Grid>
       </Box>
