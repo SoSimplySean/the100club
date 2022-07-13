@@ -9,14 +9,13 @@ const MenuItems = [
   },
 
   {
+    title: "Deals",
+    url: "/deals",
+  },
+  {
     title: "Join the Team",
     url: "/joinTheTeam",
   },
-
-  // {
-  //   title: "Join",
-  //   url: "/join",
-  // },
 ];
 
 export default MenuItems;
