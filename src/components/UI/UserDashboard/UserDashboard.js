@@ -45,7 +45,7 @@ const UserDashboard = ({ session, user }) => {
               sx={{ color: "primary.main" }}
               selected={location.pathname === "/dashboard/application"}
             >
-              Apply to be a pro member
+              Apply to be a member of The 100 Club
             </MenuItem>
           </Link>
 
@@ -110,7 +110,15 @@ const UserDashboard = ({ session, user }) => {
               />
             }
           />
-          <Route path="application" element={<ApplicationProcess />} />
+          <Route
+            path="application"
+            element={
+              <ApplicationProcess
+                session={session}
+                membershipLevel={user.membershipLevel}
+              />
+            }
+          />
         </Routes>
       </Grid>
     </Grid>

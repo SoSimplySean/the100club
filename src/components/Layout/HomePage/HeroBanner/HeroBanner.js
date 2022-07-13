@@ -21,10 +21,9 @@ const HeroBanner = (props) => {
           for Singaporean entrepreneurs.
         </Typography>
         <Typography variant="body1" sx={{ my: "2rem" }}>
-          The 100 Club, is a mastermind community, that matches entrepreneurs
-          into groups of 4, that meet regularly, in order for them to support
-          each other in staying accountable, sharing advice, and networking to
-          grow their business.
+          The 100 Club is a mastermind community that matches entrepreneurs into
+          groups of 4 that meet regularly, in order for them to support each
+          other by staying accountable, sharing advice, and networking.
         </Typography>
         <Button
           text="Join Waitlist"
