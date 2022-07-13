@@ -1,11 +1,16 @@
 import ImageGrid from "../../../UI/ImageGrid/ImageGrid";
 import Button from "../../../UI/Button/Button";
-import heroBannerImage from "../../../../assets/JoinTeamPage/HeroBanner.png";
+import heroBannerImage from "../../../../assets/DealsPage/HeroBanner.png";
 import { Grid, Typography } from "@mui/material";
 
 const HeroBanner = (props) => {
   return (
-    <Grid container spacing={6} alignItems="center" sx={{ mt: "1.5rem" }}>
+    <Grid
+      container
+      spacing={6}
+      alignItems="center"
+      sx={{ mt: "1.5rem", my: "3rem" }}
+    >
       <Grid item lg={6}>
         <Typography variant="h3" component="h1" sx={{ fontWeight: "bold" }}>
           Save and explore with our{" "}
@@ -14,7 +19,7 @@ const HeroBanner = (props) => {
             component="span"
             sx={{ color: "secondary.main", fontWeight: "bold" }}
           >
-            partners
+            partners.
           </Typography>
         </Typography>
         <Typography variant="body1" sx={{ my: "2rem" }}>
