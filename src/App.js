@@ -8,6 +8,7 @@ import DirectoryPage from "./pages/DirectoryPage";
 import SwagStorePage from "./pages/SwagStorePage";
 import SwagPage from "./components/UI/SwagPage/SwagPage";
 import JoinTeamPage from "./pages/JoinTeamPage";
+import DealsPage from "./pages/DealsPage";
 import ProfilePage from "./components/UI/ProfilePage/ProfilePage";
 import UserDashboard from "./components/UI/UserDashboard/UserDashboard";
 import CartPage from "./pages/Cart";
@@ -126,6 +127,7 @@ function App() {
               />
               <Route path="/directory/:id" element={<ProfilePage />} />
               <Route path="/joinTheTeam" element={<JoinTeamPage />} />
+              <Route path="/deals" element={<DealsPage />} />
               <Route
                 path="/join"
                 element={!session ? <SignUp /> : <Navigate to="/dashboard" />}
