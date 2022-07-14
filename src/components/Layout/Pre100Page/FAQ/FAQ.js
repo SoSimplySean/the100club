@@ -1,6 +1,5 @@
 import Container from "../../../UI/Container/Container";
 
-import { Link } from "react-router-dom";
 import { Typography } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
