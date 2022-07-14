@@ -13,6 +13,10 @@ const MenuItems = [
     url: "/deals",
   },
   {
+    title: "The Pre-100 Club",
+    url: "/pre100",
+  },
+  {
     title: "Join the Team",
     url: "/joinTheTeam",
   },

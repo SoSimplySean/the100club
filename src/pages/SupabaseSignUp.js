@@ -67,8 +67,8 @@ export default function SignUp() {
           <br></br>
           <br></br>
           Right now we have a group of entrepreneurs piloting our first ever
-          mastermind cohort. The next round of applications for the pro
-          membership will reopen in July of 2022.{" "}
+          mastermind cohort. The next round of applications for the The 100 Club
+          will reopen in Oct of 2022.{" "}
           <strong>
             In the meantime, create a free account to be notified when the next
             cohort launches.
