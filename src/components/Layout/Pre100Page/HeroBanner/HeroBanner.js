@@ -27,8 +27,9 @@ const HeroBanner = (props) => {
         </Typography>
 
         <Button
-          text="Want The Pre-100 Club in your society?"
-          link="https://t.me/MrRaincloud"
+          text="Become a partner society"
+          link="mailto:sosimplysean@gmail.com"
+          target="_blank"
           symbol="arrow"
         />
       </Grid>

@@ -25,7 +25,8 @@ const HeroBanner = (props) => {
         </Typography>
         <Button
           text="Chat with Sean"
-          link="https://t.me/MrRaincloud"
+          link="mailto:sosimplysean@gmail.com"
+          target="_blank"
           symbol="arrow"
         />
       </Grid>

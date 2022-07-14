@@ -28,13 +28,13 @@ const HeroBanner = (props) => {
           get exclusive perks.
         </Typography>
         <Button
-          text="Want to become a partner?"
+          text="Download partnership deck"
           link="https://pdfhost.io/v/2KCuSIWFm_The_100_Club_Partnership_Deck_Digital"
           target="_blank"
           symbol="arrow"
         />
         <Typography variant="body1" sx={{ mt: "1.6rem", mb: "0.6rem" }}>
-          Feel free to reach out to sosimplysean@gmail.com
+          Want to become a partner? Reach out to sosimplysean@gmail.com
         </Typography>
       </Grid>
       <ImageGrid
