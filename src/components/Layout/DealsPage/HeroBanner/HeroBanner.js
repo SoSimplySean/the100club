@@ -29,9 +29,13 @@ const HeroBanner = (props) => {
         </Typography>
         <Button
           text="Want to become a partner?"
-          link="https://t.me/MrRaincloud"
+          link="https://pdfhost.io/v/2KCuSIWFm_The_100_Club_Partnership_Deck_Digital"
+          target="_blank"
           symbol="arrow"
         />
+        <Typography variant="body1" sx={{ mt: "1.6rem", mb: "0.6rem" }}>
+          Feel free to reach out to sosimplysean@gmail.com
+        </Typography>
       </Grid>
       <ImageGrid
         gridSize={6}
