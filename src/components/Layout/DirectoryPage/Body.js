@@ -19,6 +19,7 @@ const Body = ({ session, user }) => {
   let [page, setPage] = useState(1);
   let [pageData, setPageData] = useState("");
   let [users, setUsers] = useState();
+  let [allUsers, setAllUsers] = useState([]);
 
   useEffect(
     () => {
@@ -34,6 +35,7 @@ const Body = ({ session, user }) => {
       .eq("membershipLevel", "member");
     if (error) console.log(error);
     else setUsers(users);
+    setAllUsers(users);
   };
 
   const passPageData = (data) => {
@@ -43,6 +45,12 @@ const Body = ({ session, user }) => {
 
   if (users === undefined) {
     return <Typography>Still loading...</Typography>;
+  }
+
+  const filterCards = event => {
+    const value = event.target.value.toLowerCase();
+    const filteredUsers = allUsers.filter(user => (`${user.fullName}`.toLowerCase().includes(value)));
+    setUsers(filteredUsers);
   }
 
   return (
@@ -98,15 +106,16 @@ const Body = ({ session, user }) => {
           <InputBase
             sx={{ ml: 1, flex: 1 }}
             placeholder="Search Directory"
+            onInput={filterCards}
             inputProps={{ "aria-label": "search directory" }}
           />
           <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
             <SearchIcon />
           </IconButton>
         </Paper>
+
         <Grid container spacing={2} sx={{ mt: "3rem" }}>
-          {pageData &&
-            pageData.currentData().map((profile) => {
+          {users.map((profile) => {
               return (
                 <ProfileCard
                   // test

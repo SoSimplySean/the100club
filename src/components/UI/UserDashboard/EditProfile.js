@@ -155,6 +155,7 @@ const EditProfile = ({ session, membershipLevel }) => {
 
       const updates = {
         id: user.id,
+        fullName,
         linkedin,
         email,
         about,
