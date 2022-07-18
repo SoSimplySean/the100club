@@ -65,6 +65,7 @@ const Body = ({ session, user }) => {
             }}
           >
             <Paper
+              data-testid="banner"
               elevation={4}
               sx={{
                 p: "2px 4px",
