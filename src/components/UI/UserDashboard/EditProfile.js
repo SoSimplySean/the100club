@@ -16,7 +16,7 @@ import {
 
 import { useState, useEffect } from "react";
 import { supabase } from "../../../api";
-import Avatarr from "../Avatar/Avatar";
+import Avatar from "../Avatar/Avatar";
 // import { ConstructionOutlined } from "@mui/icons-material";
 
 // ******************************************************************************************************************************
@@ -204,7 +204,7 @@ const EditProfile = ({ session, membershipLevel }) => {
                 sx={{ width: 150, height: 150, mx: "auto", mb: "35px" }}
               >
                 {/* Add to the body */}
-                <Avatarr
+                <Avatar
                   url={avatar_url}
                   size={150}
                   onUpload={(url) => {
@@ -251,6 +251,7 @@ const EditProfile = ({ session, membershipLevel }) => {
               </Typography>
               <TextField
                 hiddenLabel
+                InputProps={{ "aria-label": "fullName" }}
                 fullWidth
                 size="small"
                 variant="outlined"
