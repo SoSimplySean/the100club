@@ -2,6 +2,7 @@ import ImageGrid from "../../../UI/ImageGrid/ImageGrid";
 import Button from "../../../UI/Button/Button";
 import heroBannerImage from "../../../../assets/HomePage/HeroBannerImg.png";
 
+import { Link as RouterLink } from "react-router-dom";
 import { Grid, Typography, Link } from "@mui/material";
 
 const HeroBanner = (props) => {
@@ -21,17 +22,26 @@ const HeroBanner = (props) => {
           for Singaporean entrepreneurs.
         </Typography>
         <Typography variant="body1" sx={{ my: "2rem" }}>
-          The 100 Club, is a mastermind community, that matches entrepreneurs
-          into groups of 4, that meet regularly, in order for them to support
-          each other in staying accountable, sharing advice, and networking to
-          grow their business.
+          The 100 Club is a mastermind community that matches entrepreneurs into
+          groups of 4 that meet regularly, in order for them to support each
+          other by staying accountable, sharing advice, and networking.
         </Typography>
-        <Button
-          text="Join Waitlist"
-          typeform="true"
-          // link="https://t.me/JoinThe100Club"
-          symbol="arrow"
-        />
+        <Link
+          key={1}
+          component={RouterLink}
+          to={"/join"}
+          sx={{
+            textDecoration: "none",
+          }}
+        >
+          <Button
+            text="Join Waitlist"
+            // typeform="true"
+            // link="https://t.me/JoinThe100Club"
+            symbol="arrow"
+          />
+        </Link>
+
         <Typography variant="body1" sx={{ mt: "1.6rem", mb: "0.6rem" }}>
           Cohort 002 application: <b>01 Oct 22 - 08 Oct 22</b>
         </Typography>

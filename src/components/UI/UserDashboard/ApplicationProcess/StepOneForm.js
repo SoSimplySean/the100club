@@ -41,13 +41,13 @@ const StepOneForm = (props) => {
       alert(JSON.stringify(user.id)); 
     },
   });
- 
+
   return (
     <React.Fragment>
       <Typography variant="h5" sx={{ mt: "3rem", mb: 1, fontWeight: "bold" }}>
-        Cohort 001 Applications
+        Cohort 002 Applications
       </Typography>
-      <Typography variant="subtitle1">01 Aug - 08 Aug</Typography>
+      <Typography variant="subtitle1">01 Oct - 08 Oct</Typography>
       <form onSubmit={formik.handleSubmit}>
         <TextField
           fullWidth

@@ -89,7 +89,7 @@
 ## Contact
 
 <p>Sean Tan - sosimplysean@gmail.com</p>
-<p>Shawn Kok - e0725721@u.nus.edu</p>
+<p>Shawn Kok - shawnkok00@gmail.com</p>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

@@ -6,14 +6,16 @@ import Footer from "./components/Layout/Footer/Footer";
 import HomePage from "./pages/HomePage";
 import DirectoryPage from "./pages/DirectoryPage";
 import SwagStorePage from "./pages/SwagStorePage";
+import Pre100Page from "./pages/Pre100Page";
 import SwagPage from "./components/UI/SwagPage/SwagPage";
 import JoinTeamPage from "./pages/JoinTeamPage";
+import DealsPage from "./pages/DealsPage";
 import ProfilePage from "./components/UI/ProfilePage/ProfilePage";
 import UserDashboard from "./components/UI/UserDashboard/UserDashboard";
 import CartPage from "./pages/Cart";
 
 import { Route, Routes, Navigate } from "react-router-dom";
-import { Popover } from "@typeform/embed-react";
+// import { Popover } from "@typeform/embed-react";
 import { supabase } from "./api";
 import { useEffect, useState } from "react";
 import SignIn from "./pages/SupabaseLogin";
@@ -105,12 +107,12 @@ function App() {
       <Fragment>
         <Banner />
         <Box sx={styles.container}>
-          <Popover
+          {/* <Popover
             id="Wg8EdlDs"
             buttonColor="#00203F"
             customIcon="<span>&#9820;</span>"
             size="100"
-          />
+          /> */}
           <Header session={session} />
           <main>
             <Routes>
@@ -125,7 +127,9 @@ function App() {
                 element={<DirectoryPage session={session} user={user} />}
               />
               <Route path="/directory/:id" element={<ProfilePage />} />
+              <Route path="/pre100" element={<Pre100Page />} />
               <Route path="/joinTheTeam" element={<JoinTeamPage />} />
+              <Route path="/deals" element={<DealsPage />} />
               <Route
                 path="/join"
                 element={!session ? <SignUp /> : <Navigate to="/dashboard" />}
