@@ -29,7 +29,7 @@ const HeroBanner = (props) => {
         </Typography>
         <Button
           text="Download partnership deck"
-          link="https://pdfhost.io/v/vb.0E4FTq_The_100_Club_Partnership_Deck_with_Members_Digital"
+          link="https://pdfhost.io/v/mLICS1hFR_The_100_Club_Partnership_Deck_with_Members"
           target="_blank"
           symbol="arrow"
         />
