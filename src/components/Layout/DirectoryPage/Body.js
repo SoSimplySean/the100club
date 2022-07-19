@@ -65,28 +65,28 @@ const Body = ({ session, user }) => {
   const filterIndustry = event => {
     const value = event.target.value;
     setIndustry(value);
-    const filteredUsers = allUsers.filter(user => (`${user.industry}`.includes(value)));
+    const filteredUsers = users.filter(user => (`${user.industry}`.includes(value)));
     setUsers(filteredUsers);
   }
 
   const filterSkills = event => {
     const value = event.target.value;
     setSkills(value);
-    const filteredUsers = allUsers.filter(user => (`${user.skills}`.includes(value)));
+    const filteredUsers = users.filter(user => (`${user.skills}`.includes(value)));
     setUsers(filteredUsers);
   }
 
   const filterCohort = event => {
     const value = event.target.value;
     setCohort(value);
-    const filteredUsers = allUsers.filter(user => (`${user.cohort}`.includes(value)));
+    const filteredUsers = users.filter(user => (`${user.cohort}`.includes(value)));
     setUsers(filteredUsers);
   }
 
   const filterMembers = event => {
     const value = event.target.value;
     setMember(value);
-    const filteredUsers = allUsers.filter(user => (`${user.membershipLevel}`.includes(value)));
+    const filteredUsers = users.filter(user => (`${user.membershipLevel}`.includes(value)));
     setUsers(filteredUsers);
   }
 
