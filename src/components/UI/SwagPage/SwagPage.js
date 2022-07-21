@@ -111,6 +111,7 @@ const SwagPage = (props) => {
           <Button
             variant="contained"
             sx={{ backgroundColor: "primary", mt: "2rem" }}
+            disabled
           >
             Add to cart
           </Button>

@@ -1,15 +1,15 @@
 import React from "react";
 
-import CartItem from "../../UI/CartItem/CartItem";
+// import CartItem from "../../UI/CartItem/CartItem";
 
 import { Paper, Box, Typography, Button } from "@mui/material";
 
 const Body = () => {
   return (
     <Box>
-      <Box sx={{ mt: "3rem" }}>
+      {/* <Box sx={{ mt: "3rem" }}>
         <CartItem />
-      </Box>
+      </Box> */}
       <Paper
         elevation={4}
         sx={{ padding: "2rem", mt: "3rem", textAlign: "left" }}
@@ -18,13 +18,14 @@ const Body = () => {
           Checkout
         </Typography>
         <Typography variant="body1" sx={{ mt: "1rem" }}>
-          Your credits: 10
+          Your credits: 0
         </Typography>
-        <Typography variant="body1">Cart cost: 5</Typography>
-        <Typography variant="body1">Remaining credits: 5</Typography>
+        <Typography variant="body1">Cart cost: 0</Typography>
+        <Typography variant="body1">Remaining credits: 0</Typography>
         <Button
           variant="contained"
           sx={{ backgroundColor: "primary", mt: "2rem" }}
+          disabled
         >
           BUY NOW
         </Button>

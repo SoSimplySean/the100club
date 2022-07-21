@@ -13,7 +13,7 @@ const ProfileCard = (props) => {
   let navigate = useNavigate();
 
   return (
-    <Grid item lg={6} xl={3}>
+    <Grid item xs={12} lg={6} xl={3}>
       <Card
         sx={{
           position: "relative",
@@ -44,10 +44,14 @@ const ProfileCard = (props) => {
         )}
         <CardContent>
           <Avatar
-            src={props.avatar_url ? `https://hnjiwdxlyyttjbocwpfw.supabase.co/storage/v1/object/public/avatars/${props.avatar_url}` : "https://picsum.photos/200"}
-            alt={props.avatar_url ? 'Avatar' : 'No image'}
+            src={
+              props.avatar_url
+                ? `https://hnjiwdxlyyttjbocwpfw.supabase.co/storage/v1/object/public/avatars/${props.avatar_url}`
+                : "https://picsum.photos/200"
+            }
+            alt={props.avatar_url ? "Avatar" : "No image"}
             className="avatar image"
-            style={{ height: 80, width: 80, border: '4px solid #F6F6F6' }}
+            style={{ height: 80, width: 80, border: "4px solid #F6F6F6" }}
           />
           <Typography
             variant="h5"

@@ -51,7 +51,7 @@ let theme = createTheme({
 
 const styles = {
   container: {
-    width: { xs: "80%", sm: "70%" },
+    width: { xs: "90%", sm: "70%" },
     maxWidth: "1300px",
     margin: "2.5rem auto",
   },
