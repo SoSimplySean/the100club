@@ -43,7 +43,7 @@ const HeroBanner = (props) => {
         </Link>
 
         <Typography variant="body1" sx={{ mt: "1.6rem", mb: "0.6rem" }}>
-          Cohort 002 application: <b>01 Oct 22 - 08 Oct 22</b>
+          Cohort 002 application: <b>01 Sept 22 - 30 Sept 22</b>
         </Typography>
         <Typography variant="body1">
           For now, create an account to join our waitlist +{" "}
