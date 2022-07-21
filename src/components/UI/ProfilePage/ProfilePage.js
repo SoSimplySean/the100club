@@ -44,9 +44,18 @@ const ProfilePage = (props) => {
       }}
     >
       <Avatar
-        src={user.avatar_url ? `https://hnjiwdxlyyttjbocwpfw.supabase.co/storage/v1/object/public/avatars/${user.avatar_url}` : "https://picsum.photos/200"}
-        alt={user.avatar_url ? 'Avatar' : 'No image'}
-        sx={{ width: 150, height: 150, mx: "auto", border: '4px solid #F6F6F6' }}
+        src={
+          user.avatar_url
+            ? `https://hnjiwdxlyyttjbocwpfw.supabase.co/storage/v1/object/public/avatars/${user.avatar_url}`
+            : "https://picsum.photos/200"
+        }
+        alt={user.avatar_url ? "Avatar" : "No image"}
+        sx={{
+          width: 150,
+          height: 150,
+          mx: "auto",
+          border: "4px solid #F6F6F6",
+        }}
       />
       <Typography
         variant="h3"
@@ -67,14 +76,14 @@ const ProfilePage = (props) => {
         <br></br>
       </Typography>
       <Box sx={{ display: "flex", mx: "auto" }}>
-        <Button
+        {/* <Button
           text="Add to Key Connections"
           link="https://t.me/MrRaincloud"
           inverted="true"
-        />
+        /> */}
         <Button
-          text={`Chat with ${user.fullName}`}
-          link="https://t.me/MrRaincloud"
+          text={`Find ${user.fullName} on LinkedIn`}
+          link={user.linkedin}
         />
       </Box>
       <Paper
@@ -164,8 +173,11 @@ const ProfilePage = (props) => {
         <Typography variant="body1">
           Email: {user.email}
           <br></br>
-          LinkedIn: {user.linkedin}
-          <br></br>
+          {/* LinkedIn:{" "}
+          <a href={user.linkedin} target="_blank" rel="noreferrer">
+            Link to LinkedIn
+          </a> 
+          <br></br>*/}
         </Typography>
       </Paper>
     </Grid>

@@ -1,6 +1,6 @@
 import React from "react";
 
-import CartItem from "../../UI/CartItem/CartItem";
+// import CartItem from "../../UI/CartItem/CartItem";
 
 import { Paper, Box, Typography, Button } from "@mui/material";
 
@@ -25,6 +25,7 @@ const Body = () => {
         <Button
           variant="contained"
           sx={{ backgroundColor: "primary", mt: "2rem" }}
+          disabled
         >
           BUY NOW
         </Button>
