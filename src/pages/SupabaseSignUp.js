@@ -50,9 +50,9 @@ export default function SignUp() {
             component="span"
             sx={{ color: "secondary.main", fontWeight: "bold" }}
           >
-            Join
+            Join the waitlist
           </Typography>{" "}
-          the waitlist today!
+          today!
         </Typography>
         <Typography variant="body1" sx={{ my: "2rem" }}>
           Our mastermind applications are currently
@@ -66,9 +66,8 @@ export default function SignUp() {
           </Typography>
           <br></br>
           <br></br>
-          Right now we have a group of entrepreneurs piloting our first ever
-          mastermind cohort. The next round of applications for the The 100 Club
-          will reopen in Oct of 2022.{" "}
+          The next round of applications for the The 100 Club, Cohort 002, will
+          reopen in Sept of 2022.{" "}
           <strong>
             In the meantime, create a free account to be notified when the next
             cohort launches.
