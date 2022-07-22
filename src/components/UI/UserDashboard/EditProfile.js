@@ -33,6 +33,8 @@ const EditProfile = ({ session, membershipLevel }) => {
   const [companyName, setCompanyName] = useState(null);
   const [companyAbout, setCompanyAbout] = useState(null);
   const [founded, setFounded] = useState(null);
+  const [revenue, setRevenue] = useState(null);
+  const [teamSize, setTeamSize] = useState(null);
   const [industry, setIndustry] = useState([]);
 
   const [linkedin, setLinkedIn] = useState(null);
@@ -88,6 +90,16 @@ const EditProfile = ({ session, membershipLevel }) => {
     "Membership Platform",
   ];
 
+  const revenueList = [
+    "Private",
+    "< $100 ARR",
+    "< $1,000 ARR",
+    "< $10,000 ARR",
+    "< $100,000 ARR",
+    "< $1,000,000 ARR",
+    "> $1,000,000 ARR",
+  ];
+
   const handleSkillsChange = (event) => {
     const {
       target: { value },
@@ -116,7 +128,7 @@ const EditProfile = ({ session, membershipLevel }) => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `fullName, title, about, age, skills, companyName, companyAbout, founded, industry, linkedin, email, avatar_url`
+          `fullName, title, about, age, skills, companyName, companyAbout, founded, revenue, teamSize, industry, linkedin, email, avatar_url`
         )
         .eq("id", user.id)
         .single();
@@ -136,6 +148,8 @@ const EditProfile = ({ session, membershipLevel }) => {
         setCompanyName(data.companyName);
         setCompanyAbout(data.companyAbout);
         setFounded(data.founded);
+        setRevenue(data.revenue);
+        setTeamSize(data.teamSize);
         setIndustry(data.industry);
         setAvatarUrl(data.avatar_url);
       }
@@ -165,6 +179,8 @@ const EditProfile = ({ session, membershipLevel }) => {
         companyName,
         companyAbout,
         founded,
+        revenue,
+        teamSize,
         avatar_url,
         industry,
         updated_at: new Date(),
@@ -418,6 +434,48 @@ const EditProfile = ({ session, membershipLevel }) => {
                 type="url"
                 value={founded || ""}
                 onChange={(e) => setFounded(e.target.value)}
+                sx={{ mb: "1.5rem" }}
+              />
+
+              {/* REVENUE */}
+              <Typography
+                variant="subtitle2"
+                component="h3"
+                sx={{ fontWeight: "bold" }}
+              >
+                What is your company ARR?
+              </Typography>
+              <Select
+                fullWidth
+                size="small"
+                value={revenue || ""}
+                onChange={(e) => setRevenue(e.target.value)}
+                sx={{ mb: "1.5rem" }}
+              >
+                {revenueList.map((name) => (
+                  <MenuItem key={name} value={name}>
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
+
+              {/* TEAM SIZE */}
+              <Typography
+                variant="subtitle2"
+                component="h3"
+                sx={{ fontWeight: "bold" }}
+              >
+                How many members are in your company?
+              </Typography>
+              <TextField
+                hiddenLabel
+                fullWidth
+                size="small"
+                variant="outlined"
+                id="teamSize"
+                type="url"
+                value={teamSize || ""}
+                onChange={(e) => setTeamSize(e.target.value)}
                 sx={{ mb: "1.5rem" }}
               />
 
