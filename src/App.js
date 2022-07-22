@@ -14,12 +14,13 @@ import ProfilePage from "./components/UI/ProfilePage/ProfilePage";
 import UserDashboard from "./components/UI/UserDashboard/UserDashboard";
 import CartPage from "./pages/Cart";
 
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 // import { Popover } from "@typeform/embed-react";
 import { supabase } from "./api";
 import { useEffect, useState } from "react";
 import SignIn from "./pages/SupabaseLogin";
 import SignUp from "./pages/SupabaseSignUp";
+import SetPassword from "./pages/SupabaseSetPassword";
 
 import {
   createTheme,
@@ -62,13 +63,17 @@ theme = responsiveFontSizes(theme);
 function App() {
   const [session, setSession] = useState(null);
   const [user, setUser] = useState({});
+  let navigate = useNavigate();
 
   useEffect(
     () => {
       setSession(supabase.auth.session());
 
-      supabase.auth.onAuthStateChange((_event, session) => {
+      supabase.auth.onAuthStateChange((event, session) => {
         setSession(session);
+        if (event === "PASSWORD_RECOVERY") {
+          navigate("setPassword", { replace: true });
+        }
       });
 
       const user = supabase.auth.user();
@@ -138,6 +143,7 @@ function App() {
                 path="/login"
                 element={!session ? <SignIn /> : <Navigate to="/dashboard" />}
               />
+              <Route path="/setPassword" element={<SetPassword />} />
               <Route path="/profilePage" element={<ProfilePage />} />
               <Route
                 path="/dashboard/*"
