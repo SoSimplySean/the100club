@@ -72,7 +72,7 @@ function App() {
       supabase.auth.onAuthStateChange((event, session) => {
         setSession(session);
         if (event === "PASSWORD_RECOVERY") {
-          navigate("set-password", { replace: true });
+          navigate("setPassword", { replace: true });
         }
       });
 
@@ -143,7 +143,7 @@ function App() {
                 path="/login"
                 element={!session ? <SignIn /> : <Navigate to="/dashboard" />}
               />
-              <Route path="/set-password" element={<SetPassword />} />
+              <Route path="/setPassword" element={<SetPassword />} />
               <Route path="/profilePage" element={<ProfilePage />} />
               <Route
                 path="/dashboard/*"
