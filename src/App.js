@@ -20,6 +20,7 @@ import { supabase } from "./api";
 import { useEffect, useState } from "react";
 import SignIn from "./pages/SupabaseLogin";
 import SignUp from "./pages/SupabaseSignUp";
+import SetPassword from "./pages/SupabaseSetPassword";
 
 import {
   createTheme,
@@ -138,6 +139,7 @@ function App() {
                 path="/login"
                 element={!session ? <SignIn /> : <Navigate to="/dashboard" />}
               />
+              <Route path="/set-password" element={<SetPassword />} />
               <Route path="/profilePage" element={<ProfilePage />} />
               <Route
                 path="/dashboard/*"
