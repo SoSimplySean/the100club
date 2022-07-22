@@ -135,6 +135,22 @@ const ProfilePage = (props) => {
           component="h3"
           sx={{ fontWeight: "bold", mt: "2rem" }}
         >
+          Annual Recurring Revenue
+        </Typography>
+        <Typography variant="body1">{user.revenue}</Typography>
+        <Typography
+          variant="h6"
+          component="h3"
+          sx={{ fontWeight: "bold", mt: "2rem" }}
+        >
+          Team Size
+        </Typography>
+        <Typography variant="body1">{user.teamSize}</Typography>
+        <Typography
+          variant="h6"
+          component="h3"
+          sx={{ fontWeight: "bold", mt: "2rem" }}
+        >
           Industry
         </Typography>
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
