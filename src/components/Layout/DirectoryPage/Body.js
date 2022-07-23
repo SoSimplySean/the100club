@@ -109,7 +109,7 @@ const Body = ({ session, user }) => {
   };
 
   return (
-    <Box sx={{ mt: "3rem" }}>
+    <Box data-testid="container" sx={{ mt: "3rem" }}>
       <Box
         sx={{
           display: "flex",

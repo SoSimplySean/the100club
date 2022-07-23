@@ -5,9 +5,20 @@ import { Grid, Typography } from "@mui/material";
 
 const HeroBanner = (props) => {
   return (
-    <Grid container spacing={6} alignItems="center" sx={{ mt: "1.5rem" }}>
+    <Grid
+      data-testid="container"
+      container
+      spacing={6}
+      alignItems="center"
+      sx={{ mt: "1.5rem" }}
+    >
       <Grid item lg={6}>
-        <Typography variant="h3" component="h1" sx={{ fontWeight: "bold" }}>
+        <Typography
+          data-testid="header"
+          variant="h3"
+          component="h1"
+          sx={{ fontWeight: "bold" }}
+        >
           We want{" "}
           <Typography
             variant="h3"
