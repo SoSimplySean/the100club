@@ -13,7 +13,13 @@ test("Directory - checking for existence of banner when not logged in", async ()
       "Create an account and apply to become a member of The 100 Club for access"
     )
   ).toBeInTheDocument();
-  //   const button = screen.getByRole("button", { name: "Open settings" });
-  //   await userEvent.click(button);
-  //   expect(screen.getByText("Sign Up")).toBeInTheDocument();
+});
+
+test("Directory - checking for search bar feature", async () => {
+  render(<Body user={{ membershipLevel: "member" }} />, {
+    wrapper: MemoryRouter,
+  });
+  userEvent.type(await screen.findByLabelText("search directory"), "Sean Tan");
+  expect(await screen.findByText("Sean Tan")).toBeInTheDocument();
+  expect(await screen.findByText("Shawn Kok")).not.toBeInTheDocument();
 });

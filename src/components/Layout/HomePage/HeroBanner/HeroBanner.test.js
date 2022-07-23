@@ -13,9 +13,4 @@ test("HeroBanner - confirm button href", async () => {
     "href",
     "/join"
   );
-  //   expect(
-  //     await screen.findByText(
-  //       "Create an account and apply to become a member of The 100 Club for access"
-  //     )
-  //   ).toBeInTheDocument();
 });
