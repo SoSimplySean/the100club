@@ -16,7 +16,7 @@ import {
   InputLabel,
   MenuItem,
   FormControl,
-  Select, 
+  Select,
   Button,
 } from "@mui/material";
 
@@ -25,10 +25,10 @@ const Body = ({ session, user }) => {
   let [pageData, setPageData] = useState("");
   let [users, setUsers] = useState();
   let [allUsers, setAllUsers] = useState([]);
-  let [industry, setIndustry] = useState('');
-  let [skills, setSkills] = useState('');
-  let [cohort, setCohort] = useState('');
-  let [member, setMember] = useState('');
+  let [industry, setIndustry] = useState("");
+  let [skills, setSkills] = useState("");
+  let [cohort, setCohort] = useState("");
+  let [member, setMember] = useState("");
 
   useEffect(
     () => {
@@ -56,47 +56,57 @@ const Body = ({ session, user }) => {
     return <Typography>Still loading...</Typography>;
   }
 
-  const filterCards = event => {
+  const filterCards = (event) => {
     const value = event.target.value.toLowerCase();
-    const filteredUsers = allUsers.filter(user => (`${user.fullName}`.toLowerCase().includes(value)));
+    const filteredUsers = allUsers.filter((user) =>
+      `${user.fullName}`.toLowerCase().includes(value)
+    );
     setUsers(filteredUsers);
-  }
+  };
 
-  const filterIndustry = event => {
+  const filterIndustry = (event) => {
     const value = event.target.value;
     setIndustry(value);
-    const filteredUsers = users.filter(user => (`${user.industry}`.includes(value)));
+    const filteredUsers = users.filter((user) =>
+      `${user.industry}`.includes(value)
+    );
     setUsers(filteredUsers);
-  }
+  };
 
-  const filterSkills = event => {
+  const filterSkills = (event) => {
     const value = event.target.value;
     setSkills(value);
-    const filteredUsers = users.filter(user => (`${user.skills}`.includes(value)));
+    const filteredUsers = users.filter((user) =>
+      `${user.skills}`.includes(value)
+    );
     setUsers(filteredUsers);
-  }
+  };
 
-  const filterCohort = event => {
+  const filterCohort = (event) => {
     const value = event.target.value;
     setCohort(value);
-    const filteredUsers = users.filter(user => (`${user.cohort}`.includes(value)));
+    const filteredUsers = users.filter((user) =>
+      `${user.cohort}`.includes(value)
+    );
     setUsers(filteredUsers);
-  }
+  };
 
-  const filterMembers = event => {
+  const filterMembers = (event) => {
     const value = event.target.value;
     setMember(value);
-    const filteredUsers = users.filter(user => (`${user.membershipLevel}`.includes(value)));
+    const filteredUsers = users.filter((user) =>
+      `${user.membershipLevel}`.includes(value)
+    );
     setUsers(filteredUsers);
-  }
+  };
 
-  const filterClear = event => {
+  const filterClear = (event) => {
     setUsers(allUsers);
-    setIndustry('');
-    setSkills('');
-    setCohort('');
-    setMember('');
-  }
+    setIndustry("");
+    setSkills("");
+    setCohort("");
+    setMember("");
+  };
 
   return (
     <Box sx={{ mt: "3rem" }}>
@@ -139,7 +149,6 @@ const Body = ({ session, user }) => {
             </Paper>
           </Link>
         )}
-
         {/* Search Bar */}
         <Paper
           component="form"
@@ -160,15 +169,22 @@ const Body = ({ session, user }) => {
             <SearchIcon />
           </IconButton>
         </Paper>
-
         {/* Filter */}
-        <Grid container spacing={2} sx={{ ml: "10px", mt: "1rem", display: "flex", gap: "1rem" }} justifyContent="space-between" alignItems="center">
-          <Box component="span"
-          m={1}
-          display="flex"
+        <Grid
+          container
+          spacing={2}
+          sx={{ ml: "10px", mt: "1rem", display: "flex", gap: "1rem" }}
           justifyContent="space-between"
           alignItems="center"
-          style={{ minWidth: "70%"}}>
+        >
+          <Box
+            component="span"
+            m={1}
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            style={{ minWidth: "70%" }}
+          >
             <FormControl sx={{ width: 0.23 }}>
               <InputLabel id="select-industry">Industry</InputLabel>
               <Select
@@ -185,10 +201,12 @@ const Body = ({ session, user }) => {
                 <MenuItem value={"Entertainment"}>Entertainment</MenuItem>
                 <MenuItem value={"eCommerce"}>eCommerce</MenuItem>
                 <MenuItem value={"Marketplace"}>Marketplace</MenuItem>
-                <MenuItem value={"Membership Platform"}>Membership Platform</MenuItem>
+                <MenuItem value={"Membership Platform"}>
+                  Membership Platform
+                </MenuItem>
               </Select>
             </FormControl>
-            
+
             <FormControl sx={{ width: 0.23 }}>
               <InputLabel id="select-skills">Skills & Interests</InputLabel>
               <Select
@@ -200,28 +218,44 @@ const Body = ({ session, user }) => {
               >
                 <MenuItem value={"Bootstrapping"}>Bootstrapping</MenuItem>
                 <MenuItem value={"Building a team"}>Building a team</MenuItem>
-                <MenuItem value={"Content marketing"}>Content marketing</MenuItem>
-                <MenuItem value={"Conversion rate optimization"}>Conversion rate optimization</MenuItem>
+                <MenuItem value={"Content marketing"}>
+                  Content marketing
+                </MenuItem>
+                <MenuItem value={"Conversion rate optimization"}>
+                  Conversion rate optimization
+                </MenuItem>
                 <MenuItem value={"Copywriting"}>Copywriting</MenuItem>
                 <MenuItem value={"Customer success"}>Customer success</MenuItem>
                 <MenuItem value={"Data science"}>Data science</MenuItem>
                 <MenuItem value={"Design / UX"}>Design / UX</MenuItem>
                 <MenuItem value={"Email marketing"}>Email marketing</MenuItem>
                 <MenuItem value={"Facebook ads"}>Facebook ads</MenuItem>
-                <MenuItem value={"Go to market strategy"}>Go to market strategy</MenuItem>
+                <MenuItem value={"Go to market strategy"}>
+                  Go to market strategy
+                </MenuItem>
                 <MenuItem value={"Google ads"}>Google ads</MenuItem>
                 <MenuItem value={"Growth marketing"}>Growth marketing</MenuItem>
                 <MenuItem value={"Idea validation"}>Idea validation</MenuItem>
                 <MenuItem value={"Link building"}>Link building</MenuItem>
                 <MenuItem value={"Operations"}>Operations</MenuItem>
-                <MenuItem value={"Marketing automation"}>Marketing automation</MenuItem>
+                <MenuItem value={"Marketing automation"}>
+                  Marketing automation
+                </MenuItem>
                 <MenuItem value={"No-code"}>No-code</MenuItem>
-                <MenuItem value={"Performance marketing"}>Performance marketing</MenuItem>
+                <MenuItem value={"Performance marketing"}>
+                  Performance marketing
+                </MenuItem>
                 <MenuItem value={"PPC strategies"}>PPC strategies</MenuItem>
                 <MenuItem value={"Pricing strategy"}>Pricing strategy</MenuItem>
-                <MenuItem value={"Product analytics"}>Product analytics</MenuItem>
-                <MenuItem value={"Product management"}>Product management</MenuItem>
-                <MenuItem value={"Product market fit"}>Product market fit</MenuItem>
+                <MenuItem value={"Product analytics"}>
+                  Product analytics
+                </MenuItem>
+                <MenuItem value={"Product management"}>
+                  Product management
+                </MenuItem>
+                <MenuItem value={"Product market fit"}>
+                  Product market fit
+                </MenuItem>
                 <MenuItem value={"Public relations"}>Public relations</MenuItem>
                 <MenuItem value={"Raising funding"}>Raising funding</MenuItem>
                 <MenuItem value={"Sales"}>Sales</MenuItem>
@@ -229,7 +263,6 @@ const Body = ({ session, user }) => {
                 <MenuItem value={"Social media"}>Social media</MenuItem>
                 <MenuItem value={"User research"}>User research</MenuItem>
                 <MenuItem value={"Web Development"}>Web Development</MenuItem>
-            
               </Select>
             </FormControl>
 
@@ -264,30 +297,33 @@ const Body = ({ session, user }) => {
           </Box>
 
           <Box m={1}>
-            <Button color= "primary" variant="contained" sx={{ height: 40 }} onClick={filterClear}>
+            <Button
+              color="primary"
+              variant="contained"
+              sx={{ height: 40 }}
+              onClick={filterClear}
+            >
               Clear All
             </Button>
           </Box>
         </Grid>
-        
-        
         {/* Profile cards */}
         <Grid container spacing={2} sx={{ mt: "3rem" }}>
           {users.map((profile) => {
-              return (
-                <ProfileCard
-                  // test
-                  session={session}
-                  membershipLevel={user.membershipLevel}
-                  key={profile.id}
-                  fullName={profile.fullName}
-                  title={profile.title}
-                  about={profile.about}
-                  id={profile.id}
-                  avatar_url={profile.avatar_url}
-                />
-              );
-            })}
+            return (
+              <ProfileCard
+                // test
+                session={session}
+                membershipLevel={user.membershipLevel}
+                key={profile.id}
+                fullName={profile.fullName}
+                title={profile.title}
+                about={profile.about}
+                id={profile.id}
+                avatar_url={profile.avatar_url}
+              />
+            );
+          })}
         </Grid>
         <Pagination
           data={users}
